@@ -1,0 +1,238 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>个人网</title>
+    <meta name="keywords" content="个人网，网络家园，个人事务管理，时间任务管理系统"/>
+    <meta name="description" content="个人网 是中国最大的个人网络家园平台。用户可以在里面管理个人代办事项TODO管理，时间任务管理，人际关系管理，个人财务管理等为一体的个人管理系统。" />
+    <meta name="author" content="www.feei.cn">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="{Fei:$STATICS}favicon.ico" />
+    <link rel="stylesheet" href="{Fei:$STATICS}css/style.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/grid.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/layout.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/icons.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/fonts/font-awesome.css">
+    <!--[if IE 8]>
+        <link rel="stylesheet" href="{Fei:$STATICS}css/fonts/font-awesome-ie7.css">
+    <![endif]-->
+    <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery-ui-1.8.21.custom.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.chosen.css">
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.cleditor.css"> -->
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.colorpicker.css"> -->
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.fancybox.css"> -->
+    <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.plupload.queue.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.jgrowl.css">
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/external/syntaxhighlighter/shCore.css"/> -->
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/external/syntaxhighlighter/shThemeDefault.css"/> -->
+    <link rel="stylesheet" href="{Fei:$STATICS}css/elements.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/forms.css">
+    <!-- <link rel="stylesheet" href="{Fei:$STATICS}css/print-invoice.css"> -->
+    <link rel="stylesheet" href="{Fei:$STATICS}css/typographics.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/media-queries.css">
+    <link rel="stylesheet" href="{Fei:$STATICS}css/ie-fixes.css">
+    <script src="{Fei:$STATICS}js/libs/webfont.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/polyfills/modernizr-2.6.1.min.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/polyfills/respond.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/polyfills/matchmedia.js"></script>
+    <!--[if lt IE 9]>
+        <script src="{Fei:$STATICS}js/mylibs/polyfills/selectivizr-min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="{Fei:$STATICS}js/mylibs/polyfills/excanvas.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="{Fei:$STATICS}js/mylibs/polyfills/classlist.js"></script>
+    <![endif]-->
+    <script src="{Fei:$STATICS}js/libs/jquery-1.8.1.min.js"></script>
+    <script src="{Fei:$STATICS}js/libs/jquery-ui-1.8.21.min.js"></script>
+    <script src="{Fei:$STATICS}js/libs/lo-dash.min.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.hashchange.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.idle-timer.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.plusplus.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.jgrowl.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.scrollTo.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.ui.touch-punch.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.ui.multiaccordion.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/number-functions.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.autosize.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.checkbox.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.chosen.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.cleditor.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.colorpicker.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.ellipsis.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.fileinput.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.fullcalendar.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.maskedinput.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.mousewheel.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.placeholder.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.pwdmeter.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.ui.datetimepicker.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.ui.spinner.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/forms/jquery.validate.min.js"></script>
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/forms/uploader/plupload.js"></script> -->
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/forms/uploader/plupload.html5.js"></script> -->
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/forms/uploader/plupload.html4.js"></script> -->
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/forms/uploader/plupload.flash.js"></script> -->
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/forms/uploader/jquery.plupload.queue/jquery.plupload.queue.js"></script> -->
+    <script src="{Fei:$STATICS}js/mylibs/charts/jquery.flot.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/charts/jquery.flot.orderBars.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/charts/jquery.flot.pie.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/charts/jquery.flot.resize.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/fullstats/jquery.css-transform.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/fullstats/jquery.animate-css-rotate-scale.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/fullstats/jquery.sparkline.min.js"></script>
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/syntaxhighlighter/shCore.js"></script> -->
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/syntaxhighlighter/shAutoloader.js"></script> -->
+    <script src="{Fei:$STATICS}js/mylibs/dynamic-tables/jquery.dataTables.min.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/dynamic-tables/jquery.dataTables.tableTools.zeroClipboard.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/dynamic-tables/jquery.dataTables.tableTools.js"></script>
+    <!-- // <script src="{Fei:$STATICS}js/mylibs/gallery/jquery.fancybox.js"></script> -->
+    <script src="{Fei:$STATICS}js/mylibs/tooltips/jquery.tipsy.js"></script>
+    <script src="{Fei:$STATICS}js/mylibs/jquery.cookie.js"></script>
+    <script src="{Fei:$STATICS}js/mango.js"></script>
+    <script src="{Fei:$STATICS}js/plugins.js"></script>
+    <script src="{Fei:$STATICS}js/script.js"></script>
+    <script src="{Fei:$STATICS}js/app.js"></script>
+</head>
+<body>
+    <div id="loading-overlay">
+    </div>
+    <div id="loading">
+        <span>
+            正在努力加载中...
+        </span>
+    </div>
+    <div id="lock-screen" title="屏幕已锁定">
+        <a href="http://www.grw.name/admin.php?c=Grw&a=logout" class="header right button grey flat">
+            退出
+        </a>
+        <p>
+            当前屏幕已锁定，您解锁前无法进行任何操作！
+        </p>
+        <p>
+            请移动滑块并输入您的密码来解锁！
+        </p>
+        <div class="actions">
+            <div id="slide_to_unlock">
+                <img src="{Fei:$STATICS}img/elements/slide-unlock/lock-slider.png" alt="slide me">
+                <span>
+                    移动滑块来解锁
+                </span>
+            </div>
+            <form action="#" method="GET">
+                <input type="password" name="pwd" id="pwd" placeholder="请在这里输入密码..."
+                autocorrect="off" autocapitalize="off">
+                <input type="submit" name=send value="解锁" disabled>
+                <input type="reset" value="X">
+            </form>
+        </div>
+    </div>
+    <div style="display: none;" id="dialog_message" title="Conversation: John Doe">
+        <div class="spacer">
+        </div>
+        <div class="messages full chat">
+            <div class="msg reply">
+                <img src="{Fei:$STATICS}img/icons/packs/iconsweets2/25x25/user-2.png" />
+                <div class="content">
+                    <h3>
+                        <a href="{Fei:$STATICS}pages_profile.html">
+                            John Doe
+                        </a>
+                        <span>
+                            says:
+                        </span>
+                        <small>
+                            3 hours ago
+                        </small>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                        voluptua.
+                    </p>
+                </div>
+            </div>
+            <div class="msg">
+                <img src="{Fei:$STATICS}img/icons/packs/iconsweets2/25x25/user-2.png" />
+                <div class="content">
+                    <h3>
+                        <a href="{Fei:$STATICS}pages_profile.html">
+                            Peter Doe
+                        </a>
+                        <span>
+                            says:
+                        </span>
+                        <small>
+                            5 hours ago
+                        </small>
+                    </h3>
+                    <p>
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="left">
+                <input style="width: 330px;" type="text" name=d3_message id=d3_message
+                placeholder="Type your message..." />
+            </div>
+            <div class="right">
+                <button>
+                    Send
+                </button>
+                <button class="grey">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <section id="toolbar"> 
+       <div class="container_12"> 
+        <div class="phone"> 
+         <li><a ><span class="icon icon-user"></span></a></li> 
+         <li><a class="navigation"><span class="icon icon-list"></span></a></li> 
+        </div> 
+       </div> 
+    </section>
+    <header class="container_12" style="display:none;">
+        <a href="{Fei:$STATICS}dashboard.html">
+            <img src="{Fei:$STATICS}img/logo.png" alt="Mango" width="191" height="60">
+        </a>
+        <a class="phone-title" href="{Fei:$STATICS}dashboard.html">
+            <img src="{Fei:$STATICS}img/logo-mobile.png" alt="Mango" height="22" width="70" />
+        </a>
+        <div class="buttons">
+            <a href="">
+                <span class="icon icon-sitemap">
+                </span>
+                演示
+            </a>
+            <a href="{Fei:$STATICS}forms.html">
+                <span class="icon icon-list-alt">
+                </span>
+                个人网
+            </a>
+            <a href="{Fei:$STATICS}tables_dynamic.html">
+                <span class="icon icon-table">
+                </span>
+                官网
+            </a>
+        </div>
+    </header>

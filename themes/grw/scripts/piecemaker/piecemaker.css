@@ -1,0 +1,50 @@
+/* CSS Document */
+
+H1 {
+	font-family: Verdana;
+	font-style: bold;
+	font-weight: normal;
+	color: #222222;
+	display: block;
+	font-size: 20px;
+	margin-bottom: 10px;
+	line-height: 30;
+	text-align: left;
+	letter-spacing: 0px;
+}
+
+P {
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: normal;
+	color: #666666;
+	display: block;
+	font-size: 12px;
+	margin-bottom: 10px;
+	line-height: 18px;
+	text-align: left;
+	letter-spacing: 0.2px;
+}
+
+P-ITALIC {
+	font-family: Verdana;
+	font-style: italic;
+	font-weight: normal;
+	color: #666666;
+	display: block;
+	font-size: 12px;
+	margin-bottom: 10px;
+	line-height: 18px;
+	text-align: left;
+	letter-spacing: 0.5px;
+}
+
+A {
+	color: #0066CC;
+	display: inline;
+}
+
+A:HOVER {
+	color: #111111;
+	display: inline;
+}

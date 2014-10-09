@@ -1,0 +1,207 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <div class="right-sidebar">
+                            <ul class=nav>
+                                <li class="current">
+                                    <a href="#todo">
+                                    <span class="icon icon-check-empty"></span>
+                                        代办事项
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#completed_todo">
+                                        <span class="icon icon-check"></span>
+                                        已完成事项
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#trash_todo">
+                                        <span class="icon icon-trash"></span>
+                                        垃圾箱
+                                    </a>
+                                </li>
+                            </ul>
+                            <form action="">
+                                <h3>
+                                    待办事件统计
+                                </h3>
+                                <div class="block">
+                                    {Fei:foreach from=$tags item=tag}
+                                        <div>
+                                            <span class="badge {Fei:$tag.icon}">
+                                                {Fei:$tag.name}(38项)
+                                            </span>
+                                        <div class="right inline" id="m_b">
+                                            <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="e" original-title="修改">
+                                                <i class="icon-pencil"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="w" original-title="删除【{Fei:$tag.name}】">
+                                                <i class="icon-remove"></i>
+                                            </a>
+                                        </div>
+                                        </div>
+                                    {Fei:/foreach}
+                                </div>
+                            </form>
+                        </div>
+                         <section id="content" class="container_12 clearfix with-right-sidebar"
+                        data-sort=true>
+                            <h1 class="grid_12">
+                                总数
+                            </h1>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats">
+                                    <div class="stat simple" data-value=16525 data-title=已完成事项 data-format="+0,0">
+                                    </div>
+                                </div>
+                                <div class="full-stats">
+                                    <a href="javascript:void(0);" class="stat simple" data-value=17 data-title="未完成"
+                                    data-format="-0,0">
+                                    </a>
+                                </div>
+                                <div class="full-stats">
+                                    <div class="stat simple" data-value=0 data-title=按时完成率 data-format="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats">
+                                    <div class="stat hlist" data-list='[{"val":17621,"format":"$0,0;-$0,0","title":"already paid","color":"green"},{"val":1125,"format":"$0,0;-$0,0","title":"not paid yet","color":"red"},{"val":18746,"format":"$0,0;-$0,0","title":"total taxes"}]'>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--[if gt IE 8]>
+                                <h1 class="grid_12">
+                                    Circular Statistics
+                                </h1>
+                                <div class="grid_12 center-elements">
+                                    <div class="full-stats">
+                                        <h2 class="center">
+                                            Activity (Visitors/Clicks)
+                                        </h2>
+                                        <div class="stat circular" data-valueFormat="0,0" data-list='[{"title":"Visitors","val":5710,"percent":72},{"title":"Clicks","val":-16362,"percent":-9}]'>
+                                        </div>
+                                    </div>
+                                    <div class="full-stats">
+                                        <h2 class="center">
+                                            Activity (Orders)
+                                        </h2>
+                                        <div class="stat circular" data-valueFormat="0,0" data-list='[{"title":"Orders","val":-14,"percent":-17},{"title":"Income","val":-2611,"percent":-21}]'>
+                                        </div>
+                                    </div>
+                                    <div class="full-stats">
+                                        <h2 class="center">
+                                            Activity (Users)
+                                        </h2>
+                                        <div class="stat circular" data-valueFormat="0" data-list='[{"title":"Users","val":0,"percent":0},{"title":"Support Requests","val":0,"percent":0}]'>
+                                        </div>
+                                    </div>
+                                    <div class="full-stats">
+                                        <h2 class="center">
+                                            Registrations
+                                        </h2>
+                                        <div class="stat circular" data-format="0" data-max=400 data-list='[{"title":"Yesterday","val":181},{"title":"Today","val":125}]'>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--<![endif]-->
+                            <h1 class="grid_12">
+                                每周汇总
+                            </h1>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats">
+                                    <h2 class="center">
+                                        上周
+                                    </h2>
+                                    <div class="stat list" data-list='[{"val":621,"format":"+-","title":"完成","type":"up","link":"javascript:void(0);"},{"val":-2367,"format":"$0,0;-$0,0","title":"预期","type":"down","link":"javascript:void(0);"},{"val":10000,"format":"$0,0","title":"完成率","link":"javascript:void(0);"}]'>
+                                    </div>
+                                </div>
+                                <div class="full-stats">
+                                    <h2 class="center">
+                                        本周
+                                    </h2>
+                                    <div class="stat list" data-list='[{"val":621,"format":"+-","title":"Users","type":"up"},{"val":210,"format":"+-","title":"Orders","type":"up"},{"val":72,"format":"+-","title":"Bugs","type":"down"}]'>
+                                    </div>
+                                </div>
+                                <div class="full-stats">
+                                    <h2 class="center">
+                                        下周
+                                    </h2>
+                                    <div class="stat list" data-list='[{"val":26,"format":"+-","title":"Numbers"},{"val":62,"format":"+-","title":"Emails"},{"val":42,"format":"+-","title":"Calls"}]'>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="grid_12">
+                                Load Statistics
+                            </h1>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Server Load
+                                    </h2>
+                                    <div class="stat load" data-value=37>
+                                    </div>
+                                </div>
+                                <div class="full-stats">
+                                    <h2 class="center">
+                                        Budget
+                                    </h2>
+                                    <div class="stat load" data-min=0 data-max=10000 data-format="$0,0" data-value=9268>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="grid_12">
+                                Level Statistics
+                            </h1>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Budget (Current Month)
+                                    </h2>
+                                    <div class="stat level" data-value=4000 data-max=10000 data-format="$0,0"
+                                    data-description="spend this month">
+                                    </div>
+                                </div>
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Budget (Last Month)
+                                    </h2>
+                                    <div class="stat level" data-value=9000 data-max=10000 data-format="$0,0"
+                                    data-description="spend last month">
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="grid_12">
+                                Pillar Statistics
+                            </h1>
+                            <div class="grid_12 center-elements">
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Support Requests
+                                    </h2>
+                                    <div class="stat pillar" data-data='[{"val":9,"color":"red","title":"unread"},{"val":19,"color":"yellow","title":"active"},{"val":15,"color":"green","title":"closed"}]'
+                                    data-format="0">
+                                    </div>
+                                </div>
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Orders
+                                    </h2>
+                                    <div class="stat pillar" data-data='[{"val":3,"color":"red","title":"Failed"},{"val":2,"color":"yellow","title":"Paused"},{"val":8,"color":"green","title":"Completed"}]'
+                                    data-format="0">
+                                    </div>
+                                </div>
+                                <div class="full-stats equalHeight">
+                                    <h2 class="center">
+                                        Log
+                                    </h2>
+                                    <div class="stat pillar" data-data='[{"val":1020,"color":"red","title":"Errors"},{"val":3001,"color":"green","title":"Success"}]'
+                                    data-format="$0">
+                                    </div>
+                                </div>
+                            </div>
+                         </section>
+                    </div>
+                    {Fei:include file="Public/footer.html"}

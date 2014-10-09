@@ -1,0 +1,96 @@
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+<base href="http://www.feitm.com/statics/" />
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='css/css.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="scripts/charts/area-chart.js"></script>
+<script type="text/javascript" src="scripts/charts/bar-chart.js"></script> 
+<script type="text/javascript" src="scripts/charts/pie-chart.js"></script>
+</head>
+
+<body>
+  {Fei:include file="Public/nav.html"}
+    <!--NAV ENDS HERE-->
+  
+  
+  <div class="main">
+  
+  {Fei:include file="Public/notice.html"}
+  <div class="shortable-content">
+   <div class="box_100">
+    <div class="box-header">
+        后台架构
+        <a href="{Fei:FeiUrl('setting','category')}" title="增加栏目"><i class="icon-plus"></i></a>
+      </div>
+    <div class="box-content padd-10 tree">
+        
+        
+        {Fei:foreach from=$arr item=item1} 
+        <ul style="height: 200px;">
+                <li class="padd-10">
+                    <a href="{Fei:FeiUrl('setting','category')}&catid={Fei:$item1.catid}" class="moo">{Fei:$item1.catname}</a>
+                    <ul>
+                       {Fei:foreach from=$item1.zi item=item2}
+                        <li>
+                            <a href="{Fei:FeiUrl('setting','category')}&catid={Fei:$item2.catid}">{Fei:$item2.catname}</a>
+                            <ul>
+                                {Fei:foreach from=$item2.zi item=item3} 
+                                <li>
+                                     <a href="{Fei:FeiUrl('setting','category')}&catid={Fei:$item3.catid}">{Fei:$item3.catname}</a>
+                                </li>
+                                {Fei:/foreach}  
+                            </ul>
+                        </li>
+                        {Fei:/foreach}
+                    </ul>
+                </li>
+            </ul>
+       {Fei:/foreach} 
+<!--            
+            <ul>
+                <li class="padd-10">
+                    <a href="#">FEITM团队管理系统</a>
+                    <ul>
+                         {Fei:foreach from=$arr item=item1}      
+                        <li>
+                            <a href="{Fei:FeiUrl('setting','category')}&catid={Fei:$item1.catid}" class="moo">{Fei:$item1.catname}</a>
+                            <ul>
+                                {Fei:foreach from=$item1.zi item=item2} 
+                                <li>
+                                    <a href="{Fei:FeiUrl('setting','category')}&catid={Fei:$item2.catid}">{Fei:$item2.catname}</a>
+                                    <ul>
+                                        {Fei:foreach from=$item2.zi item=item3} 
+                                        <li>
+                                            <a href="#">{Fei:$item3.catname}</a>
+                                        </li>
+                                        {Fei:/foreach}  
+                                    </ul>
+                                </li>
+                                {Fei:/foreach}
+                            </ul>
+                        </li>
+                        {Fei:/foreach} 
+                    </ul>
+                </li>
+            </ul>-->
+       
+      
+      
+      
+    </div>
+  </div>  <!--CSS3 Family Tree-->
+    
+      
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>

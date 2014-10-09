@@ -1,0 +1,915 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <section id="content" class="container_12 clearfix" data-sort=true>
+                            ﻿
+                            <h1 class="grid_12">
+                                系统常规设置
+                            </h1>
+                            <form action="" class="grid_12">
+                                <fieldset>
+                                    <legend>
+                                        Input Fields
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f1_normal_input">
+                                            <strong>
+                                                Normal Input Field
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="text" name=f1_normal_input id=f1_normal_input />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_password">
+                                            <strong>
+                                                Password Field
+                                            </strong>
+                                            <small>
+                                                with tooltip
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <input type="password" class="tooltip" data-gravity=n title="Please use a secure password!"
+                                            name=f1_password id=f1_password />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_placeholder">
+                                            <strong>
+                                                With Placeholder
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="text" placeholder="Hey, this is a placeholder!" name=f1_placeholder
+                                            id=f1_placeholder />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_disabled">
+                                            <strong>
+                                                Disabled Field
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="text" disabled name=f1_disabled id=f1_disabled />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_value">
+                                            <strong>
+                                                Predefined value
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="text" value="http://" name=f1_value id=f1_value />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_textarea">
+                                            <strong>
+                                                Textarea
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <textarea class="nogrow" rows=5 name="f1_textarea" id="f1_textarea">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f1_textarea_grow">
+                                            <strong>
+                                                Textarea
+                                            </strong>
+                                            <small>
+                                                with autogrow
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <textarea rows=5 name="f1_textarea_grow" id="f1_textarea_grow">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row not-on-phone">
+                                        <label for="f1_wysiwyg">
+                                            <strong>
+                                                WYSIWYG
+                                            </strong>
+                                            <small>
+                                                (W)hat (y)ou (s)ee (i)s (w)hat (y)ou (g)et
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <textarea class="editor" name="f1_wysiwyg" id="f1_wysiwyg">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="not-on-phone">
+                                    <legend>
+                                        Select
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f2_select1">
+                                            <strong>
+                                                Select
+                                            </strong>
+                                            <small>
+                                                With search
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <select name=f2_select1 id=f2_select1 class="search" data-placeholder="Choose a Name">
+                                                <option value="">
+                                                </option>
+                                                <option value="Oliver">
+                                                    Oliver
+                                                </option>
+                                                <option value="Jack">
+                                                    Jack
+                                                </option>
+                                                <option value="Harry">
+                                                    Harry
+                                                </option>
+                                                <option value="Alfie">
+                                                    Alfie
+                                                </option>
+                                                <option value="Charlie">
+                                                    Charlie
+                                                </option>
+                                                <option value="Thomas">
+                                                    Thomas
+                                                </option>
+                                                <option value="William">
+                                                    William
+                                                </option>
+                                                <option value="Joshua">
+                                                    Joshua
+                                                </option>
+                                                <option value="George">
+                                                    George
+                                                </option>
+                                                <option value="James">
+                                                    James
+                                                </option>
+                                                <option value="Olivia">
+                                                    Olivia
+                                                </option>
+                                                <option value="Sophie">
+                                                    Sophie
+                                                </option>
+                                                <option value="Emily">
+                                                    Emily
+                                                </option>
+                                                <option value="Lily">
+                                                    Lily
+                                                </option>
+                                                <option value="Amelia">
+                                                    Amelia
+                                                </option>
+                                                <option value="Jessica">
+                                                    Jessica
+                                                </option>
+                                                <option value="Ruby">
+                                                    Ruby
+                                                </option>
+                                                <option value="Chloe">
+                                                    Chloe
+                                                </option>
+                                                <option value="Grace">
+                                                    Grace
+                                                </option>
+                                                <option value="Evie">
+                                                    Evie
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f2_select2">
+                                            <strong>
+                                                Select
+                                            </strong>
+                                            <small>
+                                                Without search
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <select name=f2_select2 id=f2_select2 data-placeholder="Choose a Name">
+                                                <option value="Oliver">
+                                                    Oliver
+                                                </option>
+                                                <option value="Jack">
+                                                    Jack
+                                                </option>
+                                                <option value="Grace">
+                                                    Grace
+                                                </option>
+                                                <option value="Evie">
+                                                    Evie
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f2_tags">
+                                            <strong>
+                                                Tags Select
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <select name="f2_tags[]" id=f2_tags data-placeholder="Choose a Name" multiple>
+                                                <option value="Oliver">
+                                                    Oliver
+                                                </option>
+                                                <option value="Jack">
+                                                    Jack
+                                                </option>
+                                                <option value="Harry">
+                                                    Harry
+                                                </option>
+                                                <option value="Alfie">
+                                                    Alfie
+                                                </option>
+                                                <option value="Charlie">
+                                                    Charlie
+                                                </option>
+                                                <option value="Thomas">
+                                                    Thomas
+                                                </option>
+                                                <option value="William">
+                                                    William
+                                                </option>
+                                                <option value="Joshua">
+                                                    Joshua
+                                                </option>
+                                                <option value="George">
+                                                    George
+                                                </option>
+                                                <option value="James">
+                                                    James
+                                                </option>
+                                                <option value="Olivia">
+                                                    Olivia
+                                                </option>
+                                                <option value="Sophie">
+                                                    Sophie
+                                                </option>
+                                                <option value="Emily">
+                                                    Emily
+                                                </option>
+                                                <option value="Lily">
+                                                    Lily
+                                                </option>
+                                                <option value="Amelia">
+                                                    Amelia
+                                                </option>
+                                                <option value="Jessica">
+                                                    Jessica
+                                                </option>
+                                                <option value="Ruby">
+                                                    Ruby
+                                                </option>
+                                                <option value="Chloe">
+                                                    Chloe
+                                                </option>
+                                                <option value="Grace">
+                                                    Grace
+                                                </option>
+                                                <option value="Evie">
+                                                    Evie
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f2_double">
+                                            <strong>
+                                                Dual Select
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <select multiple class="dualselects" data-size=small id=f2_double name=f2_double>
+                                                <option selected name="Austria">
+                                                    Austria
+                                                </option>
+                                                <option name="Belgium">
+                                                    Belgium
+                                                </option>
+                                                <option name="Bulgaria">
+                                                    Bulgaria
+                                                </option>
+                                                <option name="Cyprus">
+                                                    Cyprus
+                                                </option>
+                                                <option name="Czech Republic">
+                                                    Czech Republic
+                                                </option>
+                                                <option name="Denmark">
+                                                    Denmark
+                                                </option>
+                                                <option name="Estonia">
+                                                    Estonia
+                                                </option>
+                                                <option name="Finland">
+                                                    Finland
+                                                </option>
+                                                <option selected name="France">
+                                                    France
+                                                </option>
+                                                <option selected name="Germany">
+                                                    Germany
+                                                </option>
+                                                <option name="Greece">
+                                                    Greece
+                                                </option>
+                                                <option name="Hungary">
+                                                    Hungary
+                                                </option>
+                                                <option name="Ireland">
+                                                    Ireland
+                                                </option>
+                                                <option name="Italy">
+                                                    Italy
+                                                </option>
+                                                <option name="Latvia">
+                                                    Latvia
+                                                </option>
+                                                <option name="Lithuania">
+                                                    Lithuania
+                                                </option>
+                                                <option name="Luxembourg">
+                                                    Luxembourg
+                                                </option>
+                                                <option name="Malta">
+                                                    Malta
+                                                </option>
+                                                <option name="Netherlands">
+                                                    the Netherlands
+                                                </option>
+                                                <option name="Poland">
+                                                    Poland
+                                                </option>
+                                                <option name="Portugal">
+                                                    Portugal
+                                                </option>
+                                                <option name="Romania">
+                                                    Romania
+                                                </option>
+                                                <option name="Slovakia">
+                                                    Slovakia
+                                                </option>
+                                                <option name="Slovenia">
+                                                    Slovenia
+                                                </option>
+                                                <option name="Spain">
+                                                    Spain
+                                                </option>
+                                                <option name="Sweden">
+                                                    Sweden
+                                                </option>
+                                                <option selected name="United Kingdom">
+                                                    United Kingdom
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Picker
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f3_date">
+                                            <strong>
+                                                Datepicker
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="date" name=f3_date id=f3_date />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f3_time">
+                                            <strong>
+                                                Timepicker
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="time" name=f3_time id=f3_time />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f3_datepicker">
+                                            <strong>
+                                                Date-/Timepicker
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="datetime" name=f3_datepicker id=f3_datepicker />
+                                        </div>
+                                    </div>
+                                    <div class="row not-on-phone">
+                                        <label for="f3_color">
+                                            <strong>
+                                                Color-Picker
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="color" name=f3_color id=f3_color />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Checkboxes
+                                    </legend>
+                                    <div class="row">
+                                        <label>
+                                            <strong>
+                                                Simple Checkbox
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="checkbox" name=f4_cb id=f4_cb />
+                                                <label for="f4_cb">
+                                                    Select it?
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label>
+                                            <strong>
+                                                Disabled Checkbox
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="checkbox" disabled name=f4_cb_dis id=f4_cb_dis />
+                                                <label for="f4_cb_dis">
+                                                    Select it?
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Radio Buttons
+                                    </legend>
+                                    <div class="row">
+                                        <label>
+                                            <strong>
+                                                Radio Buttons
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="f4_rb" id="f4_rb1" value="Mastercard">
+                                                <label for="f4_rb1">
+                                                    Mastercard
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="f4_rb" id="f4_rb2" value="Visa">
+                                                <label for="f4_rb2">
+                                                    Visa
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="f4_rb" id="f4_rb3" value="AmericanExpress">
+                                                <label for="f4_rb3">
+                                                    American Express
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label>
+                                            <strong>
+                                                Disabled Radio Buttons
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="f4_rb_dis" id="f4_rb_dis1" disabled value="Mastercard">
+                                                <label for="f4_rb_dis1">
+                                                    Mastercard
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="f4_rb_dis" id="f4_rb_dis2" checked disabled
+                                                value="Visa">
+                                                <label for="f4_rb_dis2">
+                                                    Visa
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="f4_rb_dis" id="f4_rb_dis3" disabled value="AmericanExpress">
+                                                <label for="f4_rb_dis3">
+                                                    American Express
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Slider
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f5_slider">
+                                            <strong>
+                                                Simple Slider
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input data-type="range" name=f5_slider id=f5_slider />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f5_sliderrange">
+                                            <strong>
+                                                Range Slider
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input data-type="range" data-range='[15,30]' name=f5_sliderrange id=f5_sliderrange
+                                            />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Text-like Input
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f6_complete">
+                                            <strong>
+                                                Autocomplete
+                                            </strong>
+                                            <small>
+                                                e.g. &quot;red&quot;
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <input type=text data-type="autocomplete" id=f6_complete name=f6_complete
+                                            data-source="extras/autocomplete.php" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f6_pw">
+                                            <strong>
+                                                Password Meter
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type=password class="meter strongpw" name=f6_pw id=f6_pw />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f6_spinner">
+                                            <strong>
+                                                Spinner
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input data-type="spinner" min=-20 max=20 value=1 id=f6_spinner name=f6_spinner
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="row not-on-phone">
+                                        <label for="f6_file">
+                                            <strong>
+                                                Upload
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <input type="file" id=f6_file name=f6_file />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="not-on-phone">
+                                    <legend>
+                                        Inline Picker
+                                    </legend>
+                                    <div class="row">
+                                        <label for="f7_dateinline">
+                                            <strong>
+                                                Inline Datepicker
+                                            </strong>
+                                        </label>
+                                        <div>
+                                            <div data-type="datetime" data-id=f7_dateinline data-name=f7_dateinline>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="f7_color_flat">
+                                            <strong>
+                                                Inline-Picker
+                                            </strong>
+                                            <small>
+                                                (flat picker)
+                                            </small>
+                                        </label>
+                                        <div>
+                                            <div>
+                                                <input type="color" class="flat" name=f7_color_flat id=f7_color_flat />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <div class="grid_12">
+                                <form action="" class="box">
+                                    <div class="header">
+                                        <h2>
+                                            Masked Inputs
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <label for="f8_mi_date">
+                                                <strong>
+                                                    Date
+                                                </strong>
+                                                <small>
+                                                    99/99/9999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input data-error-type=inline class="maskDate" name=f8_mi_date id=f8_mi_date
+                                                type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_phone">
+                                                <strong>
+                                                    Phone
+                                                </strong>
+                                                <small>
+                                                    (999) 999-9999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskPhone" name=f8_mi_phone id=f8_mi_phone type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_intphone">
+                                                <strong>
+                                                    Int. Phone
+                                                </strong>
+                                                <small>
+                                                    +33 999 999 999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskIntPhone" name=f8_mi_intphone id=f8_mi_intphone type=text
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_tin">
+                                                <strong>
+                                                    Tax ID
+                                                </strong>
+                                                <small>
+                                                    99-9999999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskTin" name=f8_mi_tin id=f8_mi_tin type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_ssn">
+                                                <strong>
+                                                    SSN
+                                                </strong>
+                                                <small>
+                                                    999-99-9999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskSsn" name=f8_mi_ssn id=f8_mi_ssn type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_prod">
+                                                <strong>
+                                                    Product Key
+                                                </strong>
+                                                <small>
+                                                    a*-999-a999
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskProd" name=f8_mi_prod id=f8_mi_prod type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_po">
+                                                <strong>
+                                                    Purchase Order
+                                                </strong>
+                                                <small>
+                                                    aaa-999-***
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskPo" name=f8_mi_po id=f8_mi_po type=text />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="f8_mi_perc">
+                                                <strong>
+                                                    Percent
+                                                </strong>
+                                                <small>
+                                                    99%
+                                                </small>
+                                            </label>
+                                            <div>
+                                                <input class="maskPct" name=f8_mi_perc id=f8_mi_perc type=text />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="grid_12">
+                                <form action="" class="box">
+                                    <div class="header">
+                                        <h2>
+                                            Rich Text Editor (WYSIWYG)
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <textarea class="editor full">
+                                        </textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form class="box grid">
+                                    <div class="header">
+                                        <h2>
+                                            Full Width Grid
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <p class="_100">
+                                                <input type="text" value="100%" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_50">
+                                                <input type="text" value="50%" />
+                                            </p>
+                                            <p class="_50">
+                                                <input type="text" value="50%" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                            <p class="_75">
+                                                <input type="text" value="75%" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_75">
+                                                <input type="text" value="75%" />
+                                            </p>
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                            <p class="_25">
+                                                <input type="text" value="25%" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form class="box grid">
+                                    <div class="header">
+                                        <h2>
+                                            Full Width Grid with Label
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <p class="_100">
+                                                <label>
+                                                    100%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_50">
+                                                <label>
+                                                    50%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="_50">
+                                                <label>
+                                                    50%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="_25">
+                                                <label>
+                                                    25%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="_25">
+                                                <label>
+                                                    25%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="_25">
+                                                <label>
+                                                    25%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                            <p class="_25">
+                                                <label>
+                                                    25%
+                                                </label>
+                                                <input type="text" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form method="post" action="#" class="box validate">
+                                    <div class="header">
+                                        <h2>
+                                            Full Width Grid with Inline Label
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <p class="_100 small" style="padding-top: 10px;">
+                                            <label for="f9_ban" class=inline>
+                                                Bank Account Number:
+                                            </label>
+                                            <input data-error-type=inline type="text" class=required name=f9_ban id=f9_ban
+                                            pattern="^\d{1,10}$" />
+                                        </p>
+                                        <p class="_100 small">
+                                            <label for="f9_name" class=inline>
+                                                Name:
+                                            </label>
+                                            <input data-error-type=inline type="text" class=required name=f9_name
+                                            id=f9_name />
+                                        </p>
+                                        <p class="_100 small" style="padding-bottom: 10px;">
+                                            <label for="f9_pin" class=inline>
+                                                PIN:
+                                            </label>
+                                            <input data-error-type=inline type="password" class=required name=f9_pin
+                                            id=f9_pin />
+                                        </p>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="left">
+                                            <input type="reset" value="Cancel" />
+                                        </div>
+                                        <div class="right">
+                                            <input type="submit" value="Send" name=send />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                    {Fei:include file="Public/footer.html"}

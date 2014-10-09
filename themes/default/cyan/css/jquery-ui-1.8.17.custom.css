@@ -1,0 +1,227 @@
+/*
+ * jQuery UI CSS Framework 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px,1px,1px,1px);
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+	content: "";
+	display: table;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	zoom: 1;
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0);
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+	cursor: default !important;
+}
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/*
+ * jQuery UI Accordion 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion {
+	width: 100%;
+}
+.ui-accordion .ui-accordion-header {
+	cursor: pointer;
+	position: relative;
+	zoom: 1;
+}
+.ui-accordion .ui-accordion-li-fix {
+	display: inline;
+}
+.ui-accordion .ui-accordion-header-active {
+	border-bottom: 0 !important;
+}
+.ui-accordion .ui-accordion-header a {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	color: #858585;
+	text-decoration: none;
+	outline: none !important;
+	display: block;
+}
+.ui-accordion-icons .ui-accordion-header a {
+	font-size: 13px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+}
+.ui-accordion .ui-accordion-header .ui-icon {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	margin-top: -20px;
+}
+.ui-accordion .ui-accordion-content {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	color: #858585;
+	padding: 0px 0px 20px 40px;
+	border-top: 0;
+	position: relative;
+	overflow: auto;
+	display: none;
+	zoom: 1;
+}
+.ui-accordion .ui-accordion-content-active {
+	display: block;
+}
+.ui-state-default .ui-icon {
+	background:url(../images/acc-sprite.png) no-repeat 0 0;
+	width: 23px;
+	height: 22px;
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+	background:url(../images/acc-sprite.png) no-repeat 0 0;
+	width: 23px;
+	height: 22px;
+}
+.ui-state-active .ui-icon {
+	background:url(../images/acc-sprite.png) no-repeat 0 -22px;
+	width: 23px;
+	height: 22px;
+}
+/*
+ * jQuery UI Tabs 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+.ui-tabs {
+	position: relative;
+	padding:0px;
+	zoom: 1;
+} /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav {
+	background: #f2f2f2;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+	border-left: 1px solid #d9d9d9;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	border-bottom: 0 !important;
+	white-space: nowrap;
+}
+.ui-tabs .ui-tabs-nav li a {
+	background: #e5e5e5;
+	color: #7f7f7f;
+	padding: 10px 10px;
+	border-top: 1px solid #ffffff;
+	border-right: 1px solid #d9d9d9;
+	text-decoration: none;
+	float: left;
+	outline: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+	background: #ffffff;
+	margin-bottom: 0;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+	background: #ffffff;
+	cursor: default;
+}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+	cursor: pointer;
+} /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+	background:  #ffffff;
+	padding: 10px 10px;
+	border-left: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	display: block;
+}
+.ui-tabs .ui-tabs-hide {
+	display: none !important;
+}
+.first_tab {
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+}

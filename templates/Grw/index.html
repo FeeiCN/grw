@@ -1,0 +1,212 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}  
+    {Fei:include file="Public/nav.html"}
+    <section id="content" class="container_12 clearfix" data-sort=true>
+        {Fei:if $userid == 1}
+        <ul class="stats not-on-phone">
+            <li>
+                <strong>
+                    61263
+                </strong>
+                <small>
+                    当前财产
+                </small>
+                <span class=green>
+                    +26%
+                </span>
+            </li>
+            <li>
+                <strong>
+                    23
+                </strong>
+                <small>
+                    本月剩余
+                </small>
+                <span class=green>
+                    +16%
+                </span>
+            </li>
+            <li>
+                <strong>
+                    ￥2165.57
+                </strong>
+                <small>
+                    代办事项
+                </small>
+                <span class=red>
+                    -8%
+                </span>
+            </li>
+            <li>
+                <strong>
+                    0
+                </strong>
+                <small>
+                    未读短消息
+                </small>
+                <span>
+                    0%
+                </span>
+            </li>
+            <li>
+                <strong>
+                    7
+                </strong>
+                <small>
+                    生日提醒
+                </small>
+                <span class=red>
+                    +17%
+                </span>
+            </li>
+        </ul>
+        {Fei:/if}
+        {Fei:if $isie == true}
+        <div class="grid_12 mt10" id="alert">
+            <div class="alert note">
+            <span class="icon"></span><span class="close">x</span>
+            您当前使用的是IE浏览器，请使用非IE浏览器以获得最好的操作和视觉体验
+            </div>
+        </div>
+        {Fei:/if}
+        <h1 class="grid_12 margin-top no-margin-top-phone">
+            控制面板
+        </h1>
+        {Fei:if $userid == 1}
+        <div class="grid_6">
+            <div class="box">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/receipt-invoice.png">
+                        财务状况
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="spacer">
+                    </div>
+                    <div class="full-stats">
+                        <div class="stat hlist" data-list='[{"val":17621,"format":"￥0,0;-￥0,0","title":"目标存款","color":"green"},{"val":1125,"format":"￥0,0;-￥0,0","title":"当前存款","color":"red"},{"val":18746,"format":"￥0,0;-￥0,0","title":"差款"}]'
+                        data-flexiwidth=true>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div class="ui-progressbar" data-value=90 data-showtitle=percentage data-color=blue
+                    data-showvalue=true>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="left">
+                        <a href="#" class="button grey">
+                            查看明细
+                        </a>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="button">
+                            增加一笔
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <form class="box validate">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/newspaper.png">
+                        短消息
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="spacer">
+                    </div>
+                    <div class="messages full chat">
+                        <div class="msg reply">
+                            <img src="{Fei:$STATICS}img/icons/packs/iconsweets2/25x25/user-2.png" />
+                            <div class="content">
+                                <h3>
+                                    <a href="pages_profile.html">
+                                        我(吴止介)
+                                    </a>
+                                    <span>
+                                        :
+                                    </span>
+                                    <small>
+                                        三小时前
+                                    </small>
+                                </h3>
+                                <p>
+                                    你那个新项目规划书发给我，我给你看下，好让你明天融资的时候更简单些
+                                </p>
+                            </div>
+                        </div>
+                        <div class="msg">
+                            <img src="{Fei:$STATICS}img/icons/packs/iconsweets2/25x25/user-2.png" />
+                            <div class="content">
+                                <h3>
+                                    <a href="pages_profile.html">
+                                        李新明
+                                    </a>
+                                    <span>
+                                        :
+                                    </span>
+                                    <small>
+                                        一小时前
+                                    </small>
+                                </h3>
+                                <p>
+                                    好的，已发送过去
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="left">
+                        <label for="fb_pin" class=inline>
+                            发送信息给李新明:
+                        </label>
+                        <input type="text" class=required name=fb_pin id=fb_pin />
+                    </div>
+                    <div class="right">
+                        <input type="reset" value="取消" class="grey" />
+                        <input type="submit" value="发送" name=send />
+                    </div>
+                </div>
+            </form>
+        </div>
+        {Fei:/if}
+        <div class="grid_6">
+            <div class="box">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/calendar-select.png">
+                        今日待办事项
+                    </h2>
+                    <a href="{Fei:FeiUrl('timegoal','today')}" class="menu icon-eye-open" title="查看全部"></a>
+                </div>
+                <div class="content" id="todo_content">
+                </div>
+                <div id="dialog_edit_todo" title="修改代办事项">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var Dashboard = {
+                init:function(){
+                    Dashboard.todos()
+                },
+                todos:function(){
+                    $.post("{Fei:FeiUrl('timegoal','today')}",{action:'ajax_load_todo_content',from:'index'},function(result){
+                        if(result.status == 'success'){
+                            $("#todo_content").html(result.back)
+                        }else if(result.status == 'error'){
+                            $.jGrowl('数据加载错误！',{header:'待办事项'})
+                        }
+                    },'json')
+                }
+            }
+            Dashboard.init()
+        </script>
+    </section>
+</div>
+{Fei:include file="Public/footer.html"}

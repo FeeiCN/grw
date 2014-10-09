@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Filtered Layout 3 Column</title>
+<base href="http://www.grw.name/themes/grw/">
+<link rel="icon" type="image/png" href="images/favicon.ico" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+<!--[if lt IE 9]>
+<script src="scripts/ie9.js">IE7_PNG_SUFFIX=".png";</script>
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="stylesheets/style.css"> 
+<link rel="stylesheet" href="stylesheets/responsive.css"> 
+<link rel="stylesheet" href="stylesheets/prettyPhoto.css">
+<script src="scripts/jquery.min.js"></script> 
+<script src="scripts/jquery.isotope.js"></script>
+<script src="scripts/jquery.prettyPhoto.js"></script>
+<script src="scripts/jquery.blackandwhite.min.js"></script>
+<script src="scripts/js_func.js"></script>
+<script>
+$(function(){
+		var container = $('.short_text_layout');
+		container.isotope({
+			itemSelector: 'li',
+			filter: '*',
+		  animationEngine: 'jquery',
+			animationOptions: {
+				duration: 500,
+				easing: 'linear',
+				queue: false,
+			}
+		});
+		$(".filter li a").click(function() {
+			$('.filter li').removeClass("active");
+			$(this).parent().addClass("active");
+			var selector = $(this).attr('data-filter');
+			container.isotope({
+			    filter: selector,
+			    animationEngine: 'jquery',
+			    animationOptions: {
+			        duration: 500,
+			        easing: 'linear',
+			        queue: false,
+			    }
+			});
+			return false;
+		});
+	$(".gallery a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+    $('.bwWrapper').BlackAndWhite({
+        hoverEffect : true,
+        webworkerPath : false,
+        responsive:true,
+        invertHoverEffect:false
+    });
+})
+</script>
+</head>
+<body>
+{Fei:include file="header.html"}
+
+<div class="content_block">
+ <!-- top_title -->
+ <div class="top_title">
+  <div class="wraper">
+   <h2>Our Work <span>This is our favorite part of the site, our showcase!</span></h2>
+   <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Short Text Layout</a></li>
+    <li>Three Column Filtered</li>
+   </ul>
+  </div>
+ </div>
+ <!-- /top_title -->
+ <div class="wraper">
+  <div class="faq_list">
+   <ul class="filter">
+    <li class="all active"><a href="#" onclick="return(false)" data-filter=".all">All</a></li>
+    <li class="web-design"><a href="#" onclick="return(false)" data-filter=".web-design">Web Design</a></li>
+    <li class="print"><a href="#" onclick="return(false)" data-filter=".print">Print</a></li>
+    <li class="videography"><a href="#" onclick="return(false)" data-filter=".videography">Videography</a></li>
+   </ul>
+  </div>
+  <!-- Short Text Layout 3 Column -->
+  <div class="short_text_layout short_text_col_3 gallery filter_wrap">
+   <ul>
+    <li class="all web-design"><div class="bwWrapper"><a href="images/portfolio/portfolio_01.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_11.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all print"><div class="bwWrapper"><a href="images/portfolio/portfolio_02.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_12.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all videography"><div class="bwWrapper"><a href="images/portfolio/portfolio_03.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_13.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all web-design"><div class="bwWrapper"><a href="images/portfolio/portfolio_04.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_14.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all print"><div class="bwWrapper"><a href="images/portfolio/portfolio_05.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_15.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all videography"><div class="bwWrapper"><a href="images/portfolio/portfolio_06.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_16.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all web-design"><div class="bwWrapper"><a href="images/portfolio/portfolio_07.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_17.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all print"><div class="bwWrapper"><a href="images/portfolio/portfolio_08.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_18.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all videography"><div class="bwWrapper"><a href="images/portfolio/portfolio_09.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_19.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all web-design"><div class="bwWrapper"><a href="images/portfolio/portfolio_10.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_20.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all videography"><div class="bwWrapper"><a href="images/portfolio/portfolio_01.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_21.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+    <li class="all print"><div class="bwWrapper"><a href="images/portfolio/portfolio_02.jpg" rel="prettyPhoto[gallery2]"><img src="images/portfolio/portfolio_22.jpg" width="279" height="170" alt="" /></a><p><strong><a href="single_full.html">Featured Project Title</a></strong><span>Graphic Design, Web Design, Branding</span></p></div></li>
+   </ul>
+  </div>
+  <!-- pager_nav -->
+  <div class="pager_nav">
+   <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+   <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+  </div>
+  <!-- /pager_nav -->
+  <!-- /Short Text Layout 3 Column -->
+ </div>
+</div>
+
+<!-- footer -->
+{Fei:include file="footer.html"}
+<!-- /footer -->
+</body>
+</html> 

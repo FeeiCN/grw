@@ -1,0 +1,34 @@
+;(function($){$.fn.simpleFAQ=function(o){var n=this;if(n.length!=1){return n;}
+n.addClass('simpleFAQList');o=(o)?o:{};o=audit($.extend({},$.fn.simpleFAQ.defaults,o));if(n.attr('id').length<1){n.attr('id','simpleFAQ_'+Math.floor(Math.random()*1000));}
+var qc=o.questionClass;var ac=o.answerClass;var nt=o.nodeType;if(o.data!=null){var d=o.data;n.html('');for(var i=0,l=d.length;i<l;++i){n.append("<"+nt+" class='simpleFAQ'>"+" <p class='"+qc+"'>"+d[i].question+"</p>"+" <div class='"+ac+"'>"+
+d[i].answer+"<p class='"+o.tagClass+"'>"+d[i].tags+"</p>"+"</div>"+"</"+nt+">");}}
+var faqs=$('#'+n.attr('id')+' > '+nt);faqs.find('.'+qc).css('cursor','pointer').hover(function(){$(this).addClass('simpleFAQHover');},function(){$(this).removeClass('simpleFAQHover');}).bind('click.simpleFAQ',function(e){var f=$(this).parent();if(o.showOnlyOne){n.find(nt).not(f).find('.'+ac).slideUp(o.speed,function(){$(this).parent().removeClass('simpleFAQShowing');});}
+$(this).siblings('.'+ac).slideToggle(o.speed,function(){if($(this).is(':visible')){f.addClass('simpleFAQShowing');var h=f.attr('id');if(h&&h.length>0){document.location.hash=escape(h);}
+n.trigger('show.simpleFAQ',[f[0]]);}else{f.removeClass('simpleFAQShowing');}});});faqs.find('.'+ac).hide();if(o.allowSearch){var hideFAQ=function(node){$(node).hide().removeClass('simpleFAQResult').find('.'+ac).hide().parent().removeClass('simpleFAQShowing');}
+var sn=$(o.searchNode);if(sn.length>0&&typeof $.score=='function'){hideFAQ(n.find(nt));var h;sn.append("<input type='text' id='simpleFAQSearch' />").find('#simpleFAQSearch').keyup(function(e){clearTimeout(h);var sn=this;if(sn.value.length<1){hideFAQ(n.find(nt));return;}
+h=setTimeout(function(){n.trigger('searchStart.simpleFAQ',[]);var sc=[];faqs.each(function(i){var f=$(this);var tg=f.find('.'+o.tagClass).text();tg=(o.caseSensitive)?tg:tg.toLowerCase();var t=f.text();t=(o.caseSensitive)?t:t.toLowerCase();var q=getQuery(sn.value,o);var s=0;if(q.length>0){s=$.score(t,q);s+=scoreTags(q,tg);}
+if(s>o.minSearchScore){sc.push([s,f]);}else{hideFAQ($(this));}});if(o.sortSearch){sc.sort(function(a,b){return b[0]-a[0];});}
+var r=[];$.each(sc,function(){n.append(this[1].show().addClass('simpleFAQResult'));r.push(this[1][0]);});n.trigger('sort.simpleFAQ',[r]);n.trigger('searchEnd.simpleFAQ',[r]);},$.fn.simpleFAQ.keyTimeout);});}}
+var scoreTags=function(t,tags){var s=0;if(tags.length<1){return s;}
+var w=t.split(' ');for(var i=0,l=w.length;i<l;++i){if(w[i].length<1){continue;}
+if(tags.indexOf(w[i])>-1){s+=$.fn.simpleFAQ.tagMatchScore;}}
+return s;}
+var getQuery=function(t,o){var q='';t=(o.caseSensitive)?t:t.toLowerCase();var ig=o.ignore;if(ig.length>0){var w=t.split(' ');for(var i=0;i<w.length;++i){if(w[i].length>0){if(typeof ig.indexOf=='function'){if(ig.indexOf(w[i])<0){q+=w[i]+' ';}}else{var f=false;for(var j=0;j<ig.length;++j){if(ig[j]==w[i]){f=true;break;}}
+if(!f){q+=w[i]+' ';}}}}
+if(q.length>0){q=q.substr(0,q.length-1);}}else{q=t;}
+return q;}
+var h=document.location.hash;if(h&&h.length>0){var fn=$(h);if(fn&&fn.is('.simpleFAQList>*')){fn.find('.'+qc).trigger('click.simpleFAQ');}}
+return n;};var audit=function(o){var d=o.data;if(!d||!d.length||typeof d.splice!='function'){o.data=$.fn.simpleFAQ.defaults.data;}
+if(typeof o.nodeType!='string'){o.nodeType=$.fn.simpleFAQ.defaults.nodeType;}
+if(typeof o.questionClass!='string'){o.questionClass=$.fn.simpleFAQ.defaults.questionClass;}
+if(typeof o.answerClass!='string'){o.answerClass=$.fn.simpleFAQ.defaults.answerClass;}
+if(typeof o.tagClass!='string'){o.tagClass=$.fn.simpleFAQ.defaults.tagClass;}
+if(typeof o.showOnlyOne!='boolean'){o.showOnlyOne=$.fn.simpleFAQ.defaults.showOnlyOne;}
+if(typeof o.allowSearch!='boolean'){o.allowSearch=$.fn.simpleFAQ.defaults.allowSearch;}
+if(typeof o.minSearchScore!='number'){o.minSearchScore=$.fn.simpleFAQ.defaults.minSearchScore;}
+if(typeof o.sortSearch!='boolean'){o.sortSearch=$.fn.simpleFAQ.defaults.sortSearch;}
+if(typeof o.caseSensitive!='boolean'){o.caseSensitive=$.fn.simpleFAQ.defaults.caseSensitive;}
+if(typeof o.speed!='number'){o.speed=$.fn.simpleFAQ.defaults.speed;}
+var ig=o.ignore;if(!ig||!ig.length||typeof ig.splice!='function'){o.ignore=$.fn.simpleFAQ.defaults.ignore;}
+return o;}
+$.fn.simpleFAQ.keyTimeout=400;$.fn.simpleFAQ.tagMatchScore=0.1;$.fn.simpleFAQ.defaults={data:null,nodeType:'li',questionClass:'question',answerClass:'answer',tagClass:'tags',showOnlyOne:false,allowSearch:false,searchNode:null,minSearchScore:0,sortSearch:false,caseSensitive:false,speed:300,ignore:['the','a','an','i','we','you','it','that','those','these','them','to','and','or','as','at','by','for','of','so']};})(jQuery);

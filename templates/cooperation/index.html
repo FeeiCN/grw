@@ -1,0 +1,363 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+    <base href="http://www.feitm.com/statics/"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/script.js"></script>
+    <link href='css/css.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="scripts/charts/area-chart.js"></script>
+    <script type="text/javascript" src="scripts/charts/bar-chart.js"></script>
+    <script type="text/javascript" src="scripts/charts/pie-chart.js"></script>
+</head>
+<body>
+{Fei:include file="Public/nav.html"}
+<!--NAV ENDS HERE-->
+<div class="main">
+{Fei:include file="Public/notice.html"}
+<div class="shortable-content">
+<div class="box _100">
+<div class="box-header">
+    通讯录
+    <i class="icon-remove-sign close" title="Close"></i>
+    <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+</div>
+<div class="box-content">
+<div id="contact_list">
+<div class="slider-content">
+<ul>
+<li id="技术部"><a name="a" class="title">技术部</a>
+    <ul>
+        {Fei:foreach from=$users item=user}
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> {Fei:$user.realname}
+                <span class="small">{Fei:$user.branch} / {Fei:$user.position}</span>
+            </a>
+        </li>
+        {Fei:/foreach}
+    </ul>
+</li>
+<li id="财务部"><a name="d" class="title">财务部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Dalton Chaney
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Daphne Case
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Daquan Thompson
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Darryl Wooten
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face5.png"></span> Davis Landry
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face6.png"></span> Deirdre Hines
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="编辑部"><a name="e" class="title">编辑部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Eden Davenport
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Eden Montgomery
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="运营部"><a name="f" class="title">运营部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Fitzgerald Blair
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Francis Clayton
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="产品部"><a name="g" class="title">产品部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Gary Clark
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Georgia Taylor
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Germaine Ferguson
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Ginger Terry
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face5.png"></span> Graham Fitzgerald
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="后勤处"><a name="h" class="title">后勤处</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Herman Kim
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Hillary Sweeney
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Hop Hewitt
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Hope Baldwin
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face5.png"></span> Hope Finch
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="业务部"><a name="i" class="title">业务部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Ima Moses
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Imelda Gallagher
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Inga Lee
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Isaiah Alvarez
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face5.png"></span> Ivor Clayton
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="行政部"><a name="j" class="title">行政部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Jasper Pennington
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Jasper Velasquez
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Jemima Benson
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Jenna Boone
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="留学部"><a name="k" class="title">留学部</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Kiara Beck
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Kiara Crosby
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Knox Peck
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Kyla Gutierrez
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li id="影视中心"><a name="l" class="title">影视中心</a>
+    <ul>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face1.png"></span> Liberty Branch
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face2.png"></span> Lionel Jackson
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face3.png"></span> Louis Bradshaw
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face4.png"></span> Luke Murray
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="thumbnail"><img src="images/face/face5.png"></span> Lyle Bullock
+                <span class="small">Creative Director</span>
+            </a>
+        </li>
+    </ul>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+    $.fn.sliderNav = function (options) {
+        var defaults = { items: ["技术部", "财务部", "编辑部", "运营部", "产品部", "后勤处", "业务部", "行政部", "留学部", "影视中心"], debug: false, height: null, arrows: true};
+        var opts = $.extend(defaults, options);
+        var o = $.meta ? $.extend({}, opts, $$.data()) : opts;
+        var slider = $(this);
+        $(slider).addClass('slider');
+        $('.slider-content li:first', slider).addClass('selected');
+        $(slider).append('<div class="slider-nav"><ul></ul></div>');
+        for (var i in o.items) $('.slider-nav ul', slider).append("<li><a alt='#" + o.items[i] + "'>" + o.items[i] + "</a></li>");
+        var height = $('.slider-nav', slider).height();
+        if (o.height) height = o.height;
+        $('.slider-content, .slider-nav', slider).css('height', height);
+        if (o.debug) $(slider).append('<div id="debug">Scroll Offset: <span>0</span></div>');
+        $('.slider-nav a', slider).mouseover(function (event) {
+            var target = $(this).attr('alt');
+            var cOffset = $('.slider-content', slider).offset().top;
+            var tOffset = $('.slider-content ' + target, slider).offset().top;
+            var height = $('.slider-nav', slider).height();
+            if (o.height) height = o.height;
+            var pScroll = (tOffset - cOffset) - height / 8;
+            $('.slider-content li', slider).removeClass('selected');
+            $(target).addClass('selected');
+            $('.slider-content', slider).stop().animate({scrollTop: '+=' + pScroll + 'px'});
+            if (o.debug) $('#debug span', slider).html(tOffset);
+        });
+        if (o.arrows) {
+            /*$('.slider-nav',slider).css('top','20px');
+             $(slider).prepend('<div class="slide-up end"><span class="arrow up"></span></div>');
+             $(slider).append('<div class="slide-down"><span class="arrow down"></span></div>');*/
+            $('.slide-down', slider).click(function () {
+                $('.slider-content', slider).animate({scrollTop: "+=" + height + "150px"}, 500);
+            });
+            $('.slide-up', slider).click(function () {
+                $('.slider-content', slider).animate({scrollTop: "-=" + height + "150px"}, 500);
+            });
+        }
+    };
+</script>
+</div>
+</div>
+<!--CONTACT LIST BOX-->
+</div>
+<!--SHORTABLECONTENT-ENDS-->
+</div>
+<!--MAIN ENDS-->
+</body>
+</html>

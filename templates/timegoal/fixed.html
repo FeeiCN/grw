@@ -1,0 +1,351 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+{Fei:include file="Public/toolbar.html"}
+{Fei:include file="Public/nav.html"}
+<div id="dialog_add_fixed" title="添加固定提醒">
+    <form action="" id="dialog_add_fixed_form" class="full validate">
+        <input type="hidden" name="action" value="ajax_add_fixed">
+        <div class="row">
+            <label for="fixed_name">
+                <strong>
+                    事件名称
+                </strong>
+            </label>
+            <div class="_80 input">
+                <input class="required" type=text name=fixed_name />
+            </div>
+        </div>
+        <div class="row">
+            <label for="fixed_remark" class="tooltip" data-gravity="nw" original-title="备注可以为注意事项/工作摘要等">
+                <strong>
+                    提醒内容
+                </strong>
+            </label>
+            <div class="_80 input">
+                <textarea class="editor" rows=3 name="fixed_remark" id="f1_textarea"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <label for="fixed_repeats" class="tooltip" data-gravity="nw" original-title="是否按照预订时间重复提醒">
+                <strong>
+                    是否重复
+                </strong>
+            </label>
+            <div class="_80 input">
+                <select name="fixed_repeats" data-placeholder="是否按照预订时间重复提醒">
+                    <option value="1">
+                        每天
+                    </option>
+                    <option value="2">
+                        每工作日
+                    </option>
+                    <option value="3">
+                        每周
+                    </option>
+                    <option value="4">
+                        每月
+                    </option>
+                    <option value="5">
+                        每年
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <label for="fixed_startime">
+                <strong>
+                    提醒时间
+                </strong>
+            </label>
+            <div class="_80 input">
+                <input type="datetime" name="fixed_startime">
+            </div>
+        </div>
+    </form>
+    <div class="actions">
+        <div class="left">
+            <button class="grey cancel">
+                填写详细
+            </button>
+        </div>
+        <div class="right">
+            <button class="submit">
+                添加
+            </button>
+        </div>
+    </div>
+</div>
+<div class="right-sidebar">
+    <form action="">
+        <h3>
+            大事项列表
+        </h3>
+        <div class="block" id="tag_lists">
+
+        </div>
+        <div class="block">
+            <div class="buttons">
+                <a href="javascript:void(0);" class="button grey open_add_tag">
+                    添加一个大事项
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<section id="content" class="container_12 clearfix with-right-sidebar"
+         data-sort=true>
+    <ul class="stats not-on-phone">
+        <li>
+            <strong>
+                40
+            </strong>
+            <small>
+                总数
+            </small>
+        </li>
+        <li>
+            <strong>
+                23
+            </strong>
+            <small>
+                已完成
+            </small>
+        </li>
+        <li>
+            <strong>
+                17
+            </strong>
+            <small>
+                待完成
+            </small>
+        </li>
+    </ul>
+    <h1 class="grid_12" style="margin-top:10px;"><span>
+            固定提醒事项
+        </span></h1>
+    <div class="grid_12" id="maybe">
+        <div class="alert note">
+            <span class="icon"></span>
+            这里您可以添加类似 每天订饭、每周工作报告、纪念日、情人节、母亲节等固定时间的提醒事项！
+        </div>
+        <div class="box">
+            <div class="header">
+                <h2>
+                    <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/calendar-select.png">
+                    固定提醒
+                </h2>
+                <a href="javascript:void(0);" id="create_note" class="menu icon-pencil open-add-fixed-dialog" title="添加固定提醒"></a>
+                <a href="javascript:void(0);" class="menu2 icon-refresh" id="todo_refresh">
+                </a>
+            </div>
+            <div class="accordion toggle">
+                <!-- Todo Lists -->
+                <h3>
+                    <a href="#">
+                            <span class="badge {Fei:$tag.icon}">
+                                <strong>固定提醒</strong> (<div style="display:inline" class="tag">0</div>项)
+                            </span>
+                    </a>
+                </h3>
+                <div>
+                    <div class="spacer"></div>
+                    <div class="messages full" id="fixed_content">
+                    </div>
+                </div>
+                <!-- END Todo Lists-->
+            </div>
+            <div id="dialog_del_todo" title="删除提示！">
+                <p>
+                    是否确定删除此栏目？
+                </p>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">
+                            取消
+                        </button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">
+                            确定
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_edit_todo" title="修改代办事项">
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<style type="text/css">
+    /*消除图标对于accordion的白线影响*/
+    .ui-accordion .ui-accordion-header a {
+        display: block;
+        font-size: 1em;
+        padding: .4em .5em .3em .7em;
+    }
+    .ui-accordion .ui-accordion-header a span{
+        padding-left: 15px;
+    }
+</style>
+<script type="text/javascript">
+$$.ready(function(){
+    /**
+     * Add fixed
+     *
+     *
+    **/
+    $("#dialog_add_fixed").dialog({
+        autoOpen: false,
+        modal: true,
+        width: 400,
+        open: function() {
+            $(this).parent().css('overflow', 'visible');
+            $$.utils.forms.resize()
+        }
+    }).find('button.submit').click(function(){
+        var el = $('#dialog_add_fixed_form');
+        if (el.validate().form()) {
+            $.post('{Fei:FeiUrl('timegoal','fixed')}',el.serialize(),function(result){
+                console.log(result);
+                if(result.status =='success'){
+                    console.log('success');
+                    var $eld = $('#dialog_add_fixed');
+                    $eld.find('form')[0].reset();
+                    $eld.dialog('close');
+                }else if(result.status =='error'){
+                    console.log('error');
+                    $("#dialog_add_fixed").dialog('close');//CLOSE
+                    $.jGrowl('对不起！待办事项添加失败！',{header:'待办事项',theme:'wood'});
+                }
+            },'json');
+        }
+    }).end().find('button.cancel').click(function(){
+        //var $el = $(this).parents('.ui-dialog-content');
+        //$el.find('form')[0].reset();
+        //$el.dialog('close');;
+    });
+
+    $(".open-add-fixed-dialog").click(function() {
+        $("#dialog_add_fixed").dialog("open");
+        return false;
+    });
+});
+    //Del Todo
+    $('#dialog_del_todo').dialog({
+        autoOpen: false
+    });
+    //Delete Todo
+    function Delete_Todo(doid){
+        $("#dialog_del_todo").dialog("open");
+        $("#dialog_del_todo").find('button.submit').click(function(){
+            var formdata = {
+                'action':'del_todo',
+                'doid':doid
+            };
+            $.post("{Fei:FeiUrl('timegoal','today')}",formdata,function(result){
+                if(result.status == 'success'){
+                    Get_trash_todo_content();
+                    $("#dialog_del_todo").dialog("close");
+                    $.jGrowl('删除成功！事件已成功删除至回收站！',{header:'待完成事项',theme:'wood'});
+                    Update_tag(result.back,'-');
+                    $('#cancle_completed_button_'+doid).parent().parent().slideToggle($$.config.fxSpeed);
+                    $('#completed_button_'+doid).parent().parent().slideToggle($$.config.fxSpeed);
+                }else if(result.status == 'error'){
+                    $.jGrowl('对不起！事件删除失败！',{header:'待完成事项',theme:'wood'});
+                    $("#dialog_del_todo").dialog("close");
+                }
+            },'json');
+        }).end().find('button.cancel').click(function() {
+                    $("#dialog_del_todo").dialog("close");
+                });
+    }
+    //Edit Todo
+    function Edit_Todo(doid){
+        console.log('in edit');
+        $('#dialog_edit_todo').dialog({
+            autoOpen: false,
+            modal: true,
+            width: 400,
+            open: function() {
+                $(this).parent().css('overflow', 'visible');
+                $$.utils.forms.resize()
+            }
+        });
+        var postdata = {
+            'action':'get_edit_todo_dialog',
+            'doid':doid
+        };
+        $('#dialog_edit_todo').load("{Fei:FeiUrl('timegoal','today')}",postdata,function(){
+            $("input[type=datetime]").datetimepicker();
+            var g = $("select").not(".dualselects");
+            g.each(function(){
+                var k=$(this);
+                k.chosen({
+                    disable_search_threshold:k.hasClass("search")?0:Number.MAX_VALUE,allow_single_deselect:true,width:k.data("width")||"100%"
+                })
+            });
+            $(".chzn-done").on("change",function(){
+                var k=$(this).parents("form").validate();
+                k&&k.element($(this))
+            }).each(function(){
+                var l=$(this),k=l.parents("form");
+                k.on("reset",function(){
+                    l[0].selectedIndex=-1;
+                    l.trigger("liszt:updated")
+                });
+                k.data("chzn-reset",true)
+            });
+            if(!Modernizr.touch){
+                $("select.dualselects").dualselect()
+            }
+            //Edit Ajax
+            $('#dialog_edit_todo').dialog("open");
+            $("#dialog_edit_todo").find('button.submit').click(function(){
+                var formdata = {
+                    'action':'edit_todo',
+                    'doid':doid,
+                    'name':$('input[name=edit_todo_name]').val(),
+                    'remark':$('textarea[name=edit_todo_remark]').val(),
+                    'startime':$('input[name=edit_todo_startime]').val(),
+                    'endtime':$('input[name=edit_todo_endtime]').val(),
+                    'level':$('select[name=edit_todo_level]').val(),
+                    'repeats':$('select[name=edit_todo_repeats]').val(),
+                    'tags':$('select[name=edit_todo_tags]').val()
+                }
+                $.post("{Fei:FeiUrl('timegoal','today')}",formdata,function(result){
+                    if(result.status == 'success'){
+                        Get_todo_content();
+                        Get_completed_todo_content();
+                        $("#dialog_edit_todo").dialog("close");
+                        //Update_tag(result.back,'-')//Validate tag is changed
+                        $.jGrowl('修改成功！事件已经成功修改！',{header:'事项',theme:'wood'});
+                    }else if(result.status == 'error'){
+                        $.jGrowl('对不起！修改事件失败！',{header:'事项',theme:'wood'});
+                        $("#dialog_edit_todo").dialog("close");
+                    }
+                },'json');
+            }).end().find('button.cancel').click(function() {
+                $("#dialog_edit_todo").dialog("close");
+            });
+        });
+    }
+    /**
+     * Get fixed content
+     *
+     *
+    **/
+    $('#fixed_refresh').click(function(){
+        Get_fixed_content()
+    });
+
+    //Ajax Todo
+    function Get_fixed_content(){
+        $('#fixed_content').load("{Fei:FeiUrl('timegoal','fixed')}",{action:'ajax_load_fixed_content'},function(result){
+            $.jGrowl('固定事件数据加载完成！',{header:'固定事件',theme:'wood'});
+        });
+    }
+
+    Get_fixed_content()
+</script>
+{Fei:include file="Public/footer.html"}

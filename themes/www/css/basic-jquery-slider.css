@@ -1,0 +1,218 @@
+/* Basic jQuery Slider essential styles */
+@font-face {
+	font-family: 'existence_lightregular';
+	src: url('../fonts/existence-light.eot');
+	src: url('../fonts/existence-light.eot?#iefix') format('embedded-opentype'),  url('../fonts/existence-light.woff') format('woff'),  url('../fonts/existence-light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+img {
+	border:0px;
+}
+ul.bjqs {
+	position:relative;
+	list-style:none;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	display:none;
+}
+li.bjqs-slide {
+	display:none;
+	position:absolute;
+}
+ul.bjqs-controls {
+	list-style:none;
+	margin:0;
+	padding:0;
+	z-index:9999;
+}
+ul.bjqs h1 {
+	float:left;
+	font-family: 'existence_lightregular';
+	font-size:96px;
+	color:#fff;
+	font-weight:normal;
+	padding:0px;
+	margin:0px;
+	width:100%;
+	line-height:100px;
+	text-shadow:0px 2px 2px #000000;
+	behavior: url("../js/PIE.htc");
+}
+ul.bjqs p {
+	float:left;
+	width:464px;
+	font-family:Myriad Pro;
+	font-size:20px;
+	color:#fff;
+	line-height:30px;
+}
+ul.bjqs label {
+	float:left;
+	width:960px;
+	padding: 20px 0 0 0px;
+}
+ul.bjqs p span {
+	background-image:url(../images/span-bg.jpg);
+	background-repeat:repeat-y;
+}
+ol.bjqs-markers {
+	list-style:none;
+	margin:0;
+	padding:0;
+	z-index:9999;
+}
+ol.bjqs-markers li {
+	float:left;
+}
+/* demo styles */
+
+
+
+
+#banner {
+	height:450px;
+	width:960px;
+	position:relative;
+	float:left;
+	margin-top:40px;
+	/*background-image:url(../images/map.png);*/
+	background-repeat:no-repeat;
+}
+ul.bjqs-controls li a {
+	display:block;
+	padding:5px 10px;
+	position:absolute;
+	color:#fd0100;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+a.bjqs-prev {
+	left:0;
+	font-size:0px;
+}
+a.bjqs-next {
+	right:0;
+	font-size:0px;
+}
+ol.bjqs-markers {
+	position:absolute;
+	bottom:35px;
+}
+ol.bjqs-markers li {
+	float:left;
+	margin:0 3px;
+}
+ol.bjqs-markers li a {
+	display:block;
+	height:18px;
+	width:18px;
+	overflow:hidden;
+	text-indent:-9999px;
+	background:#020a1a;
+	border-radius:10px;
+	box-shadow:1px 1px 1px #235b9b;
+	behavior: url("../js/PIE.htc") !important;
+}
+ol.bjqs-markers li.active-marker a {
+	background:#fff;
+	height:14px;
+	width:14px;
+	border:2px solid #000;
+	background-image: url(../images/gol2.png);
+	float:left;
+}
+
+/*============================ EXTRA PAGE SLIDER CSS ================================*/
+
+
+ul.bjqs_1 {
+	position:relative;
+	list-style:none;
+	padding:0;
+	margin:0;
+	float:left;
+	overflow:hidden;
+	display:none;
+}
+li.bjqs_1-slide {
+	display:none;
+	position:absolute;
+}
+ul.bjqs_1-controls {
+	list-style:none;
+	margin:0;
+	padding:0;
+	float:left;
+	width:500px;
+	height:50px;	
+	z-index:9999;
+}
+
+ol.bjqs_1-markers {
+	list-style:none;
+	margin:0;
+	padding:0;
+	z-index:9999;
+}
+ol.bjqs_1-markers li {
+	float:left;
+}
+/* demo styles */
+
+ul.bjqs_1-controls li a {
+	display:block;
+	position:absolute;
+	color:#fd0100;
+	text-decoration:none;
+	text-transform:uppercase;
+	margin-top:355px;
+}
+a.bjqs_1-prev {
+	left:495px;
+	font-size:0px;
+	float:left;
+	background-image:url(../images/extra_img_prev.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+	width:23px;
+	height:44px;
+	
+}
+a.bjqs_1-next {
+	right:530px;
+	font-size:0px;
+	background-image:url(../images/extra_img_next.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+	width:21px;
+	height:41px;
+	float:right;
+}
+ol.bjqs_1-markers {
+	float:left;
+	margin-top:-16px;
+	margin-left:400px;
+}
+ol.bjqs_1-markers li {
+	float:left;
+	margin:0 3px;
+}
+ol.bjqs_1-markers li a {
+	display:block;
+	height:20px;
+	width:21px;
+	overflow:hidden;
+	text-indent:-9999px;
+	background-image:url(../images/extra_img_round.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+	
+}
+ol.bjqs_1-markers li.active-marker a {
+	height:21px;
+	width:20px;
+	background-image:url(../images/extra_img_round_active.png);
+	float:left;
+}
