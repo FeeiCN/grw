@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人网 - 我的网络家园！ 个人网络管理系统|个人事务管理系统|时间任务管理TODO</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="个人网,个人网络管理系统,个人事务管理,时间任务管理系统"/>
+    <meta name="description" content="个人网 是中国最大的个人网络家园平台。用户可以在里面管理个人代办事项TODO管理，时间任务管理，人际关系管理，个人财务管理等为一体的个人管理系统。" />
+    <link type="text/css" rel="stylesheet" href="{Fei:$CSS_PATH}master.css">
+    <link rel="stylesheet" type="text/css" href="{Fei:$CSS_PATH}font-awesome.min.css">
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="{Fe:$CSS_PATH}font-awesome-ie7.min.css">
+    <![endif]-->
+    <script type="text/javascript" src="{Fei:$JS_PATH}jquery.min.js"></script>
+    <script type="text/javascript" src="{Fei:$JS_PATH}jquery.scrollTo.min.js"></script>
+    <script type="text/javascript">
+    /**
+     * @Reference jquery.easing1.3 jQuery.scollTo1.46
+     * @Param t: current time, b: begInnIng value, c: change In value, d: duration
+     * @Author Feei
+     *
+    **/
+    jQuery.easing['jswing'] = jQuery.easing['swing'];
+    jQuery.extend( jQuery.easing,{
+        def: 'easeOutQuad',
+        swing: function (x, t, b, c, d) {
+            //alert(jQuery.easing.default);
+            return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+        },
+        easeInQuad: function (x, t, b, c, d) {
+            return c*(t/=d)*t + b;
+        },
+        easeOutQuad: function (x, t, b, c, d) {
+            return -c *(t/=d)*(t-2) + b;
+        },
+        easeInOutQuad: function (x, t, b, c, d) {
+            if ((t/=d/2) < 1) return c/2*t*t + b;
+            return -c/2 * ((--t)*(t-2) - 1) + b;
+        },
+        easeInCubic: function (x, t, b, c, d) {
+            return c*(t/=d)*t*t + b;
+        },
+        easeOutCubic: function (x, t, b, c, d) {
+            return c*((t=t/d-1)*t*t + 1) + b;
+        },
+        easeInOutCubic: function (x, t, b, c, d) {
+            if ((t/=d/2) < 1) return c/2*t*t*t + b;
+            return c/2*((t-=2)*t*t + 2) + b;
+        },
+        easeInQuart: function (x, t, b, c, d) {
+            return c*(t/=d)*t*t*t + b;
+        },
+        easeOutQuart: function (x, t, b, c, d) {
+            return -c * ((t=t/d-1)*t*t*t - 1) + b;
+        },
+        easeInOutQuart: function (x, t, b, c, d) {
+            if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+            return -c/2 * ((t-=2)*t*t*t - 2) + b;
+        },
+        easeInQuint: function (x, t, b, c, d) {
+            return c*(t/=d)*t*t*t*t + b;
+        },
+        easeOutQuint: function (x, t, b, c, d) {
+            return c*((t=t/d-1)*t*t*t*t + 1) + b;
+        },
+        easeInOutQuint: function (x, t, b, c, d) {
+            if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+            return c/2*((t-=2)*t*t*t*t + 2) + b;
+        },
+        easeInSine: function (x, t, b, c, d) {
+            return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+        },
+        easeOutSine: function (x, t, b, c, d) {
+            return c * Math.sin(t/d * (Math.PI/2)) + b;
+        },
+        easeInOutSine: function (x, t, b, c, d) {
+            return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+        },
+        easeInExpo: function (x, t, b, c, d) {
+            return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+        },
+        easeOutExpo: function (x, t, b, c, d) {
+            return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+        },
+        easeInOutExpo: function (x, t, b, c, d) {
+            if (t==0) return b;
+            if (t==d) return b+c;
+            if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+            return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+        },
+        easeInCirc: function (x, t, b, c, d) {
+            return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+        },
+        easeOutCirc: function (x, t, b, c, d) {
+            return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+        },
+        easeInOutCirc: function (x, t, b, c, d) {
+            if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+            return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+        },
+        easeInElastic: function (x, t, b, c, d) {
+            var s=1.70158;var p=0;var a=c;
+            if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+            if (a < Math.abs(c)) { a=c; var s=p/4; }
+            else var s = p/(2*Math.PI) * Math.asin (c/a);
+            return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+        },
+        easeOutElastic: function (x, t, b, c, d) {
+            var s=1.70158;var p=0;var a=c;
+            if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+            if (a < Math.abs(c)) { a=c; var s=p/4; }
+            else var s = p/(2*Math.PI) * Math.asin (c/a);
+            return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+        },
+        easeInOutElastic: function (x, t, b, c, d) {
+            var s=1.70158;var p=0;var a=c;
+            if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+            if (a < Math.abs(c)) { a=c; var s=p/4; }
+            else var s = p/(2*Math.PI) * Math.asin (c/a);
+            if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+            return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+        },
+        easeInBack: function (x, t, b, c, d, s) {
+            if (s == undefined) s = 1.70158;
+            return c*(t/=d)*t*((s+1)*t - s) + b;
+        },
+        easeOutBack: function (x, t, b, c, d, s) {
+            if (s == undefined) s = 1.70158;
+            return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+        },
+        easeInOutBack: function (x, t, b, c, d, s) {
+            if (s == undefined) s = 1.70158;
+            if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+            return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+        },
+        easeInBounce: function (x, t, b, c, d) {
+            return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+        },
+        easeOutBounce: function (x, t, b, c, d) {
+            if ((t/=d) < (1/2.75)) {
+                return c*(7.5625*t*t) + b;
+            } else if (t < (2/2.75)) {
+                return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+            } else if (t < (2.5/2.75)) {
+                return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+            } else {
+                return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+            }
+        },
+        easeInOutBounce: function (x, t, b, c, d) {
+            if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+            return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+        }
+    });
+
+    $(function() {
+        var $header = $("#header");
+        function scrollToTarget($target) {
+            $.scrollTo($target, 300, {
+                axis: "y",
+                easing: "easeOutQuad",
+                margin: true,
+                offset: -45
+            });
+        }
+
+        function wireHeaderLinks() {
+            $header.find("a").unbind("click").click(function() {
+                if ($(this).hasClass("header-login"))
+                    return true;
+
+                var $target = $($(this).attr("href").slice(0));
+                scrollToTarget($target);
+
+                return false;
+            });
+        }
+
+        wireHeaderLinks();
+
+        var $footer = $("#footer");
+
+        function wireFooterAnchors() {
+            $footer.find(".anchors-col a").unbind("click").click(function() {
+                if ($(this).attr("href").indexOf("#") === -1)
+                    return true;
+
+                var $target = $($(this).attr("href").replace("/", ""));
+                scrollToTarget($target);
+
+                return false;
+            });
+        }
+
+        wireFooterAnchors();
+
+        // on load, smooth-scroll to the right area on page
+        var section = location.hash;
+
+        if (section != null && section !== "") {
+            var $target = $(section);
+            scrollToTarget($target);
+        }
+    });
+    </script>
+   </head>
+<body>
+<div id="header">
+    <div class="container_12">
+        <div class="grid_2 alpha header-logo"><a href="/">个人网</a></div>
+        <div class="grid_10 omega header-nav">
+            <ul>
+                <li><a href="#splash" class="header-anchor header-link-on">个人网</a></li>
+                <li><a href="#features-start" class="header-anchor">特点</a></li>
+                <li><a href="#functions" class="header-anchor">功能</a></li>
+                <li><a href="#chrome-app" class="header-anchor">插件</a></li>
+                {Fei:if $login}
+                <li><a href="http://www.grw.name/admin.php?c=Grw&a=index" target="_blank" class="header-login">{Fei:$realname}</a></li>
+                {Fei:else}
+                <li><a href="http://www.grw.name/admin.php?c=Grw&a=login" class="header-login"><img src="{Fei:$IMG_PATH}qq_login.png" alt=""></a></li>
+                {Fei:/if}
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="splash">
+    <div class="container_12">
+        <div class="grid_12 alpha omega splash-main">
+            <h1>个人网，我的网络家园！</h1>
+            <h3>立刻开启新的生活，让[个人网]来管理我的个人事务！</h3>
+
+            <div class="splash-download">
+                <a href="http://www.grw.name/admin.php?c=Grw&a=login" class="btn btn-large btn-cta"><i class="icon-plus-sign-alt"></i> 立即注册</a>
+                <span>或者</span>
+                <a href="http://www.grw.name/admin.php?c=Grw&a=login" class="btn btn-large btn-cta"><i class="icon-user"></i>马上登陆</a>
+            </div>
+
+            <img src="{Fei:$IMG_PATH}splash_app.png" class="splash-screenshot" />
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<section id="features-start" class="features features-white">
+    <div class="container_12">
+        <div class="features-caption">
+            <h2>专注细节，微小之处给您感动！</h2>
+        </div>
+        <div class="grid_4 alpha feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}split_panel_browsing.png" />
+            </div>
+
+            <h3>自适应框架</h3>
+            <p>我们系统可以自适应包括手机、平板、笔记本、台式机等所有设备的访问！</p>
+        </div>
+        <div class="grid_4 feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}color_coded_labels.png" />
+            </div>
+            <h3>邮件短信提醒</h3>
+            <p>当您不在电脑前，系统将会通过邮件/短信通知您代办事项！</p>
+        </div>
+        <div class="grid_4 omega feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}search_and_filters.png" />
+            </div>
+            <h3>敏捷开发/快速迭代</h3>
+            <p>我们采用快速迭代开发，您会发现我们的系统每天都在完善中!</p>
+        </div>
+        <div class="clear feature-spacer"></div>
+        <div class="grid_4 alpha feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}feature_rich_code_editor.png" />
+            </div>
+            <h3>自定义功能</h3>
+            <p>用不上[日记本]？马上删掉！完全自定义功能模块，用您所需！</p>
+        </div>
+        <div class="grid_4 feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}keyboard_shortcuts.png" />
+            </div>
+            <h3>意见反馈</h3>
+            <p>我们重视您在使用过程中的一切问题,通过后台发送给我们，您会发现问题在第一时间内回复给您并解决掉了！</p>
+        </div>
+        <div class="grid_4 omega feature">
+            <div class="feature-screenshot">
+                <img src="{Fei:$IMG_PATH}collapsible_file_views.png" />
+            </div>
+            <h3>专业级UI</h3>
+            <p>一流的界面设计，使您</p>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</section>
+
+<section id="functions" class="features">
+    <div class="container_12">
+        <div class="features-caption">
+            <h2>众多精致功能，全面托管我的个人事务！</h2>
+        </div>
+
+        <div class="grid_6 alpha sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-calendar"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>
+                    时间目标管理
+                </h3>
+                <p>
+                    每天的待办事情，固定时间提醒、思路想法汇集、回顾以往、目标实现，这就是时间目标！
+                </p>
+            </div>
+        </div>
+
+        <div class="grid_6 omega sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-male"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>个人网站（建设中）</h3>
+                <p>
+                    将有一个专属的个人网站 wff.grw.name ，可以自定义装扮自己的网络名片！
+                </p>
+            </div>
+        </div>
+
+        <div class="clear sub-feature-spacer"></div>
+
+        <div class="grid_6 alpha sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-group"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>人际关系管理（建设中）</h3>
+                <p>
+                    管理个人人际关系，定时发送生日提醒与祝福，提醒长时间未联系的朋友...
+                </p>
+            </div>
+        </div>
+
+        <div class="grid_6 omega sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-book"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>日记本（建设中）</h3>
+                <p>
+                    放下笔记本，开始记录日记，等到多少年后，您会发现很多乐趣！
+                </p>
+            </div>
+        </div>
+
+        <div class="clear sub-feature-spacer"></div>
+
+        <div class="grid_6 omega sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-pushpin"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>收藏夹（建设中）</h3>
+                <p>
+                    好文章、好电影、好网站，都可以收藏到[个人网]，可直接导入浏览器收藏夹！
+                </p>
+            </div>
+        </div>
+
+        <div class="grid_6 omega sub-feature">
+            <div class="sub-feature-icon">
+                <i class="icon-jpy"></i>
+            </div>
+            <div class="sub-feature-description">
+                <h3>我的钱包（建设中）</h3>
+                <p>
+                    个人理财从记账开始，管理每一笔收支，信用卡还款提醒，理财目标设定！
+                </p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</section>
+
+<section id="chrome-app" class="features features-white chrome-app">
+    <div class="container_12">
+        <div class="grid_6 suffix_1 alpha chrome-app-screenshot">
+            <img src="{Fei:$IMG_PATH}fullscreen_login.png" />
+        </div>
+        <div class="grid_5 omega chrome-app-description">
+            <h2>浏览器插件</h2>
+            <p>
+                无需打开网页，即可管理个人事务！<br />
+                <small>
+                <b>版本号:</b> V1.0 <br />
+                <b>最后更新:</b> 2013-04-05 <a href="#">查看更新记录</a><br />
+                <b>支持浏览器:</b> 谷歌浏览器、360急速浏览器、猎豹浏览器、世界之窗极速版、枫树浏览器、搜狗高速浏览器
+                </small>
+            </p>
+            <a href="#" class="btn btn-large btn-cta"><i class="icon-desktop"></i> 开发中，敬请期待！</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>
+<div id="footer">
+    <div class="container_12">
+        <div class="grid_2 alpha links-col anchors-col">
+            <ul>
+                <li class="links-list-title">个人网</li>
+                <li><a href="http://www.grw.name/admin.php?c=Grw&a=login">登陆</a></li>
+                <li><a href="#splash">系统简介</a></li>
+                <li><a href="#features-start">系统特点</a></li>
+                <li><a href="#functions">主要功能</a></li>
+                <li><a href="#chrome-app">插件下载</a></li>
+            </ul>
+        </div>
+        <div class="grid_2 links-col">
+            <ul>
+                <li class="links-list-title">关于我们</li>
+                <li><a href="http://www.feei.cn/resume.html" target="_blank">关于Feei</a></li>
+                <li><a href="http://www.feei.cn/team.html" target="_blank">我们团队</a></li>
+            </ul>
+        </div>
+        <div class="grid_2 links-col">
+            <ul>
+                <li class="links-list-title">服务支持</li>
+                <li><a href="http://www.feei.cn/service.html" target="_blank">帮助中心</a></li>
+                <li><a href="http://www.feei.cn/contact.html" target="_blank" class="footer-contact-us">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="grid_2 links-col">
+            <ul>
+                <li class="links-list-title">关于我们</li>
+                <li>
+                    <i class="icon-github"></i>
+                    <a href="https://github.com/wufeifei" target="_blank" class="footer-share-twitter">Github</a>
+                </li>
+                <li>
+                    <i class="icon-weibo"></i>
+                    <a href="http://weibo.com/333029888" target="_blank" class="footer-share-facebook">新浪微博</a>
+                </li>
+            </ul>
+        </div>
+        <div class="grid_2 prefix_2 credits-col omega">
+            <small>
+            Copyright &copy; 2004 &ndash; <a href="http://www.feei.cn" title="Feei" target="_blank">Feei</a>.<br />
+            All Rights Reserved
+            </small>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+/*----------------------------------------*/
+/*----- anything slider style -----*/
+/*----------------------------------------*/
+
+/*--- Change width of #thumbNav according to number of slides (20px / slide) - Refer help document---*/
+#thumbNav {
+	width: 80px; /*80px as there are four slides*/
+	top: 373px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 99;
+}
+/*--- anything slider - slides typography ---*/
+.big_letter {
+	font-size: 60px;
+	color: #ffb400;
+	padding-bottom: 25px;
+	display: block;
+}
+.slide-1 h1 {
+	font-size: 22px;
+	color: #525f90;
+	margin-bottom: 0px;
+}
+.slide-1 span {
+	color: #ffb400;
+	padding-bottom: 20px;
+	display: block;
+}
+.slide-2 h1 {
+	font-size: 36px;
+	color: #525f90;
+	line-height: 1em;
+	margin-bottom: 20px;
+}
+.slide-2 h3 {
+	font-size: 18px;
+	color: #525f90;
+	margin-bottom: 0px;
+}
+.slide-3 h3 {
+	color: #525f90;
+}
+.slide-1 a:hover, .slide-2 a:hover, .slide-3 a:hover {
+	text-decoration: underline;
+}
+/*--- slide 1 ---*/
+.slide-1 {
+	background: url(../images/slide-1.png) no-repeat 0 0;
+	width: 940px;
+	height: 330px;
+	position: relative;
+	z-index: 9;
+}
+.circle1, .circle2, .circle3 {
+	width: 190px;
+	padding: 65px;
+	text-align: center;
+	z-index: 9;
+}
+.circle1 {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+.circle2 {
+	position: absolute;
+	top: 5px;
+	left: 310px;
+}
+.circle3 {
+	position: absolute;
+	top: 5px;
+	left: 610px;
+}
+/*--- slide 2 ---*/
+.slide-2 {
+	width: 380px;
+	padding-top: 60px;
+	float: left;
+	z-index: 9;
+}
+/*--- slide 3 ---*/
+.slide-3 {
+	width: 220px;
+	float: left;
+	padding-top: 80px;
+}
+.slide-3 ul.list3 li {
+	background: url(../images/bullets/bullet-3.png) no-repeat 0 3px !important;
+	padding-left: 25px;
+	margin-bottom: 7px;
+	list-style: none;
+	display: block;
+}
+/*----- other slider styles -----*/
+.anythingSlider {
+	width: 940px;
+	height: 330px;
+	padding-bottom: 50px !important;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+.anythingSlider .any_wrapper {
+	width: 940px;
+	height: 330px;
+	position: absolute;
+	overflow: auto;
+}
+.anythingSlider .any_wrapper ul {
+	width: 32700px;
+	position: absolute;
+	top: 0;
+	left: 30;
+	margin: 0;
+	list-style: none;
+}
+.anythingSlider ul li {
+	width: 940px;
+	height: 330px;
+	padding: 0;
+	margin: 0;
+	display: block;
+	float: left;
+}
+.anythingSlider ul li img {
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-o-border-radius: 0px;
+	border-radius:0px;
+}
+.anythingSlider .arrow {
+	background: url(../images/slider-arrows.png) no-repeat 0 0;
+	width: 23px;
+	height: 22px;
+	position: absolute;
+	bottom: -10px;
+	text-indent: -9999px;
+	display: block;
+	cursor: pointer !important;
+	z-index: 99;
+	background-color: #ffffff;
+}
+.anythingSlider .forward {
+	background-position: right 0;
+	right: 0px;
+	right: 360px;
+}
+.anythingSlider .back {
+	background-position: left 0;
+	left: 360px;
+}
+.anythingSlider .forward:hover {
+	background-position: right -22px;
+}
+.anythingSlider .back:hover {
+	background-position: left -22px;
+}
+#thumbNav a {
+	background: url(../images/pager.png) no-repeat 0 0;
+	width: 12px;
+	height: 13px;
+	padding: 0px;
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-indent: -9999px;
+	display: block;
+	float: left;
+	z-index: 99;
+}
+#thumbNav a.cur {
+	background:  url(../images/pager.png) no-repeat 0px -13px;
+	z-index: 99;
+}
+.anythingSlider .any_wrapper ul ul {
+	position: static;
+	margin: 0;
+	background: none;
+	overflow: visible;
+	width: auto;
+	border: 0;
+}
+.anythingSlider .any_wrapper ul ul li {
+	float: none;
+	height: auto;
+	width: auto;
+	background: none;
+}

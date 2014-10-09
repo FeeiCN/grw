@@ -1,0 +1,117 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <div class="right-sidebar">
+                            <ul class=nav>
+                                <li class="current">
+                                    <a href="#todo">
+                                    <span class="icon icon-check-empty"></span>
+                                        文档
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#completed_todo">
+                                        <span class="icon icon-check"></span>
+                                        代码
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#trash_todo">
+                                        <span class="icon icon-trash"></span>
+                                        文章
+                                    </a>
+                                </li>
+                            </ul>
+                            <form action="">
+                                <h3>
+                                    待办事件统计
+                                </h3>
+                                <div class="block">
+                                    
+                                </div>
+                            </form>
+                        </div>
+                         <section id="content" class="container_12 clearfix with-right-sidebar"
+                        data-sort=true>
+                            <h1 class="grid_12"><span>
+                                今日待办事项
+                            </span></h1>
+                        <div class="grid_12">
+                            <div class="grid_12">
+                                <div class="box">
+                                    <div class="header">
+                                        <h2>
+                                            文档列表    
+                                        </h2>
+                                        <a href="javascript:void(0);" class="menu icon-cog"></a>
+                                        <menu>
+                                            <a href="javascript:void(0);" class="open-add-todo-dialog">
+                                                <span class="icon icon-plus"></span>
+                                                添加事件或提醒
+                                            </a>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon icon-pencil"></div>
+                                                全部完成
+                                            </a>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon icon-remove"></div>
+                                                全部删除
+                                            </a>
+                                        </menu>
+                                        <a href="javascript:void(0);" class="menu2 icon-refresh" id="todo_refresh">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <table class="dynamic styled" data-filter-Bar="always" data-table-tools='{"display":false}'>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        序号
+                                                    </th>
+                                                    <th>
+                                                        名称
+                                                    </th>
+                                                    <th>
+                                                        链接
+                                                    </th>
+                                                    <th>
+                                                        标记
+                                                    </th>
+                                                    <th>
+                                                        操作
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        中国教育培训网
+                                                    </td>
+                                                    <td>
+                                                        http://www.chinajypx.com
+                                                    </td>
+                                                    <td class="center">
+                                                        XX
+                                                    </td>
+                                                    <td class="center">
+                                                        访问
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         <script type="text/javascript">
+                                $$.ready(function(){
+                                    
+                                });
+                         </script>
+                         </section>
+                    </div>
+                    {Fei:include file="Public/footer.html"}

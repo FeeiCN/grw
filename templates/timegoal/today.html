@@ -1,0 +1,820 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div class="dialog_add_tag" title="添加事件分类">
+        <form class="full validate no-box">
+            <div class="row">
+                <label for="tag_name">
+                    <strong>名称</strong>
+                </label>
+                <div>
+                    <input type="text" class="required" name="tag_name" placeholder="例：私人工作、公司工作、家庭等" />
+                </div>
+            </div>
+            <div class="row">
+                <label for="tag_icon">
+                    <strong>图标</strong>
+                </label>
+                <div>
+                    <input type="hidden" name="tag_icon" value="" />
+                    <button class="grey" id="select_tag_icon">选择图标</button>
+                </div>
+            </div>
+            <div class="row">
+                <label for="tag_icon">
+                    <strong>颜色</strong>
+                </label>
+                <div id="tag_color">
+                    <input type="hidden" name="tag_color" value="" />
+                    <span class="badge scolor blue light">浅</span>
+                    <span class="badge scolor blue">蓝</span>
+                    <span class="badge scolor blue dark">深</span>
+                    <span class="badge scolor green">绿</span>
+                    <span class="badge scolor orange">黄</span>
+                    <span class="badge scolor red">红</span>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="grey cancel">
+                    取消
+                </button>
+            </div>
+            <div class="right">
+                <button class="submit">
+                    添加
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="dialog_add_todo" title="添加代办事项">
+    <form action="" id="dialog_add_todo_form" class="full validate">
+        <div class="row">
+            <label for="todo_name">
+                <strong>
+                    事件名称
+                </strong>
+            </label>
+            <div>
+                <input class="required" type=text name=todo_name />
+            </div>
+        </div>
+        <div id="add_todo_content">
+        <div class="row">
+            <label for="todo_remark" class="tooltip" data-gravity="nw" original-title="备注可以为注意事项/工作摘要等">
+                <strong>
+                    事件备注
+                </strong>
+            </label>
+            <div>
+                <textarea rows="5" cols="" name="todo_remark"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <label for="todo_startime">
+                <strong>
+                    开始时间
+                </strong>
+            </label>
+            <div>
+                <input type="datetime" name="todo_startime">
+            </div>
+        </div>
+        <div class="row">
+            <label for="todo_endtime">
+                <strong>
+                    结束时间
+                </strong>
+            </label>
+            <div>
+                <input type="datetime" name="todo_endtime">
+            </div>
+        </div>
+        <div class="row">
+            <label for="todo_tags">
+                <strong>
+                     所属事件
+                </strong>
+            </label>
+            <div>
+                <select name="todo_tags" class="search required" data-placeholder="请选择所属事项" id="nimaa">
+                    
+                    {Fei:foreach from=$tagss item=tag}
+                            <option value="{Fei:$tag.tagid}">
+                            {Fei:$tag.name}
+                            </option>
+                    {Fei:/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <label for="todo_level" class="tooltip" data-gravity="nw" original-title="执行事件的优先级">
+                <strong>
+                    优先级&nbsp;&nbsp;&nbsp;&nbsp;
+                </strong>
+            </label>
+            <div>
+                <select name="todo_level" data-placeholder="请选择优先级">
+                    <option value="0">
+                        低
+                    </option>
+                    <option value="1">
+                        中
+                    </option>
+                    <option value="2">
+                        高
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    </form>
+    <div class="actions">
+        <div class="left">
+            <button class="grey cancel">
+                填写详细
+            </button>
+        </div>
+        <div class="right">
+            <button class="submit">
+                添加
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="dialog_icon" title="选择图标">
+            <div class="box">
+                <div class="content center-elements" id="tag_icon_demo">
+                    
+                </div>
+            </div>
+        </div>
+    <div class="right-sidebar">
+        <ul class=nav>
+            <li class="current">
+                <a href="#todo">
+                <span class="icon icon-check-empty"></span>
+                    代办事项
+                </a>
+            </li>
+            <li>
+                <a href="#completed_todo">
+                    <span class="icon icon-check"></span>
+                    已完成事项
+                </a>
+            </li>
+            <li>
+                <a href="#trash_todo">
+                    <span class="icon icon-trash"></span>
+                    垃圾箱
+                </a>
+            </li>
+        </ul>
+        <form action="">
+            <h3>
+                事件分类
+            </h3>
+            <div class="block" id="tag_lists">
+
+            </div>
+            <div class="block">
+                <div class="buttons">
+                    <a href="javascript:void(0);" class="button grey open_add_tag">
+                        添加一个分类
+                    </a>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <section id="content" class="container_12 clearfix with-right-sidebar"
+    data-sort=true>
+        {Fei:if $userid == 1}
+        <ul class="stats not-on-phone">
+            <li>
+                <strong>
+                    {Fei:$todos.todo + $todos.maybe}
+                </strong>
+                <small>
+                    总数
+                </small>
+            </li>
+            <li>
+                <strong>
+                    {Fei:$todos.todo}
+                </strong>
+                <small>
+                    待完成
+                </small>
+            </li>
+            <li>
+                <strong>
+                    {Fei:$todos.maybe}
+                </strong>
+                <small>
+                    将来或许
+                </small>
+            </li>
+        </ul>
+        {Fei:/if}
+        <div class="searchbox grid_12">
+            <input type="text" name="input_todo" autofocus="true" placeholder="快速记录已经发生过的事情(回车键添加)" x-webkit-speech>
+        </div>
+        <h1 class="grid_12" style="margin-top:10px;"><span>
+            今日待办事项
+        </span></h1>
+        <div class="vertical-tabs grid_12">
+        <div class="grid_12" id="todo"> 
+            <div class="box">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/calendar-select.png">
+                        待办事项
+                    </h2>
+                    <a href="javascript:void(0);" onclick="Todo.ad.dialog('open')" id="create_note" class="menu icon-pencil" title="添加待办事项"></a>
+                    </a>
+                </div>
+                <div class="accordion toggle">
+                    {Fei:if $tagss != null}
+                    <!-- Todo Lists -->
+                    {Fei:foreach from=$tagss item=tag}
+                    {Fei:$tag_count = 0}
+                    {Fei:$tag_count = $tag_count + $tag.total}
+                    {Fei:if $tag.total!=0}
+                    <h3>
+                        <a href="#">
+                            <span class="badge {Fei:$tag.icon}">
+                                <strong>{Fei:$tag.name}</strong> (<div style="display:inline" class="tag_{Fei:$tag.tagid}_2">{Fei:$tag.total}</div>项)
+                            </span>
+                        </a>
+                    </h3>
+                    <div>
+                        <div class="spacer"></div>
+                        <div class="messages full" id="todo_content_{Fei:$tag.tagid}">
+                        </div>
+                    </div>
+                    {Fei:/if}
+                    {Fei:/foreach}
+                    {Fei:if $tag_count == 0}
+                    <button href="javascript:void(0);" onclick="Todo.ad.dialog('open')" class="button grey block">
+                        <span class="icon icon-plus"></span>
+                        添加待办事项
+                    </button>
+                    {Fei:/if}
+                    <!-- END Todo Lists-->
+                    {Fei:else}
+                    <button href="javascript:void(0);" class="button grey block open_add_tag">
+                        <span class="icon icon-plus"></span>
+                        还没有添加分类事项，点击添加
+                    </button>
+                    {Fei:/if}
+                </div>
+                <div id="dialog_del_todo" title="删除提示！">
+                    <p>
+                        是否确定删除此栏目？
+                    </p>
+                    <div class="actions">
+                        <div class="left">
+                            <button class="grey cancel">
+                                取消
+                            </button>
+                        </div>
+                        <div class="right">
+                            <button class="submit">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="dialog_edit_todo" title="修改代办事项">
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid_12" id="completed_todo">
+        <div class="alert note">
+            <span class="icon"></span>
+            答应别人一件事，过了期限后你才想起来？
+        </div>
+            <div class="box" style="min-height: 600px">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/tick.png">
+                        已完成事项
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="spacer">
+                    </div>
+                    <div class="messages full" id="completed_todo_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <div class="grid_12" id="trash_todo">
+        <div class="alert note">
+            <span class="icon"></span>
+            答应别人一件事，过了期限后你才想起来？
+        </div>
+            <div class="box" style="min-height: 600px">
+                <div class="header">
+                    <h2>
+                        <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/cross-octagon-frame.png">
+                        垃圾箱
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="spacer">
+                    </div>
+                    <div class="messages full" id="trash_todo_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</div>
+<style type="text/css">
+    .scolor{
+        cursor:pointer;
+    }
+    /*消除图标对于accordion的白线影响*/
+    .ui-accordion .ui-accordion-header a {
+        display: block;
+        font-size: 1em;
+        padding: .4em .5em .3em .7em;
+    }
+    .ui-accordion .ui-accordion-header a span{
+        padding-left: 15px;
+    }
+    /* 消除搜索框百分百问题 */
+    #content > .searchbox {
+        width: 100%;
+    }
+    /*fixed search box margin-top*/
+    .searchbox:first-child{
+        margin-top:0px;
+    }
+    .ui-autocomplete-category {
+        font-weight: bold;
+        padding: .2em .4em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+    #tag_color{
+        padding-top:20px;
+    }
+</style>
+<script type="text/javascript">
+var Todo = {
+    url:"{Fei:FeiUrl('timegoal','today')}",
+    ad:$("#dialog_add_todo"),
+    dt:$("#dialog_del_todo"),
+    daction:null,
+    did:null,
+    init:function(){
+        $(".scolor").click(function(){
+            $(".scolor").css('border','none')
+            $(this).css('border','2px solid blue')
+        })
+        /* Sort todo for drag */
+        $(".messages").sortable({
+            cursor:'move',
+            helper:'clone'
+        })
+        $(".messages").disableSelection()
+        /* Input Autocomplete */
+        // var list = [
+        //   "#记录",
+        //   "@老婆"
+        // ];
+        // function split( val ) {
+        //   return val.split( / \s*/ );
+        // }
+        // function extractLast( term ) {
+        //   return split( term ).pop();
+        // }
+        // $("input[name=input_todo]").bind("keydown",function(event){
+        //     if(event.keyCode === $.ui.keyCode.TAB && $(this).data("ui-autocomplete").menu.active){
+        //         event.preventDefault()
+        //     }
+        // }).autocomplete({
+        //     minLength: 0,
+        //     source:function(request,response){
+        //       response($.ui.autocomplete.filter(
+        //         list, extractLast(request.term)))
+        //     },
+        //     focus: function(){
+        //       return false;
+        //     },
+        //     select: function(event,ui){
+        //       var terms = split(this.value)
+        //       terms.pop()
+        //       terms.push(ui.item.value)
+        //       terms.push("")
+        //       this.value = terms.join(" ")
+        //       return false
+        //     }
+        // });
+        /* Enter add todo */
+        var it = $('input[name=input_todo]')
+        it.bind('keydown',function(e){
+            var key = e.which
+            if (key == 13 && it.val().substr(-1,1) != ' ') {
+                e.stopPropagation();
+                $.post(Todo.url,{action:'add_todo_enter',value:it.val()},function(result){
+                    if(result.status == 'success'){
+                        it.val("")
+                        $.jGrowl('添加成功，可以在[收集汇总]里查看！',{header:'记录事项',theme:'wood'})
+                    }else if(result.status == 'error'){
+                        $.jGrowl('对不起！已完成事项添加失败！',{header:'已完成事项',theme:'wood'})
+                    }
+                },'json')
+            }
+        })
+        /* Color */
+        $("#tag_color").find('span').click(function(){
+            var tag_color = $(this).attr('class');
+            $('input[name=tag_color]').attr('value',tag_color);
+            console.log(tag_color);
+        });
+        /* intilize dialog */
+        var d_i = $('.dialog_icon');
+        d_i.dialog({
+            autoOpen:false,
+            modal: true,
+            width: 400
+        });
+        $("#add_todo_content").hide()
+        //Add Todo
+        Todo.ad.dialog({
+            autoOpen: false,
+            modal: true,
+            width: 400,
+            open: function() {
+                $(this).parent().css('overflow', 'visible');
+                $$.utils.forms.resize()
+            }
+        }).find('button.submit').click(function(){
+            var $el = $('#dialog_add_todo_form');
+            if ($el.validate().form()) {
+                var formdata = {
+                    'action':'add_todo',
+                    'name':$('input[name=todo_name]').val(),
+                    'remark':$('textarea[name=todo_remark]').val(),
+                    'startime':$('input[name=todo_startime]').val(),
+                    'endtime':$('input[name=todo_endtime]').val(),
+                    'level':$('select[name=todo_level]').val(),
+                    'tags':$('select[name=todo_tags]').val()
+                }
+                $.post(Todo.url,formdata,function(result){
+                    console.log(result);
+                    if(result.status =='success'){
+                        console.log('success');
+                        var $eld = Todo.ad;
+                        $eld.find('form')[0].reset();
+                        $eld.dialog('close');
+                        Todo.get();
+                        Todo.update_tag(result.back,'+');
+                    }else if(result.status =='error'){
+                        console.log('error');
+                        Todo.ad.dialog('close');//CLOSE
+                        $.jGrowl('对不起！待办事项添加失败！',{header:'待办事项',theme:'wood'});
+                    }
+                },'json');
+            }
+        }).end().find('button.cancel').click(function(){
+            //var $el = $(this).parents('.ui-dialog-content');
+            //$el.find('form')[0].reset();
+            //$el.dialog('close');;
+
+            /* Set default time */
+            var now = new Date();
+            var nowStr = now.format("yyyy-MM-dd hh:mm");
+            $('input[type=datetime]').val(nowStr)
+            if($("#add_todo_content").is(":hidden")){
+                $("#add_todo_content").show()
+                $(this).html('隐藏详细')
+            }else{
+                $("#add_todo_content").hide()
+                $(this).html("显示详细")
+            }
+        });
+        // Del todo
+        Todo.dt.dialog({
+            autoOpen: false
+        }).find('button.submit').click(function(){
+            if(Todo.daction == 'todo'){
+                var formdata = {
+                    'action':'del_todo',
+                    'doid':Todo.did
+                };
+                $.post(Todo.url,formdata,function(result){
+                    if(result.status == 'success'){
+                        Todo.get_trash();
+                        Todo.dt.dialog("close");
+                        $.jGrowl('删除成功！事件已成功删除至回收站！',{header:'待完成事项',theme:'wood'});
+                        Todo.update_tag(result.back,'-');
+                        $('#cancle_completed_button_'+Todo.did).parent().parent().slideToggle($$.config.fxSpeed);
+                        $('#completed_button_'+Todo.did).parent().parent().slideToggle($$.config.fxSpeed);
+                    }else if(result.status == 'error'){
+                        $.jGrowl('对不起！事件删除失败！',{header:'待完成事项',theme:'wood'});
+                        Todo.dt.dialog("close");
+                    }
+                },'json');
+            }else if(Todo.daction == 'tag'){
+                var postdata = {
+                    'tagid':Todo.did,
+                    'action':'del_tag'
+                }
+                $.post(Todo.url,postdata,function(result){
+                    if(result.status == 'success'){
+                        Todo.dt.dialog("close")
+                        Todo.get_tags()
+                        $.jGrowl('标签已经删除成功！',{header:'删除成功！',theme:'wood'})
+                    }else if(result.status == 'error'){
+                        Todo.dt.dialog("close")
+                        $.jGrowl('标签删除失败！',{header:'标签删除失败！',theme:'wood'})
+                    }
+                },'json');
+            }
+        }).end().find('button.cancel').click(function() {
+            Todo.dt.dialog("close");
+        })
+        // Add tag
+        var el = $('.dialog_add_tag');
+        el.dialog({
+            autoOpen:false,
+            modal:true,
+            width:400,
+            open: function(){
+                    $(this).parent().css('overflow', 'visible');
+                    $$.utils.forms.resize()
+                }
+        }).find('button.submit').click(function(){
+                var postdata = {
+                    'action':'add_tag',
+                    'name':$('input[name=tag_name]').val(),
+                    'icon':$('input[name=tag_color]').val() + ' '+$('input[name=tag_icon]').val()
+                }
+                $.post(Todo.url,postdata,function(result){
+                    if(result.status == 'success'){
+                        Todo.get_tags();
+                        el.find('form')[0].reset();
+                        el.dialog("close");
+                    }else if(result.status == 'error'){
+                        el.dialog("close");
+                    }
+                },'json');
+        }).end().find('button.cancel').click(function(){
+            el.dialog("close")
+        });
+        el.find('#select_tag_icon').click(function(){
+            console.log("in open")
+            $("#tag_icon_demo").load("http://www.grw.name/templates/timegoal/icon.html",function(){
+                $(".dialog_icon").dialog("open");
+                $("#tag_icon_demo").find('span').click(function(){
+                    var icon_name = $(this).attr('title');console.log(icon_name);
+                    $(".dialog_icon").dialog("close");
+                    $("#select_tag_icon").addClass(icon_name);
+                    $("input[name=tag_icon]").attr('value',icon_name);
+                    $("#select_tag_icon").text('  已选择图标');
+                })
+            });
+            return false;
+        });
+        $(".open_add_tag").click(function(){
+            $(".dialog_add_tag").dialog("open");
+            return false;
+        });
+    },
+    complete:function(doid){//Completed todo
+        var $bt = $('#completed_button_'+doid);
+        if($bt.find('span').hasClass('icon-check-empty')){
+            $bt.find('span').removeClass('icon-check-empty');
+            $bt.find('span').addClass('icon-check');
+            $bt.css('text-decoration',"line-through");
+            $bt.parent('.left').next('.content').css('text-decoration',"line-through");
+            var postdata = {
+                'action':'completed_todo',
+                'doid':doid
+            };
+            $.post(Todo.url,postdata,function(result){
+                if(result.status == 'success'){
+                    Todo.get_completed();
+                    Todo.update_tag(result.back,'-');
+                    $.jGrowl('标记完成！该事件已成功标记为完成！',{header:'已完成事项',theme:'wood'});
+                    $bt.parent().parent().slideToggle($$.config.fxSpeed);
+                }else if(result.status == 'error'){
+                    $.jGrowl('标记失败！该事件标记失败！',{header:'已完成事项',theme:'wood'});
+                }
+            },'json');
+        }else if($bt.find('span').hasClass('icon-check')){
+            $bt.find('span').removeClass('icon-check');
+            $bt.find('span').addClass('icon-check-empty');
+            $bt.css('text-decoration',"none");
+            $bt.parent('.left').next('.content').css('text-decoration',"none");
+            $.jGrowl('启用完成！成功启用该事项！',{header:'已完成事项',theme:'wood'});
+        }
+        return false
+    },
+    cancel_c:function(doid){
+        var $bt = $('#cancle_completed_button_'+doid);
+        var formdata = {
+                'action':'cancle_completed_todo',
+                'doid':doid
+            };
+        $.post(Todo.url,formdata,function(result){
+            if(result.status == 'success'){
+                Todo.get();
+                $bt.find('span').removeClass('icon-check-empty');
+                $bt.find('span').addClass('icon-check');
+                $bt.parent().parent().slideToggle($$.config.fxSpeed);
+                $.jGrowl('恢复成功！事件已成功恢复至待完成事件中！',{header:'已完成事项',theme:'wood'});
+                
+            }else if(result.status == 'error'){
+                $.jGrowl('对不起！事件恢复失败！',{header:'已完成事项',theme:'wood'});
+            }
+        },'json')
+        return false
+    },
+    del:function(doid){
+        Todo.daction = 'todo'
+        Todo.did = doid
+        Todo.dt.dialog("open");
+        return false
+    },
+    maybe:function(doid){
+        $.post(Todo.url,{action:'maybe_todo','doid':doid},function(result){
+            if(result.status == 'success'){
+                $('#completed_button_'+doid).parent().parent().slideToggle($$.config.fxSpeed);
+            }else if(result.status == 'error'){
+                $.jGrowl('对不起！事件移动至[将来或许]失败！',{header:'移动失败',theme:'wood'});
+            }
+        },'json')
+        return false
+    },
+    edit:function(doid){
+        console.log('in edit');
+        $('#dialog_edit_todo').dialog({
+            autoOpen: false,
+            modal: true,
+            width: 400,
+            open: function() {
+                $(this).parent().css('overflow', 'visible');
+                $$.utils.forms.resize()
+            }
+        });
+        var postdata = {
+            'action':'get_edit_todo_dialog',
+            'doid':doid
+        };
+        $('#dialog_edit_todo').load(Todo.url,postdata,function(){
+            $("input[type=datetime]").datetimepicker();
+            var g = $("select").not(".dualselects");
+            g.each(function(){
+                    var k=$(this);
+                    k.chosen({
+                            disable_search_threshold:k.hasClass("search")?0:Number.MAX_VALUE,allow_single_deselect:true,width:k.data("width")||"100%"
+                    })
+            });
+            $(".chzn-done").on("change",function(){
+                    var k=$(this).parents("form").validate();
+                    k&&k.element($(this))
+            }).each(function(){
+                    var l=$(this),k=l.parents("form");
+                    k.on("reset",function(){
+                            l[0].selectedIndex=-1;
+                            l.trigger("liszt:updated")
+                    });
+                    k.data("chzn-reset",true)
+            });
+            if(!Modernizr.touch){
+                    $("select.dualselects").dualselect()
+            }
+            //Edit Ajax
+            $('#dialog_edit_todo').dialog("open");
+            $("#dialog_edit_todo").find('button.submit').click(function(){
+                var formdata = {
+                    'action':'edit_todo',
+                    'doid':doid,
+                    'name':$('input[name=edit_todo_name]').val(),
+                    'remark':$('textarea[name=edit_todo_remark]').val(),
+                    'startime':$('input[name=edit_todo_startime]').val(),
+                    'endtime':$('input[name=edit_todo_endtime]').val(),
+                    'level':$('select[name=edit_todo_level]').val(),
+                    'repeats':$('select[name=edit_todo_repeats]').val(),
+                    'tags':$('select[name=edit_todo_tags]').val()
+                }
+                $.post(Todo.url,formdata,function(result){
+                    if(result.status == 'success'){
+                        Todo.get()
+                        Todo.get_completed()
+                        $("#dialog_edit_todo").dialog("close")
+                        //Update_tag(result.back,'-')//Validate tag is changed
+                        $.jGrowl('修改成功！事件已经成功修改！',{header:'事项',theme:'wood'})
+                    }else if(result.status == 'error'){
+                        $.jGrowl('对不起！修改事件失败！',{header:'事项',theme:'wood'})
+                        $("#dialog_edit_todo").dialog("close");
+                    }
+                },'json');
+            }).end().find('button.cancel').click(function() {
+                $("#dialog_edit_todo").dialog("close");
+            });
+        })
+        return false
+    },
+    cancel_t:function(doid){
+        var $bt = $('#cancle_trash_button_'+doid);
+        var formdata = {
+                'action':'cancle_trash_todo',
+                'doid':doid
+            };
+        $.post(Todo.url,formdata,function(result){
+            if(result.status == 'success'){
+                Todo.get();
+                $bt.find('span').removeClass('icon-check-empty');
+                $bt.find('span').addClass('icon-check');
+                $bt.parent().parent().slideToggle($$.config.fxSpeed);
+                $.jGrowl('恢复成功！事件已成功恢复至待完成事件中！',{header:'垃圾箱',theme:'wood'});
+
+            }else if(result.status == 'error'){
+                $.jGrowl('对不起！事件恢复失败！',{header:'垃圾箱',theme:'wood'});
+            }
+        },'json')
+        return false
+    },
+    del_tag:function(tagid){
+        Todo.daction = 'tag'
+        Todo.did = tagid
+        Todo.dt.dialog('open')
+        return false
+    },
+    get_tags:function(){
+        $("#tag_lists").load(Todo.url,{action:'get_tag_lists',get:'todo'},function(result){
+            //Tag hover
+            $('.m_b').hide()
+            $('.tag').hover(function(){
+                $('.m_b').hide()
+                $(this).children('.m_b').show()
+            })
+            $.jGrowl('标签加载完成',{header:'加载完成！',theme:'wood'});
+        });
+    },
+    update_tag:function(tagid,md){
+        var tg = $(".tag_" + tagid),tg2 = $(".tag_" + tagid + "_2"),nn = tg.text(),td = $("#todo_nums"),ttd = $("#todo_today_nums"),tdn = td.text(),ttdn = ttd.text();
+        if(md == '+'){  
+            tg.html(function(i,origText){
+                return parseInt(nn) + 1
+            });
+            tg2.html(function(i,origText){
+                return parseInt(nn) + 1
+            });
+            td.html(function(i,origText){
+                return parseInt(tdn) + 1
+            })
+            ttd.html(function(i,origText){
+                return parseInt(ttdn) + 1
+            })
+        }else if(md == '-'){
+            tg.html(function(i,origText){
+                return parseInt(nn) - 1
+            });
+            tg2.html(function(i,origText){
+                return parseInt(nn) - 1
+            });
+            td.html(function(i,origText){
+                return parseInt(tdn) - 1
+            })
+            ttd.html(function(i,origText){
+                return parseInt(ttdn) - 1
+            })
+        }
+    },
+    get:function(){
+        {Fei:foreach from=$tagss item=tag}
+        $('#todo_content_{Fei:$tag.tagid}').load(Todo.url,{action:'ajax_load_todo_content',tagid:{Fei:$tag.tagid}},function(result){
+            Grw.alert('待办事项','{Fei:$tag.name}数据加载完成！')
+        });
+        {Fei:/foreach}
+    },
+    get_completed:function(){
+        $('#completed_todo_content').load(Todo.url,{action:'ajax_load_completed_todo_content'},function(){
+            Grw.alert('已完成事项','数据加载完成!')
+        });
+    },
+    get_trash:function(){
+        $('#trash_todo_content').load(Todo.url,{action:'ajax_load_trash_todo_content'},function(){
+            Grw.alert('垃圾箱','数据加载完成!')
+        });
+    }
+}
+    Todo.init()
+    Todo.get_tags()
+    Todo.get()
+    Todo.get_completed()
+    Todo.get_trash()
+</script>
+{Fei:include file="Public/footer.html"}

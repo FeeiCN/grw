@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人网 - 我的网络家园！</title>
+<meta name="keywords" content="个人网，网络家园，个人事务管理，时间任务管理系统"/>
+<meta name="description" content="个人网 是中国最大的个人网络家园平台。用户可以在里面管理个人代办事项TODO管理，时间任务管理，人际关系管理，个人财务管理等为一体的个人管理系统。" />
+<link href="{Fei:$STATICS}css/style.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}css/ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}css/ie8.css" /><![endif]-->
+<link href="{Fei:$STATICS}fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+<!--slidercss-->
+<link rel="stylesheet" href="{Fei:$STATICS}css/basic-jquery-slider.css" />
+<script src="{Fei:$STATICS}js/jquery-1.6.2.min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/pie.js" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/custom.js"></script>
+<style type="text/css">
+ul.bjqs h1, ol.bjqs-markers li a, #client_speek .first_testi .testi_bg, #client_speek .second_testi .testi_bg, #client_speek .third_testi .testi_bg {
+	behavior: url("js/PIE.htc") !important;
+}
+#ServiceHeader2, #ServiceHeader3, #ServiceHeader4 {
+	display:none;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+/* Hide form input values on focus*/
+$('input:text').each(function(){
+var txtval = $(this).val();
+$(this).focus(function(){
+if($(this).val() == txtval){
+$(this).val('')
+}
+});
+$(this).blur(function(){
+if($(this).val() == ""){
+$(this).val(txtval);
+}
+});
+});
+});
+</script>
+
+</head>
+
+<body>
+<!--Header Start Here-->
+<div id="header">
+  {Fei:include file="header.html"}
+  <!--Top Header End Here-->
+  <div id="logo_nav">
+    <div class="bg">
+      <div class="center_frame"> 
+        <!--Logo And Navigation Start Here-->
+        {Fei:include file="menu.html"}
+        <!--Logo And Navigation End Here--> 
+        <!--CHANGE ONLY THIS PART HERE--> 
+        
+        <!--Services Top Start Here -->
+        <div id="services">
+          <h1>We provide many services besides Project 84</h1>
+          <div id="service_besides">
+            <div class="icon_center">
+              <div class="services_icon"> <img src="{Fei:$STATICS}images/menu-hover.png" class="hoverimage" alt="" border="0" usemap="#Map"  />
+                <map name="Map" id="Map">
+                  <area shape="poly" id="area-1" coords="159,35,96,95,158,155,174,139,182,118,183,97,183,78,180,62,173,48" href="#" alt="" />
+                  <area shape="poly" id="area-2" coords="95,101,153,158,133,173,117,181,103,181,84,183,70,181,59,177,45,172,40,165,35,159,35,159" href="#" alt="" />
+                  <area shape="poly" id="area-3" coords="94,98,31,159,13,129,5,99,8,72,18,50,30,37,33,33" href="#" alt="" />
+                  <area shape="poly" id="area-4" coords="96,93,34,32,51,16,77,9,95,10,110,10,128,19,144,27,157,33" href="#" alt="" />
+                </map>
+              </div>
+              <!--Changeable Divs on hover START-->
+              <div class="service_header_text" id="ServiceHeader1">
+                <h6>App developer</h6>
+                <p>We've been working with Apple for the last year and we're very pleased with our collaboration. This Thursday we signed yet another contract to develop more award winning apps for and with them.<br />
+                  <br />
+                  We're also available for private projects so please don't hesistate to contact us.</p>
+              </div>
+              <div class="service_header_text" id="ServiceHeader2">
+                <h6>App developer</h6>
+                <p>We've been working with Apple for the last year and we're very pleased with our collaboration. This Thursday we signed yet another contract to develop more award winning apps for and with them.<br />
+                  <br />
+                  We're also available for private projects so please don't hesistate to contact us.</p>
+              </div>
+              <div class="service_header_text" id="ServiceHeader3">
+                <h6>App developer</h6>
+                <p>We've been working with Apple for the last year and we're very pleased with our collaboration. This Thursday we signed yet another contract to develop more award winning apps for and with them.<br />
+                  <br />
+                  We're also available for private projects so please don't hesistate to contact us.</p>
+              </div>
+              <div class="service_header_text" id="ServiceHeader4">
+                <h6>App developer</h6>
+                <p>We've been working with Apple for the last year and we're very pleased with our collaboration. This Thursday we signed yet another contract to develop more award winning apps for and with them.<br />
+                  <br />
+                  We're also available for private projects so please don't hesistate to contact us.</p>
+              </div>
+              <!--Changeable Divs on hover END--> 
+            </div>
+          </div>
+        </div>
+        <!--Services Top Start Here --> 
+        <!--CHANGE ONLY UPERE PART IN INNER PAGES--> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--Header End Here--> 
+<!--slider start here--> 
+
+<!--Wrapper Start Here-->
+<div id="wrapper"><!--Top Wrapper End Here--> 
+  <!--Main Contant Start Here-->
+  <div id="main_contant"> 
+    <!--Change Inner Page Here-->
+    <div id="service_pricing">
+      <div class="center_frame">
+        <div id="service_details"> 
+          <!--First Div -->
+          <div class="service_details"> <img src="{Fei:$STATICS}images/serivice_brush.png" alt="" />
+            <h6>Graphic services</h6>
+            <ul>
+              <li><strong>Website design</strong><em>Wordpress, CMS, PSD templates &amp; eCommerce</em></li>
+              <li><strong>Logotypes</strong><em>The first 2 revisions are free</em></li>
+              <li><strong>Flyers &amp; posters</strong><em>We use all the standard sizes - easy to print</em></li>
+            </ul>
+            <span>&#36;150 USD per hour <img src="{Fei:$STATICS}images/service_sep_1.png" alt=""  /> </span> <a href="#" class="button_service">LET'S GET STARTED</a> </div>
+          <!--Second Div-->
+          <div class="service_details"> <img src="{Fei:$STATICS}images/service_travel.png" alt="" />
+            <h6>Travel services</h6>
+            <ul>
+              <li><strong>Around the world</strong><em>Travel around the world in 8 countries</em></li>
+              <li><strong>Charter tours</strong><em>Travel on a big boat</em></li>
+              <li><strong>Interrail</strong><em>Visit all of Europe by train</em></li>
+            </ul>
+            <span>Contact us for prices <img src="{Fei:$STATICS}images/service_sep_1.png" alt=""  /> </span> <a href="#" class="button_service">I WANT TO TRAVEL</a> </div>
+          <!--Thired Div-->
+          <div class="service_details"> <img src="{Fei:$STATICS}images/service_app.png" alt="" />
+            <h6>App services</h6>
+            <ul>
+              <li><strong>Planning</strong><em>First we resserach and plan your app</em></li>
+              <li><strong>Designing</strong><em>We then start working on the design</em></li>
+              <li><strong>Implementing</strong><em>Then we code it and publish it</em></li>
+            </ul>
+            <span>&#36;200 USD per hour <img src="{Fei:$STATICS}images/service_sep_1.png" alt=""  /> </span> <a href="#" class="button_service">DEVELOP MY APP</a> </div>
+          <!--Change Before Here--> 
+        </div>
+      </div>
+    </div>
+    <!--Change Inner Page Before--> 
+    <!--Testimonal Start Here-->
+    <div id="testimonal">
+      <div class="center_frame">
+        <h1>客户评价</h1>
+        <div class="test_title"> <img src="{Fei:$STATICS}images/service_seprater.png" alt=""  />
+          <p>个人网因其优越性获得了各界人士的一致好评，以下选取一部分客户评价！</p>
+          <img src="{Fei:$STATICS}images/service_seprater.png" alt=""  /> </div>
+        <!-- Client Speek Start here-->
+        <div id="client_speek"> 
+          <!--First Client-->
+          <div class="first_testi">
+            <div class="testi_bg">
+              <ul>
+                <li>
+                  <p> 这是我用过最好的免费产品了，它帮助我规划了时间，让我和之前整个生活工作状态有了极大的转变，谢谢！</p>
+                  <div class="client_name"> <strong>马秀利</strong> <span>蓝登财经 总经理</span> </div>
+                </li>
+              </ul>
+            </div>
+            <img src="{Fei:$STATICS}images/service_testi_bottom_arrow.png" alt=""  /> </div>
+          <!--Second Client-->
+          <div class="second_testi">
+            <div class="testi_bg">
+              <ul>
+                <li>
+                  <p>每天对着电脑的我总想找个网络家，能让我写写自己开心或不开心的事，QQ空间太多人看到让我什么都不敢写，我需要的是一个博客，但是却不对外的开放的博客，但又需要一个别人能看得到的网站。于是不经意间，我发现了个人网，它满足了我所有的需求，还能帮助我管理我的个人事务。而且功能可以自己随便选，并且还是免费的。我实在太喜欢这个了！</p>
+                  <div class="client_name"> <strong>陈姜汝</strong> <span>民航学院行政主管</span> </div>
+                </li>
+              </ul>
+            </div>
+            <img src="{Fei:$STATICS}images/service_testi_bottom_arrow.png" alt=""  /> </div>
+          <!--Third Client-->
+          <div class="third_testi">
+            <div class="testi_bg">
+              <ul>
+                <li>
+                  <p>经朋友介绍使用的，我本人就是做程序的，看到这个网站时我肯定的讲这是国外公司做的，但结果居然是我们国人做的，各方面居然能做的这么好。不管是设计还是前端还是用户体验都非常的棒，实在难以相信能做的这么好！</p>
+                  <div class="client_name"> <strong>熊寿长</strong> <span>博彩网络科技有限公司</span> </div>
+                </li>
+              </ul>
+            </div>
+            <img src="{Fei:$STATICS}images/service_testi_bottom_arrow.png" alt=""  /> </div>
+        </div>
+        <!-- Client Speek End here--> 
+      </div>
+    </div>
+    <!--Testimonal End Here--> 
+  </div>
+  <!-- Main Contant End Here --> 
+</div>
+<!--Wrapper End Here-->
+{Fei:include file="footer.html"}
+<script  type='text/javascript'>
+$(function() {
+    $("#area-1").mouseover(function() {
+            var hoverimg = "{Fei:$STATICS}images/menu-hover1.png";
+			$(".hoverimage").attr("src", hoverimg); 
+			
+			$("#ServiceHeader1").hide(); 
+			$("#ServiceHeader2").hide(); 
+			$("#ServiceHeader3").hide(); 
+			$("#ServiceHeader4").hide(); 
+			
+			$("#ServiceHeader1").show("slow"); 
+			
+			           
+        })
+        .mouseout(function() {
+            $(".hoverimage").attr("src", "{Fei:$STATICS}images/menu-hover.png");
+        });
+		
+		 $("#area-2").mouseover(function() {
+            var hoverimg = "{Fei:$STATICS}images/menu-hover2.png";
+			$(".hoverimage").attr("src", hoverimg); 
+			
+			$("#ServiceHeader1").hide(); 
+			$("#ServiceHeader2").hide(); 
+			$("#ServiceHeader3").hide(); 
+			$("#ServiceHeader4").hide(); 
+			
+			$("#ServiceHeader2").show("slow");            
+        })
+        .mouseout(function() {
+            $(".hoverimage").attr("src", "{Fei:$STATICS}images/menu-hover.png");
+        });
+		$("#area-3").mouseover(function() {
+            var hoverimg = "{Fei:$STATICS}images/menu-hover3.png";
+			$(".hoverimage").attr("src", hoverimg);            
+			$("#ServiceHeader1").hide(); 
+			$("#ServiceHeader2").hide(); 
+			$("#ServiceHeader3").hide(); 
+			$("#ServiceHeader4").hide(); 
+			
+			$("#ServiceHeader3").show("slow"); 
+        })
+        .mouseout(function() {
+            $(".hoverimage").attr("src", "{Fei:$STATICS}images/menu-hover.png");
+        });
+		  $("#area-4").mouseover(function() {
+            var hoverimg = "{Fei:$STATICS}images/menu-hover4.png";
+			$(".hoverimage").attr("src", hoverimg);            
+			$("#ServiceHeader1").hide(); 
+			$("#ServiceHeader2").hide(); 
+			$("#ServiceHeader3").hide(); 
+			$("#ServiceHeader4").hide(); 
+			
+			$("#ServiceHeader4").show("slow"); 
+        })
+        .mouseout(function() {
+            $(".hoverimage").attr("src", "{Fei:$STATICS}images/menu-hover.png");
+        });
+});
+</script>
+</body>
+</html>

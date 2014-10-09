@@ -1,0 +1,179 @@
+/*========================== Tab Css Start Here======================*/
+#tab-wrapper {
+	float:left;
+	width:100%;
+	margin-top:50px;
+}
+.tab_container {
+	float:left;
+	width:100%;
+}
+.tab_content {
+	float:left;
+}
+.tab_content img {
+	float:left;
+}
+.tab_right_side {
+	float: right;
+	width: 50%;
+}
+.tab_right_side h1 {
+	color: #101010;
+	float: left;
+	font-family: 'existence_lightregular';
+	font-size: 45px;
+}
+.tab_right_side h6 {
+	color: #000000;
+	float: left;
+	font-family: 'myriad_pro_lightbold';
+	font-size: 18px;
+	margin: 10px 0;
+	width: 480px;
+}
+.tab_right_side p {
+	color: #515151;
+	float: left;
+	font-family: "myriad Pro";
+	font-size: 14px;
+	line-height: 23px;
+	text-align: justify;
+	width: 470px;
+}
+/*=================================Tab Menu Css========================================*/
+.tab-header {
+	float:left;
+	width:100%;
+}
+ul.tabs {
+	float: left;
+	height: 150px;
+	margin-top: 8px;
+	overflow: hidden;
+	position: absolute;
+	width: 960px;
+	z-index: 100;
+}
+ul.tabs li {
+	float: left;
+	height: 150px;
+	margin: 0 10px;
+	width: 140px;
+}
+ul.tabs li.sef1 {
+	background-image: url("../images/safety1.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li.sef2 {
+	background-image: url("../images/safety2.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li.sef3 {
+	background-image: url("../images/safety3.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li.sef4 {
+	background-image: url("../images/safety4.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li.sef5 {
+	background-image: url("../images/safety5.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li.sef6 {
+	background-image: url("../images/safety6.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li a.active {
+	background-image: url("../images/safety1-hover.png");
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 150px;
+	width: 140px;
+}
+ul.tabs li a {
+	border-right: 0 none;
+	color: #8F8F8F;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 14px;
+	height: 150px;
+	line-height: 35px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 140px;
+}
+ul.tabs li a strong {
+	border-right: 0 none;
+	color: #8F8F8F;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 14px;
+	font-weight: normal;
+	height: 150px;
+	line-height: 35px;
+	margin-top: 100px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 140px;
+}
+ul.tabs li.sef1.active {
+	float:left;
+	background-image:url(../images/safety1-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}
+ul.tabs li.sef2.active {
+	float:left;
+	background-image:url(../images/safety2-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}
+ul.tabs li.sef3.active {
+	float:left;
+	background-image:url(../images/safety3-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}
+ul.tabs li.sef4.active {
+	float:left;
+	background-image:url(../images/safety4-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}
+ul.tabs li.sef5.active {
+	float:left;
+	background-image:url(../images/safety5-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}
+ul.tabs li.sef6.active {
+	float:left;
+	background-image:url(../images/safety6-hover.png);
+	background-position:-0 top;
+	background-repeat:no-repeat;
+}

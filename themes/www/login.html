@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人网 - 我的网络家园！</title>
+<meta name="keywords" content="个人网，网络家园，个人事务管理，时间任务管理系统"/>
+<meta name="description" content="个人网 是中国最大的个人网络家园平台。用户可以在里面管理个人代办事项TODO管理，时间任务管理，人际关系管理，个人财务管理等为一体的个人管理系统。" />
+<link href="{Fei:$STATICS}css/style.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}{Fei:$STATICS}css/ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}css/ie8.css" /><![endif]-->
+<link href="{Fei:$STATICS}fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+<!--slidercss-->
+<link rel="stylesheet" href="{Fei:$STATICS}css/basic-jquery-slider.css" />
+<script src="{Fei:$STATICS}js/jquery-1.6.2.min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/custom.js" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/input.js" language="javascript"></script>
+<style type="text/css">
+ul.bjqs h1, ol.bjqs-markers li a {
+	behavior: url("js/PIE.htc") !important;
+}
+</style>
+
+
+</head>
+
+<body>
+<!--Header Start Here-->
+<div id="header">
+  {Fei:include file="header.html"}
+  <!--Top Header End Here-->
+  <div id="logo_nav">
+    <div class="bg">
+      <div class="center_frame"> 
+        <!--Logo And Navigation Start Here-->
+        {Fei:include file="menu.html"}
+        <!--Logo And Navigation End Here--> 
+        <!--CHANGE ONLY THIS PART HERE--> 
+        
+        <!--Project Top Start Here -->
+        <div id="login_detail">
+          <form action="/admin.php?c=Grw&a=login" method="post" >
+            <h6>登录</h6>
+            <input type="text" name="username" value="" placeholder="请输入用户名" class="input_1" />
+            <input type="password" name="password" value="" placeholder="请输入密码" class="input_2"  />
+            <input type="submit" name="submit" value=""  />
+            <a href="#" class="forget">忘记密码了?</a> <a href="#" class="not_yet">没有帐号?立即注册</a>
+          </form>
+        </div>
+        <!--Project Top Start Here --> 
+        <!--CHANGE ONLY UPERE PART IN INNER PAGES--> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--Header End Here--> 
+<!--slider start here--> 
+
+<!--Wrapper Start Here-->
+<div id="wrapper"><!--Top Wrapper End Here--> 
+  <!--Main Contant Start Here-->
+  <div id="main_contant">
+    <div class="center_frame"></div>
+  </div>
+  <!-- Main Contant End Here --> 
+</div>
+<!--Wrapper End Here-->
+{Fei:include file="footer.html"}
+</body>
+</html>

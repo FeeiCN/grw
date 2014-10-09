@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+        <title>You - Personal vCard Template</title>
+        <link href="{Fei:$PATH}css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/typo.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/layout.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/ui.totop.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/colorbox.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/mosaic.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/jpreloader.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/tip-twitter.css" rel="stylesheet" type="text/css" />
+        <link href="{Fei:$PATH}css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+        <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'> -->
+        <link href="{Fei:$PATH}demo/demo.css?v=1.31" rel="stylesheet" type="text/css" />
+        <link id="color" href="" rel="stylesheet" type="text/css" />
+        <!--[if IE 8]>
+        <link href="{Fei:$PATH}css/layout-ie8.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+</head>
+    <body>
+        <div id="colorsPreview">
+            <ul id="colors">
+                <li>
+                    <a href="javascript:;" id="blue"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="grey"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="green"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="orange"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="red"></a>
+                </li>
+            </ul>
+            <ul id="bgs">
+                <li>
+                    <a href="javascript:;" id="bg1"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="bg2"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="bg3"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="bg4"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="bg5"></a>
+                </li>
+            </ul>
+        </div>
+        <div id="panelButton" title="Show / Hide Config Panel">
+            <img src="{Fei:$PATH}demo/config-icon.gif" />
+        </div>
+        <div id="purchaseButton">
+            <a href="http://themeforest.net/item/you-personal-vcard-template/2611846?ref=UXbarn" title="Purchase this template"><img src="{Fei:$PATH}demo/shoppingcart2.png" /> <span>Purchase</span> </a>
+        </div>
+        <!-- Root container for all elements -->
+        <div id="rootContainer">
+            <div id="rootContainerLayer">
+
+                <img id="ie8Corner" src="{Fei:$PATH}images/ie8-bg.png" />
+
+                <!-- Home page -->
+                <div id="homePage">
+
+                    <!-- Your name and position -->
+                    <h1>{Fei:$name}</h1>
+                    <h2>{Fei:$position}</h2>
+
+                    <!-- Home introduction paragraph -->
+                    <p id="intro">
+                        {Fei:$description}
+                    </p>
+
+                    <!-- Social network icons -->
+                    <ul id="socialIcons">
+                        <li>
+                            <a href="javascript:;"><img id="facebookIcon" src="{Fei:$PATH}images/social/Facebook.png" title="Find me on Facebook" /></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img id="googlePlusIcon" src="{Fei:$PATH}images/social/Google.png" title="Find me on Google+" /></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img id="linkedInIcon" src="{Fei:$PATH}images/social/Linkedin.png" title="Find me on Linked In" /></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img id="twitterIcon" src="{Fei:$PATH}images/social/Twitter.png" title=" Find me on Twitter" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Your photo -->
+                <div id="photoBox">
+                    <img id="photo" src="{Fei:$PATH}images/p-blue.jpg" />
+                </div>
+
+                <!-- Navigation menu -->
+                <div id="navBox">
+                    <ul id="nav">
+                        <li id="homeItem" class="activeMenu">
+                            <a id="homeLink" class="activeMenu" href="javascript:;">首页</a>
+                        </li>
+                        <li id="profileItem">
+                            <a id="profileLink" href="javascript:;">个人信息</a>
+                        </li>
+                        <li id="portfolioItem">
+                            <a id="portfolioLink" href="javascript:;">作品案例</a>
+                        </li>
+                        <li id="contactItem">
+                            <a id="contactLink" href="javascript:;">联系方式</a>
+                        </li>
+                    </ul>
+                    <div id="navActivator"></div>
+
+                    <!-- Sliding pointers -->
+                    <div id="navPointer"></div>
+                    <div id="navPointerShadow"></div>
+                </div>
+
+                <!-- Profile page -->
+                <div id="profilePage">
+
+                    <!-- Skills panel -->
+                    <div id="skills">
+
+                        <!-- Skill box for Programming Skills -->
+                        <div class="skillBox">
+                            <h3>技能特长</h3>
+                            <ul>
+                                {Fei:foreach from=$skills item=skill}
+                                <li>
+                                    <label>{Fei:$skill.name}</label>
+                                    <span class="skillBar"><span class="skillScoreWrapper"><span style="width: {Fei:$skill.level}%"></span></span></span>
+                                </li>
+                                {Fei:/foreach}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experiences panel -->
+                    <div id="experiences">
+
+                        <!-- Experience box for works -->
+                        <div class="expBox">
+                            <h3>职业经历</h3>
+                            <ul>
+                                {Fei:foreach from=$works item=work}
+                                <li>
+                                    <h4>{Fei:$work.company}, {Fei:$work.startime} - {Fei:$endtime}</h4>
+                                    <h5>{Fei:$work.position}</h5>
+                                    <p>
+                                        {Fei:$work.description}
+                                    </p>
+                                </li>
+                                {Fei:/foreach}
+                            </ul>
+                        </div>
+
+                        <!-- Experience box for education -->
+                        <div class="expBox">
+                            <h3>教育经历</h3>
+                            <ul>
+                                {Fei:foreach from=educations item=education}
+                                <li>
+                                    <h4>{Fei:$education.school}, {Fei:$education.startime} - {Fei:$education.endtime}</h4>
+                                    <h5>Master's Degree, Faculty of Software Engineering</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                </li>
+                                {Fei:/foreach}
+                            </ul>
+                        </div>
+
+                        <!-- Download box -->
+                        <div class="expBox">
+                            <h3>Download</h3>
+                            <ul class="profileDownload">
+                                <li>
+                                    <a href="javascript:;">vCard</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">Resume (PDF format)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio page -->
+                <div id="portfolioPage" class="hide">
+
+                    <!-- Portfolio category for Website Development  -->
+                    <div class="portfolioCategory">
+                        <h3>Website Development</h3>
+
+                        <!-- Items of Website Development -->
+                        <ul class="portfolioItems">
+                            <li>
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="Interactive Website" href="{Fei:$PATH}images/portfolio/port1-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port1.jpg" alt="Interactive Website" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>Interactive Website</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                    <p class="website">
+                                        <a class="link" href="#">www.anywebsite.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="Colorful Website" href="{Fei:$PATH}images/portfolio/port2-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port2.jpg" alt="Colorful Website" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>Colorful Website</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                    <p class="website">
+                                        <a class="link" href="#">www.anywebsite.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="lastItem">
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="Elegant Website" href="{Fei:$PATH}images/portfolio/port3-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port3.jpg" alt="Elegant Website" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>Elegant Website</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                    <p class="website">
+                                        <a class="link" href="#">www.anywebsite.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="Black Magazine Portal" href="{Fei:$PATH}images/portfolio/port-new1-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port-new1.jpg" alt="Black Magazine Portal" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>Black Magazine Portal</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                    <p class="website">
+                                        <a class="link" href="#">www.anywebsite.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="The BOX" href="{Fei:$PATH}images/portfolio/port-new2-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port-new2.jpg" alt="The BOX" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>The BOX</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                    <p class="website">
+                                        <a class="link" href="#">www.anywebsite.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="blank"></li>
+                        </ul>
+                    </div>
+
+                    <!-- Portfolio category for Graphic Designs and Video Production  -->
+                    <div class="portfolioCategory">
+                        <h3>Graphic Designs &amp; Video Production</h3>
+
+                        <!-- Items of Graphic and Video -->
+                        <ul class="portfolioItems">
+                            <li>
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox mosaic-overlay" title="3D Objects Design" href="{Fei:$PATH}images/portfolio/port4-full.jpg"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port4.jpg" alt="3D Objects Design" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>3D Objects Design</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="lastItem">
+                                <div class="mosaic-block circle">
+                                    <a class="portfolioBox youtube mosaic-overlay" title="Video Production" href="http://www.youtube.com/embed/c9MnSeYYtYY"></a>
+                                    <div class="mosaic-backdrop">
+                                        <img src="{Fei:$PATH}images/portfolio/port5.jpg" alt="Video Production" />
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h4>Video Production</h4>
+                                    <h5>Client Company</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="blank"></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact page -->
+                <div id="contactPage" class="hide">
+
+                    <!-- Google map -->
+                    <div id="googleMap"></div>
+
+                    <!-- Contact info -->
+                    <div id="contactInfo">
+                        <h3>Contact Info</h3>
+                        <p id="address" class="address"></p>
+                        <p class="phone">
+                            +123 456 789 077
+                        </p>
+                        <p class="email">
+                            <span><a href="#" class="link"><span class="__cf_email__" data-cfemail="355b54585075584c58545c591b565a58">[email&nbsp;protected]</span>
+                            <script type="text/javascript">
+                            /* <![CDATA[ */
+                            (function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+                            /* ]]> */
+                            </script></a></span>
+                        </p>
+                        <p class="website">
+                            <span><a href="#" class="link">www.personal.com</a></span>
+                            <span><a href="#" class="link">www.uxdevelopment123.com</a></span>
+                        </p>
+                    </div>
+
+                    <!-- Contact form -->
+                    <div id="contactForm">
+                        <h3>Message Form</h3>
+                        <form id="msgForm" name="msgForm" action="">
+                            <p>
+                                <label for="name" class="label">Your Name:</label>
+                                <input id="name" type="text" class="validate[required]" name="name" />
+                            </p>
+                            <p>
+                                <label for="email" class="label">Your Email:</label>
+                                <input id="email" type="text" class="validate[required,custom[email]]" name="email" />
+                            </p>
+                            <p>
+                                <label for="message" class="label">Message:</label>
+                                <textarea id="message" class="validate[required]" name="message" cols="28" rows="3"></textarea>
+                            </p>
+                            <p>
+                                <input id="sendButton" type="submit" name="Send" value="Send" />
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <p id="copyright">
+            <span>Copyright &copy; 2004-2012 <a href="">Feei.</a> All Rights Reserved</span>
+        </p>
+
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jpreLoader.min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.color.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.poshytip.min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.ui.totop.min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.colorbox-min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/mosaic.1.0.1.min.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.validationEngine.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/jquery.validationEngine-en.js"></script>
+        <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+        <script type="text/javascript" src="{Fei:$PATH}scripts/config.js"></script>
+        <script type="text/javascript" src="{Fei:$PATH}scripts/custom.js?v=1"></script>
+        <script type="text/javascript" src="{Fei:$PATH}demo/demo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,288 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <div id="dialog_add_acl" title="添加栏目权限">
+                        <form action="" id="dialog_add_acl_form" class="full validate">
+                            <div class="row">
+                                <label for="acl_name">
+                                    <strong>
+                                        名称
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input class="required" type=text name=acl_name />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="acl_controller">
+                                    <strong>
+                                        控制器
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input class="required" type=text name=acl_controller />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="acl_action">
+                                    <strong>
+                                        方法
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input class="required" type=text name=acl_action />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="acl_acl_name">
+                                    <strong>
+                                        权限
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input type="radio" name="acl_name2" id="f4_rb1" value="Fei_Admin" checked>
+                                    <label for="f4_rb1">管理员</label>
+                                    <input type="radio" name="acl_name2" id="f4_rb2" value="Fei_Any">
+                                    <label for="f4_rb1">任何人</label>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="actions">
+                            <div class="left">
+                                <button class="grey cancel">
+                                    取消
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="submit">
+                                    添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                        <script>
+                            $$.ready(function() {
+                                $("#dialog_add_acl").dialog({
+                                    autoOpen: false,
+                                    modal: true,
+                                    width: 400,
+                                    open: function() {
+                                        $(this).parent().css('overflow', 'visible');
+                                        $$.utils.forms.resize()
+                                    }
+                                }).find('button.submit').click(function() {
+                                    var $el = $('#dialog_add_acl_form');
+                                    if ($el.validate().form()) {
+                                        var formdata = {
+                                            'acl_action':'add',
+                                            'name':$('input[name=acl_name]').val(),
+                                            'controller':$('input[name=acl_controller]').val(),
+                                            'action':$('input[name=acl_action]').val(),
+                                            'acl_name':$('input[name=acl_name2]').val()
+                                        }
+                                        $.post('{Fei:FeiUrl('setting','permission')}',formdata,function(result){
+                                            if(result=='success'){
+                                                $.jGrowl('恭喜你！<br />栏目已成功添加！');
+                                                console.log('success');
+                                                location.reload();
+                                            }else if(result=='error'){
+                                                console.log('error');
+                                                $.jGrowl('对不起！<br />栏目添加失败！');
+                                            }
+                                            $(this).parents('.ui-dialog-content').dialog('close');//CLOSE
+                                        });
+                                        
+                                        
+                                    }
+                                }).end().find('button.cancel').click(function() {
+                                    var $el = $(this).parents('.ui-dialog-content');
+                                    $el.find('form')[0].reset();
+                                    $el.dialog('close');;
+                                });
+
+                                $(".open-add-acl-dialog").click(function() {
+                                    $("#dialog_add_acl").dialog("open");
+                                    return false;
+                                });
+                            });
+                        </script>
+                        <div class="right-sidebar">
+                            <form action="">
+                                <h3>
+                                    Contact
+                                </h3>
+                                <div class="block">
+                                    <div>
+                                        <input type="checkbox" name=s_inperson id=s_inperson />
+                                        <label for="s_inperson">
+                                            In Person
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name=s_skype id=s_skype />
+                                        <label for="s_skype">
+                                            Skype
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name=s_phone id=s_phone />
+                                        <label for="s_phone">
+                                            Phone
+                                        </label>
+                                    </div>
+                                </div>
+                                <h3>
+                                    Hourly Rate
+                                </h3>
+                                <div class="block">
+                                    <div>
+                                        <div class="left">
+                                            $10
+                                        </div>
+                                        <div class="right">
+                                            $500+
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                        <input data-type="range" data-min=10 data-max=500 data-step=10 data-range="[10,400]"
+                                        data-pattern="$%n" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <section id="content" class="container_12 clearfix with-right-sidebar"
+                        data-sort=true>
+                            <h1 class="grid_12"><span>
+                                功能权限设置
+                            </span></h1>
+                            <div class="grid_12">
+                                <div class="box with-table">
+                                    <div class="header">
+                                        <h2>
+                                            后台栏目列表
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="tabletools">
+                                            <div class="left">
+                                                <a class="open-add-acl-dialog" href="javascript:void(0);">
+                                                    <i class="icon-plus">
+                                                    </i>
+                                                    新建栏目
+                                                </a>
+                                            </div>
+                                            <div class="right">
+                                                <a href="javascript:void(0);">
+                                                    <i class="icon-pencil">
+                                                    </i>
+                                                    Edit
+                                                </a>
+                                                <a href="javascript:void(0);">
+                                                    <i class="icon-remove">
+                                                    </i>
+                                                    Delete
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <table class="styled">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        ACLID
+                                                    </th>
+                                                    <th>
+                                                        名称
+                                                    </th>
+                                                    <th>
+                                                        控制器/方法
+                                                    </th>
+                                                    <th>
+                                                        权限
+                                                    </th>
+                                                    <th>
+                                                        操作
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {Fei:foreach from=$result item=acl}
+                                                <tr id="tr_{Fei:$acl.aclid}">
+                                                    <td>
+                                                        {Fei:$acl.aclid}
+                                                    </td>
+                                                    <td>
+                                                        {Fei:$acl.name}
+                                                    </td>
+                                                    <td>
+                                                        {Fei:$acl.controller}/{Fei:$acl.action}
+                                                    </td>
+                                                    <td class="center">
+                                                        {Fei:$acl.acl_name}
+                                                    </td>
+                                                    <td class="center">
+                                                        <a href="{Fei:FeiUrl('setting','permission_set')}&action=edit&aclid={Fei:$acl.aclid}" class="button small grey tooltip" data-gravity="s" original-title="编辑">
+                                                            <i class="icon-pencil">
+                                                            </i>
+                                                        </a>
+                                                        <a href="javascript:void(0);" id="dialog_del_btn_{Fei:$acl.aclid}" class="button small grey tooltip" data-gravity="s" original-title="删除">
+                                                            <i class="icon-remove">
+                                                            </i>
+                                                        </a>
+                                                        <div id="dialog_del_{Fei:$acl.aclid}" title="删除提示！">
+                                                            <p>
+                                                                是否确定删除此栏目？
+                                                            </p>
+                                                            <div class="actions">
+                                                                <div class="left">
+                                                                    <button class="grey">
+                                                                        取消
+                                                                    </button>
+                                                                </div>
+                                                                <div class="right">
+                                                                    <button>
+                                                                        确定
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script>
+                                                        $$.ready(function() {
+                                                            // Normal Dialog
+                                                            $("#dialog_del_{Fei:$acl.aclid}").dialog({
+                                                                autoOpen: false
+                                                            }).find('button').click(function() {
+                                                                var formdata = {
+                                                                    'action':'del',
+                                                                    'aclid':{Fei:$acl.aclid}
+                                                                };
+                                                                $.post("{Fei:FeiUrl('setting','permission')}",formdata,function(result){
+                                                                    if(result=='success'){
+                                                                        $.jGrowl('恭喜你！<br />权限删除成功！');
+                                                                        $("#tr_{Fei:$acl.aclid}").empty();
+                                                                    }else if(result=='error'){
+                                                                        $.jGrowl('对不起！<br />权限删除失败！');
+                                                                    }else{
+                                                                        $.jGrowl('未知错误！<br />权限删除失败！');
+                                                                    }
+                                                                });
+                                                                $(this).parents('.ui-dialog-content').dialog('close');
+                                                            });
+
+                                                            $("#dialog_del_btn_{Fei:$acl.aclid}").click(function(){
+                                                                $("#dialog_del_{Fei:$acl.aclid}").dialog("open");
+                                                                return false;
+                                                            });
+                                                         });
+                                                        </script>
+                                                    </td>
+                                                </tr>
+                                                {Fei:/foreach}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    {Fei:include file="Public/footer.html"}

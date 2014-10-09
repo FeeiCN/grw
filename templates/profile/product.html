@@ -1,0 +1,166 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="dialog_add_product" title="添加作品案例">
+        <form action="{Fei:FeiUrl('profile','product')}" method="POST" class="full validate no-box" enctype="multipart/form-data">
+            <div class="row">
+                <label for="product_name">
+                    <strong>名称</strong>
+                </label>
+                <div class="_75 input">
+                    <input type="text" name="product_name">
+                </div>
+            </div>
+            <div class="row">
+                <label for="product_pic">
+                    <strong>图片</strong>
+                </label>
+                <div class="_75 input">
+                    <input type="file" name="product_pic" accept="image/*" >
+                </div>
+            </div>
+            <div class="row">
+                <label for="product_link">
+                    <strong>链接</strong>
+                </label>
+                <div class="_75 input">
+                    <input type="text" name="product_link">
+                </div>
+            </div>
+            <div class="row">
+                <label for="product_desc">
+                    <strong>描述</strong>
+                </label>
+                <div class="_75 input">
+                    <textarea name="product_desc" rows="4"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="grey cancle">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <ul class=nav>
+            <li class="current">
+                <a href="#todo">
+                <span class="icon icon-check-empty"></span>
+                    代办事项
+                </a>
+            </li>
+            <li>
+                <a href="#completed_todo">
+                    <span class="icon icon-check"></span>
+                    已完成事项
+                </a>
+            </li>
+            <li>
+                <a href="#trash_todo">
+                    <span class="icon icon-trash"></span>
+                    垃圾箱
+                </a>
+            </li>
+        </ul>
+        <form action="">
+            <h3>
+                待办事件统计
+            </h3>
+            <div class="block">
+                {Fei:foreach from=$tags item=tag}
+                    <div>
+                        <span class="badge {Fei:$tag.icon}">
+                            {Fei:$tag.name}(38项)
+                        </span>
+                    <div class="right inline" id="m_b">
+                        <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="e" original-title="修改">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="w" original-title="删除【{Fei:$tag.name}】">
+                            <i class="icon-remove"></i>
+                        </a>
+                    </div>
+                    </div>
+                {Fei:/foreach}
+            </div>
+        </form>
+    </div>
+     <section id="content" class="container_12 clearfix with-right-sidebar"
+    data-sort=true>
+        <h1 class="grid_12"><span>
+            作品案例
+        </span></h1>
+    <div class="grid_12">
+            <div class="box">
+                <div class="header">
+                    <h2>
+                        <img class=icon src="{Fei:$STATICS}img/icons/packs/fugue/16x16/image-sunset.png" />
+                        作品案例
+                    </h2>
+                    <a href="javascript:void(0);" class="menu icon-cog">
+                    </a>
+                    <menu>
+                        <a href="javascript:void(0);" id="open_add_product">
+                            <span class="icon icon-plus">
+                            </span>
+                            添加作品案例
+                        </a>
+                        <a href="javascript:void(0);">
+                            <div class="icon icon-pencil">
+                            </div>
+                            全部完成
+                        </a>
+                        <a href="javascript:void(0);">
+                            <div class="icon icon-remove">
+                            </div>
+                            全部删除
+                        </a>
+                    </menu>
+                    <a href="javascript:void(0);" class="menu2 icon-refresh" id="product_refresh"></a>
+                </div>
+                <div class="content">
+                    <p>
+                    <button href="javascript:void(0);" class="button grey block">
+                        <span class="icon icon-bookmark-empty"></span>
+                        TEST
+                    </button>
+                    </p>
+                    <div class="gallery" id="product_content">
+                    </div>
+                </div>
+            </div>
+     </div> 
+     </section>
+</div>
+<link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.fancybox.css">
+<script src="{Fei:$STATICS}js/mylibs/gallery/jquery.fancybox.js"></script>
+<script type="text/javascript">
+    var dp = $("#dialog_add_product")
+    dp.dialog({
+        autoOpen:false,
+        modal:true,
+        width:400
+    }).find('button.submit').click(function(){
+        dp.find('form')[0].submit()
+    }).end().find('button.cancle').click(function(){
+        dp.dialog("close")
+    })
+    $("#open_add_product").click(function(){
+        dp.dialog("open")
+    })
+    $("#product_refresh").click(function(){
+        Get_product()
+    })
+    function Get_product(){
+        $("#product_content").load("{Fei:FeiUrl('profile','product')}",{action:'get_product_content'},function(){
+            $.jGrowl('success',{theme:'wood'})
+        })
+    }
+    Get_product()
+</script>
+{Fei:include file="Public/footer.html"}

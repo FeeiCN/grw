@@ -1,0 +1,332 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="Dialog_add_contacter" title="添加联系人">
+        <form id="add_contacter" class="validata full">
+            <input type="hidden" name="action" value="add_contacter">
+            <input type="hidden" name="cid"/>
+            <div class="row">
+                <label for="name">
+                    <strong>姓名</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <label for="name">
+                    <strong>备注</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="infantname">
+                </div>
+            </div>
+            <div class="row">
+                <label for="birthtype">
+                    <strong>生日农历阳历</strong>
+                </label>
+                <div class="_80 input">
+                    <div style="padding:10px 0px;">
+                        <input type="radio" name="birthtype" checked="checked" value="0"/>农历
+                        <input type="radio" name="birthtype" value="1"/>阳历
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="birthday">
+                    <strong>生日</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="date" name="birthday">
+                </div>
+            </div>
+            <div class="row">
+                <label for="qq">
+                    <strong>QQ</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="qq">
+                </div>
+            </div>
+            <div class="row">
+                <label for="email">
+                    <strong>邮箱</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="email">
+                </div>
+            </div>
+            <div class="row">
+                <label for="mobile">
+                    <strong>手机</strong>
+                </label>
+                <div class="_80">
+                    <input type="text" name="mobile">
+                </div>
+            </div>
+            <div class="row">
+                <label for="weibo">
+                    <strong>微博</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="weibo">
+                </div>
+            </div>
+            <div class="row">
+                <label for="birthplace">
+                    <strong>出生地</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="birthplace">
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="cancel red">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">确定</button>
+            </div>
+        </div>
+    </div>
+    <div id="Dialog_add_about" title="添加事项">
+        <form id="add_about" class="validata full">
+            <input type="hidden" name="action" value="add_about">
+            <input type="hidden" name="userid">
+            <div class="row">
+                <label for="name">
+                    <strong>名称</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <label for="value">
+                    <strong>值</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="value">
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="cancel red">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">确定</button>
+            </div>
+        </div>
+    </div>
+    <div id="Dialog_del_contact" title="删除提示！">
+        <p>
+            是否确定删除此联系人？<small>删除后关于改联系人的所有信息将无法恢复！</small>
+        </p>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">
+                    取消
+                </button>
+            </div>
+            <div class="right">
+                <button class="submit">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+     <section id="content" class="container_12 clearfix" >
+        <h1 class="grid_12" style="margin-top:10px;"><span><span>
+            联系人列表
+        </span></span></h1>
+        <div class="grid_12">
+         <div class="grid_6">
+         <div class="box">
+             <div class="header">
+                 <h2>
+                     <img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/calendar-select.png">
+                     联系人列表(共{Fei:$countUser}位)
+                 </h2>
+                 <a class="menu icon-plus open_ac" title="添加联系人"></a>
+             </div>
+             <div id="slider">
+                 <div class="slider-content">
+                 </div>
+             </div>
+         </div>
+         </div>
+        <div class="searchresults grid_6" id="contacters">
+                <div class="header">
+                    <h3>
+                        联系人信息
+                    </h3>
+                    <strong>
+                        完整度80%
+                    </strong>
+                </div>
+                <div class="content profile">
+                    <div class="details grid_12" id="user_info">
+                        <span class="badge block blue light">点击左侧联系人获取联系人信息</span>
+                    </div>
+
+                    <div class="details grid_12" id="user_todo">
+                    </div>
+                </div>
+        </div>
+     </div>
+    </section>
+</div>
+<style type="text/css">
+    .slider { min-height: 250px; display: block; position: relative; background: #fff; overflow: hidden; }
+    .slider ul { list-style: none; }
+    .slider-content { float: left; width: 100%; display: block; overflow: auto; min-height: 250px; }
+    .slider-content ul { margin:0px;padding:0px;float: left; width: 100%; display: block; position: relative; }
+    .slider-content ul li { float: left; width: 100%; }
+    .slider-content ul ul li a { padding: 5px 10px; display: block; border-bottom: 1px solid #f3f3f3; text-transform: capitalize; }
+    .slider-content ul ul li a:hover { background: #f3faff; border-color: #d5ebf9; }
+    .slider-content .title { padding: 5px 0; text-indent: 10px; background: #bbb; color: #fff; width: 100%; float: left; font-weight: bold; text-transform: uppercase; }
+    .slider-content .selected .title { background: #666; }
+    .slider .slider-nav { position: absolute; right: 0; top: 0; background: #666; min-height: 250px; }
+    .slider .slider-nav ul { padding: 3px 0; }
+    .slider .slider-nav li a { padding: 3px 5px; line-height: 13px; text-align: center; color: #fff; font-weight: bold; display: block; text-transform: uppercase; cursor: pointer; }
+    .slider #debug { position: absolute; bottom: 0; left: 0; padding: 5px; background: #000; color: #fff; }
+    .slider .arrow { font-size: 0px; line-height: 0%; width: 0px; border-bottom: 8px solid #fff; border-left: 5px solid #333; border-right: 5px solid #333; position: relative; }
+    .slider .down { border-bottom: none; border-top: 8px solid #fff; top: 5px; }
+    .slider .slide-up, .slider .slide-down { height: 20px; background: #F0F0F0; text-align: center; cursor: pointer; float: right; width: 100%; position: relative; }
+</style>
+<script type="text/javascript" src="{Fei:$STATICS}js/mylibs/slidernav.js"></script>
+<script type="text/javascript">
+    var Contacter = {
+        url:"{Fei:FeiUrl('relation','contacter')}&t=" + new Date().getTime(),
+        ac:$("#Dialog_add_contacter"),
+        dc:$("#Dialog_del_contact"),
+        aa:$("#Dialog_add_about"),
+        userid:null,
+        did:null,
+        init:function(){
+            $('#slider').sliderNav();
+            Contacter.ac.dialog({
+                autoOpen:false,
+                width:400,
+                open:function(){
+                    $(this).parent().css('overflow','visible')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Contacter.url,$("#add_contacter").serialize(),function(result){
+                    if(result.status == 'success'){
+                        Contacter.getAll()
+                        Contacter.getOne(result.back)
+                        Contacter.ac.find('form')[0].reset();
+                        Contacter.ac.dialog("close")
+                    }else if(result.status == 'error'){
+                        alert('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Contacter.ac.dialog("close")
+            })
+
+            Contacter.aa.dialog({
+                autoOpen:false,
+                width:300,
+                open:function(){
+                    $(this).parent().css('overflow','visible')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Contacter.url,$("#add_about").serialize(),function(result){
+                    if(result.status == 'success'){
+                        Contacter.aa.find('form')[0].reset()
+                        Contacter.aa.dialog('close')
+                        Contacter.getAll()
+                        Contacter.getOne($("input[name=userid]").val())
+                    }else if(result.status == 'error'){
+                        Contacter.aa.dialog('close')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Contacter.aa.dialog('close')
+            })
+
+            // $(".open_aa").live('click',function(){
+            //     $("input[name=userid]").val()
+            //     Contacter.aa.dialog("open")
+            // })
+
+            $(".open_ac").click(function(){
+                $("input[name=action]").val('add_contacter')
+                Contacter.ac.dialog("open")
+            })
+
+            Contacter.dc.dialog({
+                autoOpen:false,
+                modal:true,
+                open:function(){
+                    $(this).parent().css('overflow','visible')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                    $.post(Contacter.url,{action:'del_contacter',did:Contacter.did},function(result){
+                        if(result.status == 'success'){
+                            $.jGrowl('删除成功！')
+                            Contacter.dc.dialog('close')
+                            Contacter.getAll()
+                        }else if(result.status == 'error'){
+                            $.jGrowl('删除失败！')
+                        }
+                    },'json')
+            }).end().find('cancel').click(function(){
+                Contacter.dc.dialog('close')
+            })
+        },
+        open_aa:function(id){
+            $("input[name=userid]").val(id)
+            Contacter.aa.dialog("open")
+        },
+        edit:function(id){
+            $.post(Contacter.url,{action:'info',id:id},function(result){
+                if(result.status == 'success'){
+                    $("input[name=name]").val(result.back.name)
+                    $("input[name=infantname]").val(result.back.infantname)
+                    $("input[name=birthday]").val(result.back.birthday)
+                    $("input[name=qq]").val(result.back.qq)
+                    $("input[name=email]").val(result.back.email)
+                    $("input[name=mobile]").val(result.back.mobile)
+                    $("input[name=weibo]").val(result.back.weibo)
+                    $("input[name=birthplace]").val(result.back.birthplace)
+                    
+                    $("input[name=action]").val('edit_contacter')
+                    $('input[name=cid]').val(id)
+                    Contacter.ac.dialog("open")
+                }else if(result.status == 'error'){
+                    alert('open edit dialog error')
+                }
+            },'json')
+        },
+        del:function(id){
+            Contacter.did = id
+            Contacter.dc.dialog('open')
+        },
+        getOne:function(id){
+            $("#user_info").load(Contacter.url,{action:'getOne',id:id},function(){
+                console.log('contacters load success')
+            })
+            $("#user_todo").load(Contacter.url,{action:'getodo',id:id},function(){
+                console.log('user todo load success')
+            })
+        },
+        getAll:function(){
+            $(".slider-content").load(Contacter.url,{action:'getAll'},function(){
+                console.log('contacters load success')
+            })
+        }
+    }
+    Contacter.init()
+
+    Contacter.getAll()
+</script>
+{Fei:include file="Public/footer.html"}

@@ -1,0 +1,117 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+<base href="http://www.feitm.com/statics/" />
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='css/css.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="scripts/charts/area-chart.js"></script>
+<script type="text/javascript" src="scripts/charts/bar-chart.js"></script> 
+<script type="text/javascript" src="scripts/charts/pie-chart.js"></script>
+</head>
+
+<body>
+  {Fei:include file="Public/nav.html"}
+  <div class="info-top message-top">
+      <h3>数据库备份成功！</h3>
+      <p>请细心保管您的数据至本地</p>
+  </div>
+  <div class="error-top message-top">
+      <h3>数据库备份失败！</h3>
+      <p>由于未知错误引起数据库备份错误！</p>
+  </div>
+  <div class="main">
+  
+  {Fei:include file="Public/notice.html"}
+ 
+  <div class="shortable-content">
+  
+      <div class="box _35">
+          <div class="box-header">
+              数据操作
+          </div>
+          <div class="box-content padd-10">
+              <div class="form-row">
+                  <label for="">
+                      <strong>备份名称</strong>
+                  </label>
+                  <div class="form-right-col">
+                      <input type="text" class="_100F" id="backname" placeholder="默认为日期，例：20130104.sql">
+                  </div>
+              </div>
+              <div class="form-row">
+                <a id="backup1" class=" button grey">备份数据库</a>
+                <a class="info-top-trigger">ceshi</a>
+              </div>
+          </div>
+      </div>
+
+          <div class="box _75">
+            <div class="box-header">
+              备份历史
+              <i class="icon-remove-sign close" title="Close"></i>
+              <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+              </div>
+            <div class="box-content">
+              <table  border="1" bordercolor="#dfdfdf" class="static_table">
+                        <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>文件名</th>
+                        <th>文件大小</th>
+                        <th>备份时间</th>
+                        <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {Fei:foreach from=$filelists item=file}
+                        <tr>
+                        <td>{Fei:$file@iteration}</td>
+                        <td>{Fei:$file.filename}</td>
+                        <td>{Fei:$file.filesize}</td>
+                        <td>{Fei:$file.filectime}</td>
+                        <td class="center">
+                            <a class="grey display_but" title="删除">
+                                <i class="icon-remove"></i>
+                            </a>
+                            <a class="grey display_but" title="恢复">
+                                <i class="icon-time"></i>
+                            </a>
+                        </td>
+                        </tr>
+                        {Fei:/foreach}
+                        </tbody>
+                        </table>
+            </div>
+          </div>
+           <script type="text/javascript">
+                $("#backup1").click(function(){
+                    var formdata = {
+                        'handle':'backup',
+                        'backname':$('backname').val()
+                    };
+                    $.post("{Fei:FeiUrl('setting','ajax_databack')}",formdata,function(result){
+                        if(result == "success"){
+                            console.log('success');
+                            $('.info-top-trigger').trigger("click");
+                        }else if(result == "error"){
+                            console.log('error');
+                            $('.error-top-trigger').trigger("click");
+                        }else{
+                            console.log('other');
+                        }
+                    });
+                    
+                });
+            </script>
+
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>

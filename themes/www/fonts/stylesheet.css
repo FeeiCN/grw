@@ -1,0 +1,45 @@
+
+@font-face {
+    font-family: 'existence_lightregular';
+    src: url('../fonts/existence-light.eot');
+    src: url('../fonts/existence-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/existence-light.woff') format('woff'),
+         url('../fonts/existence-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'geosanslightregular';
+    src: url('../fonts/geosanslight.eot');
+    src: url('../fonts/geosanslight.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/geosanslight.woff') format('woff'),
+         url('../fonts/geosanslight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'myriad_pro_lightbold';
+    src: url('../fonts/myriadpro-semibold.eot');
+    src: url('../fonts/myriadpro-semibold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/myriadpro-semibold.woff') format('woff'),
+         url('../fonts/myriadpro-semibold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'helvetica_neueregular';
+    src: url('helveticaneue-bold-webfont.eot');
+    src: url('helveticaneue-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('helveticaneue-bold-webfont.woff') format('woff'),
+         url('helveticaneue-bold-webfont.ttf') format('truetype'),
+         url('helveticaneue-bold-webfont.svg#helvetica_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

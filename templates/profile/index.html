@@ -1,0 +1,724 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    
+    <div id="settings" class="settings-content" data-width=450>
+    <ul class="tabs center-elements">
+        <li>
+            <a href="#settings-1">
+                <img src="{Fei:$STATICS}img/icons/packs/fugue/24x24/user-business.png" alt="" />
+                <span>
+                    关于我们
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#settings-2">
+                <img src="{Fei:$STATICS}img/icons/packs/fugue/24x24/balloon.png" alt="" />
+                <span>
+                    账户基本信息
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#settings-3">
+                <img src="{Fei:$STATICS}img/icons/packs/fugue/24x24/credit-card.png" alt="" />
+                <span>
+                    联系我们
+                </span>
+            </a>
+        </li>
+    </ul>
+    <div class="content">
+        <div id="settings-1">
+            <form action="#" method="GET">
+                <p>
+                    <label for="username">
+                        姓名:
+                    </label>
+                    <input type="text" name="username" class="medium" value="{Fei:$User.realname}"/>
+                </p>
+                <p>
+                    <label for="position">
+                        职位:
+                    </label>
+                    <input type="text" name="position" class="medium" value="{Fei:$User.position}"/>
+                </p>
+                <!-- <p>
+                    <label for="birthday">
+                        生日:
+                    </label>
+                    <input type="date" name="birthday" value="{Fei:$User.birthday}"/>
+                </p> -->
+            </form>
+        </div>
+        <div id="settings-2">
+            <form action="#" method="GET">
+                <p>
+                    <label for="email">
+                        邮箱:
+                    </label>
+                    <input type="text" name="email" class="medium" value="{Fei:$User.email}"/>
+                </p>
+                <p>
+                    <label for="phone">
+                        手机:
+                    </label>
+                    <input type="text" name="phone" class="medium" value="{Fei:$User.phone}"/>
+                </p>
+                <p>
+                    <label for="qq">
+                        QQ:
+                    </label>
+                    <input type="text" name="qq" class="medium" value="{Fei:$User.qq}"/>
+                </p>
+            </form>
+        </div>
+        <div id="settings-3">
+            <form action="#" method="GET">
+                <p>
+                    <label for="description">
+                        描述:
+                    </label>
+                    <textarea rows="3" id="description" name="description" style="overflow: hidden; width: 300px; height: 103px;">{Fei:$User.description}</textarea>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="left">
+            <button class="grey cancel">
+                取消
+            </button>
+        </div>
+        <div class="right">
+            <button class="save">
+                保存
+            </button>
+            <button class="hide saving" disabled>
+                保存中...
+            </button>
+        </div>
+    </div>
+</div>
+    <section id="content" class="container_12 clearfix" data-sort=true>
+        <div class="grid_12 profile">
+            <div class="header">
+                <div class="title">
+                    <h2>
+                        {Fei:$user.realname}
+                    </h2>
+                    <!-- <a href="javascript:void(0);" class="button red right">修改密码</a> -->
+                </div>
+                <div class="avatar">
+                    <img src="
+                    {Fei:if $user.avatar == null}
+                    {Fei:$STATICS}img/elements/profile/avatar.png
+                    {Fei:else}
+                    {Fei:$user.avatar}
+                    {Fei:/if}" />
+                    <a onclick="Update_avatar({Fei:$user.id})" href="javascript:void(0);">
+                        更新
+                    </a>
+                </div>
+                <ul class="info">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <strong>
+                                42
+                            </strong>
+                            <small>
+                                文章数
+                            </small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <strong>
+                                5,216
+                            </strong>
+                            <small>
+                                浏览量
+                            </small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <strong>
+                                106
+                            </strong>
+                            <small>
+                                留言数
+                            </small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <style type="text/css">
+                .profile_info{
+                    list-style-type:none;
+                    margin:15px;
+                    padding:0px;
+                }
+                .profile li{
+                    color:#616161;
+                    padding-bottom:5px;
+                }
+                .profile li span{
+                    color:#222;
+                    padding-left:10px;
+                    line-height:20px;
+                }
+            </style>
+            <div class="details grid_6">
+                <h2>
+                    个人信息
+                </h2>
+                <a href="javascript:void(0);" id="open_settings">
+                    <span class="icon icon-pencil"></span>
+                    修改
+                </a>
+                <section>
+                    <ul class="profile_info">
+                        <li>姓名: <span>{Fei:$user.realname}</span></li>
+                        <li>职位: <span>{Fei:$user.position}</span></li>
+                        <!-- <li>生日: <span>{Fei:$user.birthday}</span></li> -->
+                        <!-- <li>地址: <span>{Fei:$user.address}</span></li> -->
+                        <li>手机: <span>{Fei:$user.phone}</span></li>
+                        <li>邮箱: <span>{Fei:$user.email}</span></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="grid_6">
+                <h2>
+                    描述或格言
+                </h2>
+                <div class="box-note">
+                    <p style="text-indent:24px;">
+                        {Fei:$user.description}
+                    </p>
+                </div>
+            </div>
+            <div id="dialog_add_work" title="添加工作经历">
+                <form action="" class="full validate no-box">
+                    <div class="row">
+                        <label for="company">
+                            <strong>公司名称</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="company"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="position">
+                            <strong>职务岗位</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="position"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="startime">
+                            <strong>开始时间</strong>
+                        </label>
+                        <div>
+                            <input type="date" name="startime"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="endtime">
+                            <strong>结束时间</strong>
+                        </label>
+                        <div>
+                            <input type="date" name="endtime"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="description">
+                            <strong>工作描述</strong>
+                        </label>
+                        <div>
+                            <textarea id="description" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">取消</button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_add_education" title="添加学习经历">
+                <form action="" class="full validate no-box">
+                    <div class="row">
+                        <label for="school">
+                            <strong>学校名称</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="school"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="type">
+                            <strong>学校类型</strong>
+                        </label>
+                        <div>
+                            <select name="type" class="search">
+                                <option value="" >请选择类型</option>
+                                <option value="" >小学</option>
+                                <option value="" >中学</option>
+                                <option value="" >高中</option>
+                                <option value="" >大学</option>
+                                <option value="" >其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="startime">
+                            <strong>开始时间</strong>
+                        </label>
+                        <div>
+                            <input type="date" name="e_startime"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="endtime">
+                            <strong>结束时间</strong>
+                        </label>
+                        <div>
+                            <input type="date" name="e_endtime"/>
+                        </div>
+                    </div>
+                </form>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">取消</button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_add_skill" title="添加技能特长">
+                <form action="" class="full validate no-box">
+                    <div class="row">
+                        <label for="skill_name">
+                            <strong>技能或特长</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="skill_name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="skill_level">
+                            <strong>等级</strong>
+                        </label>
+                        <div>
+                            <input data-type="range" name="skill_level">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="skill_time">
+                            <strong>时间</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="skill_time"/>
+                        </div>
+                    </div>
+                </form>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">取消</button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_add_follow" title="添加社交关注">
+                <form action="" class="full validate no-box">
+                    <div class="row">
+                        <label for="skill_name">
+                            <strong>图标</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="follow_icon"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="skill_time">
+                            <strong>链接</strong>
+                        </label>
+                        <div>
+                            <input type="text" name="follow_link"/>
+                        </div>
+                    </div>
+                </form>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">取消</button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_del" title="删除提示！">
+                <p>
+                    是否确定删除此项？
+                </p>
+                <div class="actions">
+                    <div class="left">
+                        <button class="grey cancel">
+                            取消
+                        </button>
+                    </div>
+                    <div class="right">
+                        <button class="submit">
+                            确定
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog_manage_work" title="工作经验管理" style="margin:0px;padding:0px;">
+                
+            </div>
+            <div class="details grid_6">
+                <h2>
+                    工作经验
+                </h2>
+                <a id="open_add_work" href="javascript:void(0);">
+                    <span class="icon icon-plus"></span>
+                    添加
+                </a>
+                <a onclick="_Manage('work')" href="javascript:void(0);">
+                    <span class="icon icon-remove"></span>
+                    管理
+                </a>
+                <div id="work_info"></div>
+            </div>
+            <script type="text/javascript">
+                
+            </script>
+            <div class="details grid_6">
+                <h2>
+                    受教经历
+                </h2>
+                <a id="open_add_education" href="javascript:void(0);">
+                    <span class="icon icon-plus"></span>
+                    添加
+                </a>
+                <a onclick="_Manage('education')" href="javascript:void(0);">
+                    <span class="icon icon-remove"></span>
+                    管理
+                </a>
+                <div id="education_info"></div>
+            </div>
+            <div class="details grid_6">
+                <h2>
+                    技能专业
+                </h2>
+                <a id="open_add_skill" href="javascript:void(0);">
+                    <span class="icon icon-plus"></span>
+                    添加
+                </a>
+                <a onclick="_Manage('skill')" href="javascript:void(0);">
+                    <span class="icon icon-remove"></span>
+                    管理
+                </a>
+                <div id="skill_info"></div>
+            </div>
+            <div class="details grid_6">
+                <h2>
+                    社交关注
+                </h2>
+                <a id="open_add_follow" href="javascript:void(0);">
+                    <span class="icon icon-plus"></span>
+                    添加
+                </a>
+                <a onclick="_Manage('follow')" href="javascript:void(0);">
+                    <span class="icon icon-remove"></span>
+                    管理
+                </a>
+                <div id="follow_info"></div>
+            </div>
+            <div class="details grid_12 hidden">
+                <h2>
+                    操作日志
+                </h2>
+                <a href="javascript:void(0);">
+                    更多<span class="icon icon-hand-right right"></span>
+                </a>
+                <section>
+                    <ul class="logs">
+                        <li class="error">
+                            <a href="javascript:void(0);">
+                                <strong>
+                                    登录失败
+                                </strong>
+                                <small>
+                                    2012/01/15 11:36:03
+                                </small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <strong>
+                                    发表了一篇日志
+                                </strong>
+                                <small>
+                                    2012/01/15 08:57:17.
+                                </small>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="clearfix"></div>
+            <div class="divider"></div>
+        </div>
+        <script>
+            $$.ready(function() {
+                // Profile Dialog
+                var el = $("#settings")
+                el.dialog({
+                    modal:true,
+                    autoOpen:false,
+                    draggable:false,
+                    height:275,
+                    width:el.data("width"),
+                    open:function(){
+                        var h=$(this).parent(),f=h.find(".ui-dialog-titlebar").addClass("settings-header"),g=$(this);
+                        h.find(".ui-dialog-titlebar-close").remove();
+                        h.find(".ui-dialog-title").remove();
+                        h.css("overflow","visible");
+                        h.find(".tabs").appendTo(f);
+                        h.tabbedBox({
+                                header:".settings-header"
+                        });
+                        h.find("input").each(function(){
+                                var q=$(this);
+                                q.attr("name",q.attr("id"))
+                        });
+                        if(g.find(".actions").length){
+                                g.addClass("with-actions")
+                        }
+                        var l=g.find(".save").show(),n=g.find(".saving").hide();
+                        l.click(function(){
+                            l.hide();
+                            n.show();
+                            var postdata = {
+                                'action':'edit_profile',
+                                'username':$('input[name=username]').val(),
+                                'position':$('input[name=position]').val(),
+                                // 'birthday':$('input[name=birthday]').datepicker('getDate'),
+                                'email':$('input[name=email]').val(),
+                                'phone':$('input[name=phone]').val(),
+                                'qq':$('input[name=qq]').val(),
+                                'description':$('#description').val()
+                            }
+                            $.post("{Fei:FeiUrl('profile')}",postdata,function(result){
+                                if(result.status == 'success'){
+                                    g.dialog("close");
+                                    $.jGrowl('修改成功！',{header:'修改成功！',theme:'wood'})
+                                }else if(result.status == 'error'){
+                                    g.dialog("close");
+                                    $.jGrowl('修改失败！',{header:'修改失败！',theme:'wood'})
+                                }
+                            },'json')
+                        });
+                        var k=g.find(".cancel");
+                        k.click(function(){//Cancel
+                                g.dialog("close");
+                                g.find(".content").find("form")[0].reset()
+                        });
+                    }
+                })
+                $("#open_settings").click(function(){console.log('123');
+                    el.dialog("open");
+                })
+                //Education
+                var edu = $("#dialog_add_education");
+                edu.dialog({
+                    autoOpen:false,
+                    modal:true,
+                    width:400
+                }).find('button.submit').click(function(){
+                    var e_postdata = {
+                        'action':'add_education',
+                        'school':$('input[name=school]').val(),
+                        'type':$('select[name=type]').val(),
+                        'startime':$('input[name=e_startime]').val(),
+                        'endtime':$('input[name=e_endtime]').val()
+                    }
+                    $.post("{Fei:FeiUrl('profile')}",e_postdata,function(result){
+                        if(result.status == 'success'){
+                            edu.dialog("close")
+                            Get_load_info('education')
+                            $.jGrowl('教育经历添加成功',{header:'添加成功！',theme:'wood'})
+                        }else if(result.status == 'error'){
+                            $.jGrowl('教育经历添加失败',{header:'添加失败！',theme:'wood'})
+                            edu.dialog("close")
+                        }
+                    },'json')
+                }).end().find('button.cancel').click(function(){
+                    edu.dialog("close")
+                })
+                $("#open_add_education").click(function(){
+                    edu.dialog("open")
+                })
+                //Work
+                var w = $("#dialog_add_work");
+                w.dialog({
+                    autoOpen:false,
+                    modal:true,
+                    width:400
+                }).find('button.submit').click(function(){
+                    var w_postdata = {
+                        'action':'add_work',
+                        'company':$('input[name=company]').val(),
+                        'position':$('input[name=position]').val(),
+                        'startime':$('input[name=startime]').val(),
+                        'endtime':$('input[name=endtime]').val(),
+                        'description':$('#description').val()
+                    }
+                    $.post("{Fei:FeiUrl('profile')}",w_postdata,function(result){
+                        if(result.status == 'success'){
+                            w.dialog("close")
+                            Get_load_info('work')
+                            $.jGrowl('工作添加成功',{header:'添加成功！',theme:'wood'})
+                        }else if(result.status == 'error'){
+                            $.jGrowl('工作添加失败',{header:'添加失败！',theme:'wood'})
+                            w.dialog("close")
+                        }
+                    },'json')
+                }).end().find('button.cancel').click(function(){
+                    w.dialog("close")
+                })
+                $("#open_add_work").click(function(){
+                    w.dialog("open")
+                })
+                //Skill
+                var s = $('#dialog_add_skill')
+                s.dialog({
+                    autoOpen:false,
+                    modal:true,
+                    width:400
+                }).find('button.submit').click(function(){
+                    var s_postdata = {
+                        'action':'add_skill',
+                        'name':$('input:[name=skill_name]').val(),
+                        'level':$('input[name=skill_level]').val(),
+                        'time':$('input[name=skill_time]').val()
+                    }
+                    $.post("{Fei:FeiUrl('profile')}",s_postdata,function(result){
+                        if(result.status == 'success'){
+                            s.dialog('close')
+                            Get_load_info('skill')
+                            $.jGrowl('Success',{header:'success',theme:'wood'})
+                        }else if(result.status == 'error'){
+                            s.dialog('close')
+                            $.jGrowl('error',{header:'error',theme:'wood'})
+                        }
+                    },'json')
+                }).end().find('button.cancel').click(function(){
+                    s.dialog("close")
+                })
+                $("#open_add_skill").click(function(){
+                    s.dialog("open")
+                })
+                //Follow Info
+                var f = $('#dialog_add_follow');
+                f.dialog({
+                    autoOpen:false,
+                    modal:true,
+                    width:400
+                }).find('button.submit').click(function(){
+                    var s_postdata = {
+                        'action':'add_follow',
+                        'icon':$('input:[name=follow_icon]').val(),
+                        'link':$('input[name=follow_link]').val()
+                    }
+                    $.post("{Fei:FeiUrl('profile')}",s_postdata,function(result){
+                        if(result.status == 'success'){
+                            f.dialog('close')
+                            Get_load_info('follow')
+                            $.jGrowl('Success',{header:'success',theme:'wood'})
+                        }else if(result.status == 'error'){
+                            f.dialog('close')
+                            $.jGrowl('error',{header:'error',theme:'wood'})
+                        }
+                    },'json')
+                }).end().find('button.cancel').click(function(){
+                    f.dialog("close")
+                })  
+                $("#open_add_follow").click(function(){
+                    f.dialog("open")
+                })
+                
+            });
+            //Ajax Load Info
+            function Get_load_info(param){
+                $('#'+param+'_info').load("{Fei:FeiUrl('profile')}",{action:'get_'+param+'_info'},function(){
+                    console.log(param+'success')
+                })
+            }
+            Get_load_info('work')
+            Get_load_info('education')
+            Get_load_info('skill')
+            Get_load_info('follow')
+
+            //Manage
+            var m = $('#dialog_manage_work');
+            m.dialog({
+                autoOpen:false,
+                modal:true,
+                width:400
+            })
+
+            function _Manage(type){
+                m.load("{Fei:FeiUrl('profile')}",{action:'get_manage',type:type},function(){
+                    m.dialog("open")
+                })
+            }
+
+            //TODO:Move Delete dialog to header or footer
+            var del = $('#dialog_del');
+            del.dialog({
+                autoOpen:false,
+                modal:true,
+                width:400
+            })
+
+            function _Del(type,id){
+                del.dialog("open").find('button.submit').click(function(){
+                    $.post("{Fei:FeiUrl('profile')}",{action:'del_type',type:type,id:id},function(result){
+                        if(result.status == 'success'){
+                            del.dialog("close")
+                            m.dialog("close")
+                            Get_load_info(type)
+                            $.jGrowl(result.back+'删除成功',{header:'删除成功!',theme:'wood'});
+                        }else{
+                            del.dialog("close")
+                            $.jGrowl(result.back+'删除失败',{header:'删除失败!',theme:'wood'});
+                        }
+                    },'json')
+                }).end().find('button.cancel').click(function(){
+                    del.dialog("close")
+                })
+            }
+
+            function Update_avatar(userid){
+                var ua = {
+                    'action':'update_avatar',
+                    'userid':userid
+                }
+            }
+        </script>
+    </section>
+</div>
+{Fei:include file="Public/footer.html"}
