@@ -1,14 +1,22 @@
 {
-	"license":"MIT",
-	"authors":[
-		{
-			"name":"Feei(zhijie)",
-			"email":"wufeifei@wufeifei.com",
-			"homepage":"http://wufeifei.com",
-			"role":"Developer"
-		}
-	],
-	"support":{
-		"email":"support@grw.name"
-	}
+    "name": "grw",
+    "description": "个人事务管理系统",
+    "keywords": [
+        "todo",
+        "target",
+        "password manage"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Feei(zhijie)",
+            "email": "wufeifei@wufeifei.com",
+            "homepage": "http://wufeifei.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "grw@grw.name"
+    }
 }
