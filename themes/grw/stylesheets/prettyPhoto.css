@@ -1,0 +1,88 @@
+/* ------------------------------------------------------------------------
+	This you can edit.
+------------------------------------------------------------------------- */
+
+	div.pp_pic_holder .pp_top .pp_left { background: url(../images/prettyPhoto/light_rounded/tl.gif) top left no-repeat; } /* Top left corner */
+	div.pp_pic_holder .pp_top .pp_middle { background: #fff; } /* Top pattern/color */
+	div.pp_pic_holder .pp_top .pp_right { background: url(../images/prettyPhoto/light_rounded/tr.gif) top left no-repeat; } /* Top right corner */
+	
+	div.pp_pic_holder .pp_content { background-color: #fff; } /* Content background */
+	div.pp_pic_holder .pp_content a.pp_next:hover { background: url(../images/prettyPhoto/light_rounded/btnNext.png) center right no-repeat; cursor: pointer; } /* Next button */
+	div.pp_pic_holder .pp_content a.pp_previous:hover { background: url(../images/prettyPhoto/light_rounded/btnPrevious.png) center left no-repeat; cursor: pointer; } /* Previous button */
+	div.pp_pic_holder .pp_content a.pp_expand { background: url(../images/prettyPhoto/light_rounded/btnExpand.gif) top left no-repeat; cursor: pointer; } /* Expand button */
+	div.pp_pic_holder .pp_content a.pp_expand:hover { background: url(../images/prettyPhoto/light_rounded/btnExpand.gif) bottom left no-repeat; cursor: pointer; } /* Expand button hover */
+	div.pp_pic_holder .pp_content a.pp_contract { background: url(../images/prettyPhoto/light_rounded/btnContract.gif) top left no-repeat; cursor: pointer; } /* Contract button */
+	div.pp_pic_holder .pp_content a.pp_contract:hover { background: url(../images/prettyPhoto/light_rounded/btnContract.gif) bottom left no-repeat; cursor: pointer; } /* Contract button hover */
+	div.pp_pic_holder .pp_content a.pp_close { width: 75px; height: 32px; background: url(../images/prettyPhoto/light_rounded/btnClose.png) center left no-repeat; cursor: pointer; } /* Close button */
+
+	div.pp_pic_holder .pp_content .pp_details .pp_nav a.pp_arrow_previous { background: url(../images/prettyPhoto/light_rounded/arrow_previous.png) top left no-repeat; } /* The previous arrow in the bottom nav */
+	div.pp_pic_holder .pp_content .pp_details .pp_nav a.pp_arrow_next { background: url(../images/prettyPhoto/light_rounded/arrow_next.png) top left no-repeat; } /* The next arrow in the bottom nav */
+
+	div.pp_pic_holder .pp_bottom .pp_left { background: url(../images/prettyPhoto/light_rounded/bl.gif) top left no-repeat; } /* Bottom left corner */
+	div.pp_pic_holder .pp_bottom .pp_middle { background: #fff; } /* Bottom pattern/color */
+	div.pp_pic_holder .pp_bottom .pp_right { background: url(../images/prettyPhoto/light_rounded/br.gif) top left no-repeat; } /* Bottom right corner */
+
+	div.pp_pic_holder .pp_loaderIcon { background: url(../images/prettyPhoto/light_rounded/loader.gif) center center no-repeat; } /* Loader icon */
+
+	div.ppt div.ppt_left { background: url(../images/prettyPhoto/light_rounded/ttl.gif) top left no-repeat; }
+	div.ppt div.ppt_right { background: url(../images/prettyPhoto/light_rounded/ttr.gif) top left no-repeat; }
+	div.ppt div.ppt_content { background: url(../images/prettyPhoto/light_rounded/ttp.gif) top left repeat-x; }
+	
+	/* ----------------------------------
+		Dark Rounded Theme
+	----------------------------------- */
+	
+	div.dark_rounded .pp_top .pp_left { background: url(../images/prettyPhoto/dark_rounded/tl.png) top left no-repeat; } /* Top left corner */
+	div.dark_rounded .pp_top .pp_middle { background: url(../images/prettyPhoto/dark_rounded/contentPattern.png) top left repeat; } /* Top pattern/color */
+	div.dark_rounded .pp_top .pp_right { background: url(../images/prettyPhoto/dark_rounded/tr.png) top left no-repeat; } /* Top right corner */
+	div.dark_rounded .pp_bottom .pp_left { background: url(../images/prettyPhoto/dark_rounded/bl.png) top left no-repeat; } /* Bottom left corner */
+	div.dark_rounded .pp_bottom .pp_middle { background: url(../images/prettyPhoto/dark_rounded/contentPattern.png) top left repeat; } /* Bottom pattern/color */
+	div.dark_rounded .pp_bottom .pp_right { background: url(../images/prettyPhoto/dark_rounded/br.png) top left no-repeat; } /* Bottom right corner */
+	div.dark_rounded .pp_content { background: url(../images/prettyPhoto/dark_rounded/contentPattern.png) top left repeat; } /* Content background */
+	div.dark_rounded .currentTextHolder { color: #c4c4c4; }
+	div.dark_rounded div.ppt_left { background: url(../images/prettyPhoto/dark_rounded/tl.png) top left no-repeat; }
+	div.dark_rounded div.ppt_right { background: url(../images/prettyPhoto/dark_rounded/tr.png) top right no-repeat; }
+	div.dark_rounded div.ppt_content { background: url(../images/prettyPhoto/dark_rounded/contentPattern.png) top left repeat; }
+	div.dark_rounded .pp_loaderIcon { background: url(../images/prettyPhoto/dark_rounded/loader.gif) center center no-repeat; } /* Loader icon */
+	
+	
+	/* ----------------------------------
+		Dark Square Theme
+	----------------------------------- */
+	
+	div.dark_square .pp_top .pp_left ,
+	div.dark_square .pp_top .pp_middle,
+	div.dark_square .pp_top .pp_right,
+	div.dark_square .pp_bottom .pp_left,
+	div.dark_square .pp_bottom .pp_middle,
+	div.dark_square .pp_bottom .pp_right,
+	div.dark_square .pp_content,
+	div.dark_square div.ppt_left,
+	div.dark_square div.ppt_right,
+	div.dark_square div.ppt_content { background: url(../images/prettyPhoto/dark_square/contentPattern.png) top left repeat; }
+	div.dark_square .currentTextHolder { color: #c4c4c4; }
+	div.dark_square .pp_loaderIcon { background: url(../images/prettyPhoto/dark_rounded/loader.gif) center center no-repeat; } /* Loader icon */
+
+
+	/* ----------------------------------
+		Light Square Theme
+	----------------------------------- */
+	
+	div.light_square .pp_top .pp_left ,
+	div.light_square .pp_top .pp_middle,
+	div.light_square .pp_top .pp_right,
+	div.light_square .pp_bottom .pp_left,
+	div.light_square .pp_bottom .pp_middle,
+	div.light_square .pp_bottom .pp_right,
+	div.light_square .pp_content,
+	div.light_square div.ppt_left,
+	div.light_square div.ppt_right,
+	div.light_square div.ppt_content { background: #fff; }
+	div.light_square div.ppt_content { color: #666666; }
+
+
+/* ------------------------------------------------------------------------
+	DO NOT CHANGE
+------------------------------------------------------------------------- */
+
+	div.pp_pic_holder a:focus{outline:none}div.pp_overlay{background:#000;position:absolute;top:0;left:0;z-index:9500;width:100%}div.pp_pic_holder{position:absolute;z-index:10000;width:100px}div.pp_pic_holder .pp_top{position:relative;height:20px}* html div.pp_pic_holder .pp_top{padding:0 20px}div.pp_pic_holder .pp_top .pp_left{position:absolute;left:0;width:20px;height:20px}div.pp_pic_holder .pp_top .pp_middle{position:absolute;left:20px;right:20px;height:20px}* html div.pp_pic_holder .pp_top .pp_middle{position:static;left:0}div.pp_pic_holder .pp_top .pp_right{position:absolute;top:0;left:auto;right:0;width:20px;height:20px}div.pp_pic_holder .pp_content{position:relative;text-align:left;width:100%;height:40px}div.pp_pic_holder .pp_content .pp_details{display:none;margin:10px 15px 2px 20px}div.pp_pic_holder .pp_content .pp_details p.pp_description{display:none;float:left;margin:0}div.pp_pic_holder .pp_content .pp_details .pp_nav{float:left;margin:3px 0 0 0}div.pp_pic_holder .pp_content .pp_details .pp_nav p{float:left;margin:0 4px}div.pp_pic_holder .pp_content .pp_details .pp_nav a.pp_arrow_previous,div.pp_pic_holder .pp_content .pp_details .pp_nav a.pp_arrow_next{float:left;display:block;width:14px;height:15px;overflow:hidden;text-indent:-10000px;margin-top:3px}div.pp_pic_holder .pp_content .pp_details .pp_nav a.disabled{background-position:0 -16px;cursor:default}div.pp_pic_holder .pp_content div.hoverContainer{position:absolute;z-index:2000;top:0;left:0;width:100%}div.pp_pic_holder .pp_content a.pp_next{display:block;float:right;text-indent:-10000px;width:49%;height:100%;background:url(../images/prettyPhoto/light_rounded/btnNext.png) 10000px 10000px no-repeat}div.pp_pic_holder .pp_content a.pp_previous{display:block;float:left;text-indent:-10000px;width:49%;height:100%;background:url(../images/prettyPhoto/light_rounded/btnNext.png) 10000px 10000px no-repeat}div.pp_pic_holder .pp_content a.pp_expand,div.pp_pic_holder .pp_content a.pp_contract{position:absolute;z-index:20000;top:10px;right:30px;cursor:pointer;display:none;text-indent:-10000px;width:20px;height:20px}div.pp_pic_holder .pp_content a.pp_close{float:right;display:block;text-indent:-10000px}div.pp_pic_holder .pp_bottom{position:relative;height:20px}* html div.pp_pic_holder .pp_bottom{padding:0 20px}div.pp_pic_holder .pp_bottom .pp_left{position:absolute;left:0;width:20px;height:20px}div.pp_pic_holder .pp_bottom .pp_middle{position:absolute;left:20px;right:20px;height:20px}* html div.pp_pic_holder .pp_bottom .pp_middle{position:static;left:0}div.pp_pic_holder .pp_bottom .pp_right{position:absolute;top:0;left:auto;right:0;width:20px;height:20px}div.pp_pic_holder .pp_loaderIcon{display:none;position:absolute;top:50%;left:50%;margin:-12px 0 0 -12px;width:24px;height:24px}div.pp_pic_holder #full_res{width:100%;text-align:center}div.pp_pic_holder #full_res{display:block;margin:0 auto}div.ppt{display:none;position:absolute;top:0;left:0;z-index:9999;color:#fff;font-size:13px}div.ppt div.ppt_left,div.ppt div.ppt_right{float:left;width:19px;height:23px;overflow:hidden}div.ppt div.ppt_content{float:left;line-height:23px}.clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden}.clearfix{display:inline-block}* html .clearfix{height:1%}.clearfix{display:block}

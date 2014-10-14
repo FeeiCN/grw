@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人网 - 我的网络家园！</title>
+<meta name="keywords" content="个人网，网络家园，个人事务管理，时间任务管理系统"/>
+<meta name="description" content="个人网 是中国最大的个人网络家园平台。用户可以在里面管理个人代办事项TODO管理，时间任务管理，人际关系管理，个人财务管理等为一体的个人管理系统。" />
+<link href="{Fei:$STATICS}css/style.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}css/ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" media="all" type="text/css" href="{Fei:$STATICS}css/ie8.css" /><![endif]-->
+<link href="{Fei:$STATICS}fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+<!--slidercss-->
+<link rel="stylesheet" href="{Fei:$STATICS}css/basic-jquery-slider.css" />
+<script src="{Fei:$STATICS}js/jquery-1.6.2.min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/pie.js" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/custom.js" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/input.js" language="javascript"></script>
+<script type="text/javascript" src="{Fei:$STATICS}js/validation.js" language="javascript"></script>
+<style type="text/css">
+ul.bjqs h1, ol.bjqs-markers li a {
+behavior: url("js/PIE.htc") !important;
+}
+</style>
+<script type="text/javascript">
+function validateForm()
+	{
+		
+		var flag = 0;
+		 if ( document.form2.firstName.value == "" )
+		{
+			alert ( "Please enter your name" );
+			document.form2.firstName.focus();
+			flag = 1;
+			return false;				
+		}
+ 
+		if ( document.form2.useremail.value == "" )
+		{
+			alert ( "Please enter your email address" );
+			document.form2.useremail.focus();
+			flag = 1;
+			return false;      
+		}
+
+		else
+		{
+			var reg = /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/;
+			var emailVali = document.form2.useremail.value;
+			if(reg.test(emailVali) == false)
+			{
+			alert('Invalid Email Address');
+			document.form2.useremail.focus();
+			flag = 1;
+			return false;
+			}
+		}
+
+				if ( document.form2.message.value == "" )
+		{
+			alert ( "Please enter Message" );
+			document.form2.message.focus();
+			flag = 1;
+			return false;				
+		}
+
+
+
+	
+						
+		}
+				</script>
+
+</head>
+
+<body>
+<!--Header Start Here-->
+<div id="header">
+	{Fei:include file="header.html"}
+<!--Top Header End Here-->
+<div id="logo_nav">
+<div class="bg_11">
+<div class="center_frame">
+<!--Logo And Navigation Start Here-->
+{Fei:include file="menu.html"}
+<!--Logo And Navigation End Here-->
+<!--CHANGE ONLY THIS PART HERE-->
+
+<!--Contact Top Start Here -->
+<div id="contact">
+<div id="contact_form_left">
+<h1>意见或建议</h1>
+<form action="thanks.php" method="post" name="form2" id="form2" onsubmit="return validateForm(this);" >
+
+<input name="firstName" id="firstName" type="text" value="您的姓名" class="contact_name"  />
+<input name="useremail" id="useremail" type="text" value="您的邮箱" class="contact_email"  />
+<textarea name="message" id="message" class="contact_textarea" rows="" cols="" >您所要提交给我们的内容...</textarea>
+<input name="submit" type="submit" value="" />
+</form>
+</div>
+<div class="contact_form_line"> <img src="{Fei:$STATICS}images/contact_form_line.png" alt=""  /> </div>
+<div id="contact_form_right">
+<h1>联系方式</h1>
+<h6>0571-58236501</h6>
+<p>我们提供免费电话咨询，如果您有任何的问题，您都可以直接拨打我们的电话与我们取得联系，我们将会热情的为您每一个问题给出满意的答案！</p>
+</div>
+</div>
+<!--Contact Top End Here -->
+<!--CHANGE ONLY UPERE PART IN INNER PAGES-->
+</div>
+</div>
+</div>
+</div>
+<!--Header End Here-->
+
+<!--Wrapper Start Here-->
+<div id="wrapper">
+<!--Main Contant Start Here-->
+<div id="main_contant">
+<div class="center_frame">
+<!--Contact Page Address Start Here-->
+<div id="contact_address">
+<h1>联系地址</h1>
+<div class="address_powerhouse"> <img src="{Fei:$STATICS}images/contact_page_map.png" alt="" class="address_powerhouse_img" />
+<h5>欢迎来访我们公司</h5>
+<span>浙江个人网络科技有限公司<br />
+浙江省杭州市西湖区求是路B座8楼</span> <a href="#"></a> </div>
+</div>
+<!--Contact Page Address End Here-->
+</div>
+</div>
+<!-- Main Contant End Here -->
+</div>
+<!--Wrapper End Here-->
+{Fei:include file="footer.html"}
+</body>
+</html>

@@ -1,0 +1,173 @@
+{Fei:include file="Public/header.html"}
+        <div id="main" class="container_12 clearfix">
+            <div id="Dialog_check_user" title="注册">
+                <form class="box wizard manual validate" id="check_wiz">
+                    <input type="hidden" name="avatar" value="{Fei:$avatar}"/>
+                    <input type="hidden" name="avatar2" value="{Fei:$avatar2}"/>
+                    <div class="content">
+                        <ul class="steps">
+                            <li>
+                                <a class="current" href="#wiz_info">
+                                    填写基本信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#wiz_safe">
+                                    填写安全信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#wiz_finish">
+                                    注册成功
+                                </a>
+                            </li>
+                        </ul>
+                        <fieldset id="wiz_info">
+                            <div class="row">
+                                <label for="realname" style="width: 82px;">
+                                    <strong>
+                                        真实姓名
+                                    </strong>
+                                    <small>
+                                        例：张三
+                                    </small>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <input type="text" class="required" name="realname" value="{Fei:$nickname}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="sexy" style="width: 82px;">
+                                    <strong>
+                                        性别
+                                    </strong>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <div>
+                                        <input type="radio" {Fei:if $gender == '男'}checked="checked"{Fei:/if} name="sexy" id="f4_rb1" value="1" >
+                                        <label for="f4_rb1">男</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" {Fei:if $gender == '女'}checked="checked"{Fei:/if} name="sexy" id="f4_rb2" value="0">
+                                        <label for="f4_rb2">女</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="birthday" style="width: 82px;">
+                                    <strong>
+                                        生日
+                                    </strong>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <input type="text" name="birthday" id="f3_date" class="valid">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="wiz_safe">
+                            <div class="row">
+                                <label for="email" style="width: 82px;">
+                                    <strong>
+                                        常用邮箱
+                                    </strong>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <input type="text" class="required" email="true" name="email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="question" style="width: 82px;">
+                                    <strong>
+                                        安全问题
+                                    </strong>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <input type="text" name="question"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="answer" style="width: 82px;">
+                                    <strong>
+                                        问题答案
+                                    </strong>
+                                </label>
+                                <div style="margin-left: 97px;">
+                                    <input type="text" class="required" name="answer" >
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="wiz_finish">
+                            <div class="alert note top">
+                                <span class="icon"></span><span class="close">x</span>
+                                <strong>
+                                    提示：
+                                </strong>
+                                确保信息填写无误后点击【确认注册】！
+                            </div>
+                            <p style="padding:20px;">
+                                <button id="submit" class="button grey block"><span class="icon icon-plus"></span>确认注册</button>
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="actions" style="position:static;">
+                        <div class="left">
+                            <a href="#" class="button grey disabled">
+                            <span>
+                                <img src="statics/img/icons/packs/fugue/16x16/arrow-180.png" width="16" height="16">
+                            </span>
+                                上一步
+                            </a>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="button grey">
+                            <span>
+                                <img src="statics/img/icons/packs/fugue/16x16/arrow.png" width="16" height="16">
+                            </span>
+                                下一步
+                            </a>
+                            <a class="button finish disabled">
+                            <span>
+                                <img src="statics/img/icons/packs/fugue/16x16/arrow.png" width="16" height="16">
+                            </span>
+                                结束
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    var cu = $("#Dialog_check_user")
+    cu.dialog({
+        autoOpen:true,
+        modal:true,
+        width:450
+    })
+
+    $("input[name=birthday]").datepicker()
+    $('#check_wiz').wizard()
+
+    $("#submit").click(function(){
+        var data = {
+            'action':'register',
+            'avatar':$('input[name=avatar]').val(),
+            'avatar2':$('input[name=avatar2]').val(),
+            'realname':$('input[name=realname]').val(),
+            'sexy':$('input[name=sexy]').val(),
+            'birthday':$('input[name=birthday]').val(),
+            'email':$('input[name=email]').val(),
+            'question':$('input[name=question]').val(),
+            'answer':$('input[name=answer]').val()
+        }
+        $.post('http://www.grw.name/admin.php?c=Grw&a=login',data,function(result){
+            if(result.status == 'success'){
+                window.location = "http://www.grw.name"
+            }else if(result.status == 'error'){
+                alert('error')
+            }
+        },'json')
+        return false;
+    })
+</script>

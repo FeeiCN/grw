@@ -1,0 +1,25 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+     <section id="content" class="container_12 clearfix">
+        <h1 class="grid_12"><span>
+            云盘
+        </span></h1>
+        <div class="grid_12">
+            <div class="box"> 
+                <div class="header"> 
+                    <h2><img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/server-cloud.png">云盘</h2> 
+                </div> 
+                <div class="content"> 
+                    <div class="explorer elfinder" data-backend="{Fei:FeiUrl('yunpan','api')}">
+                    </div> 
+                </div> 
+            </div>
+        </div>
+     </section>
+</div>
+<link rel="stylesheet" href="{Fei:$STATICS}css/external/jquery.elfinder.css">
+<script src="{Fei:$STATICS}js/mylibs/explorer/elfinder.min.js"></script>
+<script src="{Fei:$STATICS}js/mylibs/explorer/elfinder.zh_CN.js"></script>
+{Fei:include file="Public/footer.html"}

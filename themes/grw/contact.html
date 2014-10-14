@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>联系方式</title>
+<base href="http://www.grw.name/themes/grw/">
+<link rel="icon" type="image/png" href="images/favicon.ico" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+<!--[if lt IE 9]>
+<script src="scripts/ie9.js">IE7_PNG_SUFFIX=".png";</script>
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="stylesheets/style.css"> 
+<link rel="stylesheet" href="stylesheets/responsive.css"> 
+<script src="scripts/jquery.min.js"></script> 
+<script src="scripts/jquery.bxSlider.min.js"></script>
+<script src="scripts/jquery.blackandwhite.min.js"></script>
+<script src="scripts/js_func.js"></script>
+<script>
+$(function(){
+	$('.clients_slider').bxSlider({
+		auto: false,
+		controls : false,
+		mode: 'fade',
+		pager: true
+	});	
+	$('.recent_slider').bxSlider({
+		auto: false,
+		displaySlideQty: 1,
+		moveSlideQty: 1,
+    	speed : 1000
+	});
+    $('.bwWrapper').BlackAndWhite({
+        hoverEffect : true,
+        webworkerPath : false,
+        responsive:true,
+        invertHoverEffect:false
+    });
+})
+</script>
+</head>
+<body>
+{Fei:include file="header.html"}
+
+<div class="content_block">
+ <!-- top_title -->
+ <div class="top_title">
+  <div class="wraper">
+   <h2>联系方式<span>We're just an email or phone call away.  Fill out the form below and we’ll be right with you!</span></h2>
+   <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Pages</a></li>
+    <li>Contact Us</li>
+   </ul>
+  </div>
+ </div>
+ <!-- /top_title -->
+ <div class="wraper">
+  <!-- contact_us -->
+  <div class="contact_us">
+   <h4>Where We Make Magic Happen</h4>
+<!--   <div class="bwWrapper"><img src="images/contact_us/contact_us.png" width="640" height="265" alt="" /></div>-->
+   <div class="map_wrap"><iframe width="640" height="265" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=555+Smith+Street+New+York,+NY+12345&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=49.223579,79.013672&amp;ie=UTF8&amp;hq=&amp;hnear=555+Smith+St,+Brooklyn,+Kings,+New+York+11231&amp;t=m&amp;z=14&amp;ll=40.672836,-73.998729&amp;output=embed"></iframe></div>
+   <ul>
+    <li>地址:<br /><br />电话:<br />传真:<br />邮箱:</li>
+    <li><strong>杭州市西湖区天目山路<br />华鸿大厦A座803<br />0571-85029620<br />0571-85029630<br />grw@grw.name    </strong></li>
+    <li>Construct is located at the heart of downtown New York City.  Come on down and have a visit!  Or feel free to fill out the form below to get in touch with us. We’d love to hear from you, and will be in touch with you right away.  Thanks, we look forward to hearing from you!  Tempora un incidunt ut labore et dolore magnam aliquam quaeraptatem.</li>
+   </ul> 
+   <h4>在线留言!</h4>
+   <form action="#" method="post">
+    <p><label for="namet">姓名</label><br /><input id="namet" type="text" /></p>
+    <p><label for="mailt">邮箱</label><br /><input id="mailt" type="text" /></p>
+    <p><label for="website">标题</label><br /><input id="website" type="text" /></p>
+    <p><label for="message">内容</label><br /><textarea id="message"></textarea></p>
+    <p><input class="btn_m" type="submit" value="提 交" /></p>
+   </form>
+  </div>
+  <!-- /contact_us -->
+  <!-- sidebar -->
+  <div class="sidebar">
+   <!-- most popular -->
+   <div class="most_popular">
+    <h4>Most Popular Blog Posts</h4>
+    <ul>
+     <li>
+      <div class="bwWrapper"><img src="images/blog/blog_23.png" width="60" height="55" alt="" /></div>
+      <div class="desc">
+       <p><strong>Being Creative Work</strong></p>
+       <p>Sectetut amet fermens ...</p>
+       <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
+      </div>
+     </li>
+     <li>
+      <div class="bwWrapper"><img src="images/blog/blog_24.png" width="60" height="55" alt="" /></div>
+      <div class="desc">
+       <p><strong>Being Creative Work</strong></p>
+       <p>Sectetut amet fermens ...</p>
+       <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
+      </div>
+     </li>
+     <li>
+      <div class="bwWrapper"><img src="images/blog/blog_25.png" width="60" height="55" alt="" /></div>
+      <div class="desc">
+       <p><strong>Being Creative Work</strong></p>
+       <p>Sectetut amet fermens ...</p>
+       <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
+      </div>
+     </li>
+    </ul>
+   </div>
+   <!-- /most popular -->
+   <!-- latest tweets -->
+   <div class="latest_tweets">
+    <h4>Latest From The Twittersphere</h4>
+    <ul>
+     <li><a href="#">@crucio</a> what an incredible site!<br /><a href="#">less than a minute ago</a></li>
+     <li><a href="#">@themesector</a> love this theme, tons of options, lots of goodies and crazy good support.  I cant ask for anything better!<br /><a href="#">about 3 hours ago</a></li>
+     <li><a href="#">@themeforest</a> where do you get support for account issues?  <a href="#">http://t.co/sr324nLrQw</a><br /><a href="#">less than a minute ago</a></li>
+    </ul>
+   </div>
+   <!-- /latest tweets -->
+   <!-- our clients -->
+   <div class="our_clients">
+    <h4>Our Clients Just Love Us</h4>
+     <ul class="clients_slider">
+	  <li>
+	   <blockquote>
+	    <p>"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
+	    <p>Jane Doe, CEO of Imperio</p>
+	   </blockquote>
+	  </li>	
+	  <li>
+	   <blockquote>
+	    <p>"Cum soluta nobis est eligendi optio cumque nihl impedit quois minus id quod maxime placeait sadipsamets."</p>
+	    <p>Jane Doe, CEO of Imperio</p>
+	   </blockquote>
+	  </li>	
+	  <li>
+	   <blockquote>
+	    <p>"Libero tempore, cuendi optio cumque nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
+	    <p>Jane Doe, CEO of Imperio</p>
+	   </blockquote>
+	  </li>	
+	  <li>
+	   <blockquote>
+	    <p>"Nam libero tempore, cum soluta nobis es nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
+	    <p>Jane Doe, CEO of Imperio</p>
+	   </blockquote>
+	  </li>	
+	  <li>
+	   <blockquote>
+	    <p>"Am libero tempore, cum soluta nobis est eligendi optio cumque ipsamets."</p>
+	    <p>Jane Doe, CEO of Imperio</p>
+	   </blockquote>
+	  </li>	
+	 </ul>   
+   </div>
+   <!-- /our clients -->
+   <!-- recent work -->
+   <div class="recent_work">
+    <h4>Recent Work Widget</h4>
+    <ul class="recent_slider">
+     <li><div class="bwWrapper"><a href="#"><img src="images/blog/blog_23.png" width="59" height="54" alt="" /></a></div><div class="bwWrapper"><a href="#"><img src="images/blog/blog_24.png" width="59" height="54" alt="" /></a></div><div class="bwWrapper"><a href="#"><img src="images/blog/blog_25.png" width="59" height="54" alt="" /></a></div><div class="bwWrapper"><a href="#"><img src="images/blog/blog_26.png" width="59" height="54" alt="" /></a></div><div class="bwWrapper"><a href="#"><img src="images/blog/blog_27.png" width="59" height="54" alt="" /></a></div><div class="bwWrapper"><a href="#"><img src="images/blog/blog_28.png" width="59" height="54" alt="" /></a></div></li>
+    </ul>
+   </div>
+   <!-- /recent work -->
+  </div>
+  <!-- /sidebar -->
+ </div>
+</div>
+
+<!-- footer -->
+{Fei:include file="footer.html"}
+<!-- /footer -->
+</body>
+</html> 

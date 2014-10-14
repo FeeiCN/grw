@@ -1,0 +1,251 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="dialog_create_note" title="写日记">
+        <form id="create_note_form" class="full validate no-box">
+            <input type="hidden" name="action" value="add_note">
+            <input type="hidden" name="note_id">
+            <div class="row">
+                <label for="note_title">
+                    <strong>
+                        标题
+                    </strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" class="required" name="note_title">
+                </div>
+            </div>
+            <div class="row">
+                <label for="note_keywords">
+                    <strong>
+                        关键字
+                    </strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" class="required" name="note_keywords">
+                </div>
+            </div>
+            <div class="row">
+                <label for="note_content">
+                    <strong>
+                        内容
+                    </strong>
+                </label>
+                <div class="_80 input">
+                    <textarea id="note_content" name="note_content"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="grey cancel">
+                    取消
+                </button>
+            </div>
+            <div class="right">
+                <button class="submit">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="Dialog_view_note" title="查看文章">
+        <h2 id="note_title"></h2>
+        <p id="note_contents"></p>
+    </div>
+    <div id="Dialog_del_note" title="删除提示！">
+        <p>
+            确定删除此篇日记？
+        </p>
+        <div class="actions">
+            <div class="left">
+                <button class="grey cancel">
+                    取消
+                </button>
+            </div>
+            <div class="right">
+                <button class="submit">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <ul class=nav>
+            <li class="current">
+                <a href="#todo">
+                <span class="icon icon-check-empty"></span>
+                    代办事项
+                </a>
+            </li>
+            <li>
+                <a href="#completed_todo">
+                    <span class="icon icon-check"></span>
+                    已完成事项
+                </a>
+            </li>
+            <li>
+                <a href="#trash_todo">
+                    <span class="icon icon-trash"></span>
+                    垃圾箱
+                </a>
+            </li>
+        </ul>
+        <form action="">
+            <h3>
+                待办事件统计
+            </h3>
+            <div class="block">
+                
+            </div>
+        </form>
+    </div>
+     <section id="content" class="container_12 clearfix with-right-sidebar"
+    data-sort=true>
+        <h1 class="grid_12"><span>
+            日记列表
+        </span></h1>
+        <div class="grid_12">
+            <div class="box"> 
+                <div class="header"> 
+                    <h2><img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/newspaper.png">日记列表</h2> 
+                    <a href="javascript:void(0);" id="create_note" class="menu icon-pencil" title="写日记"></a>
+                    <a onclick="Note.get()" class="menu2 icon-refresh" title="刷新"></a>
+                </div> 
+                <div class="content"> 
+                    <div class="news">
+                    </div> 
+                </div> 
+            </div>
+        </div>
+     </section>
+</div>
+<style type="text/css">
+    /* 消除NOTE压线问题 */
+    .news .content{padding-bottom:10px;}
+</style>
+<script type="text/javascript">
+    /* Note Class */
+    var Note = {
+        url:"{Fei:FeiUrl('note')}",
+        view:function(id){
+            $.post(Note.url,{action:'view_note',id:id},function(result){
+                if(result.status == 'success'){
+                    $("#note_title").html(result.back.title)
+                    $("#note_contents").html(result.back.content)
+                    Note.vn.dialog("open")
+                }else if(result.status == 'error'){
+                    $.jGrowl('弹出错误')
+                }
+                console.log(result)
+            },'json')
+        },
+        vn:$("#Dialog_view_note"),
+        view_d:function(){
+            Note.vn.dialog({
+                autoOpen:false,
+                modal:false,
+                width:600,
+                open: function(){
+                    $(this).parent().css('overflow', 'visible');
+                    $$.utils.forms.resize()
+                }
+            })
+        },
+        edit:function(id){
+            $.post(Note.url,{action:'view_note',id:id},function(result){
+                if(result.status == 'success'){
+                    $("input[name=action]").val('edit_note')
+                    $("input[name=note_title]").val(result.back.title)
+                    $("input[name=note_keywords]").val(result.back.keywords)
+                    $("input[name=note_id]").val(result.back.id)
+                    //update editor content
+                    var note_editor = $("#note_content").cleditor()[0]
+                    $("#note_content").html(result.back.content)
+                    note_editor.updateFrame()
+                    //show edit
+                    Note.cn.dialog("open")
+                }else if(result.status == 'error'){
+                    $.jGrowl('弹出错误')
+                }
+                console.log(result)
+            },'json')
+        },
+        del:function(id){
+            Note.del_id = id
+            Note.dn.dialog("open")
+        },
+        dn:$("#Dialog_del_note"),
+        del_id:null,
+        del_d:function(){
+            Note.dn.dialog({
+                autoOpen:false,
+                modal:true
+            }).find('button.submit').click(function(){
+                if(Note.del_id != null){
+                    $.post(Note.url,{action:'del_note',id:Note.del_id},function(result){
+                        if(result.status == 'success'){
+                            Note.get()
+                            $.jGrowl('删除成功！')
+                            Note.dn.dialog("close")
+                        }else if(result.status == 'error'){
+                            $.jGrowl('删除失败!')
+                        }
+                    },'json')
+                }else{
+                    console.log('ERROR: del_id is null')
+                    Note.dn.dialog("close")
+                }
+            }).end().find('button.cancel').click(function(){
+                Note.dn.dialog("close")
+            })
+        },
+        cn:$("#dialog_create_note"),
+        add_d:function(){
+            //var cn = $("#dialog_create_note")
+            Note.cn.dialog({
+                autoOpen:false,
+                modal:true,
+                width:600,
+                close:function(){
+                    Note.cn.find('form')[0].reset()
+                },
+                open: function(){
+                    $("#note_content").cleditor()
+                    $(this).parent().css('overflow', 'visible');
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                    $.post("{Fei:FeiUrl('note','index')}",$("#create_note_form").serialize(),function(result){
+                        if(result.status == 'success'){
+                            Note.get()
+                            Note.cn.dialog("close");
+                        }else if(result.status == 'error'){
+                            Note.cn.dialog("close");
+                        }
+                    },'json');
+            }).end().find('button.cancel').click(function(){
+                Note.cn.dialog("close")
+            });
+            $("#create_note").click(function(){
+                $("input[name=action]").val('add_note')
+                Note.cn.dialog("open")
+                return false
+            })
+        },
+        get:function(){
+            $(".news").load(Note.url,{action:'get_note'},function(result){
+                $.jGrowl('Note load success!',{header:'日记本',theme:'wood'})
+            })
+            return false;
+        }
+    }
+    /* Initialize Dialog && Get note content */
+    Note.add_d()
+    Note.view_d()
+    Note.del_d()
+    Note.get()
+    
+</script>
+{Fei:include file="Public/footer.html"}

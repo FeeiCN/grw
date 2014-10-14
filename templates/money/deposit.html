@@ -1,0 +1,185 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="Dialog_add_deposit" title="添加一笔借款、欠款操作">
+        <form id="add_deposit" class="full valudata">
+            <input type="hidden" name="action" value="add_deposit">
+            <input type="hidden" name="type">
+            <div class="row">
+                <label for="user">
+                    <strong>借给</strong>
+                </label>
+                <div>
+                    <input type="text" name="user">
+                </div>
+            </div>
+            <div class="row">
+                <label for="sum">
+                    <strong>金额</strong>
+                </label>
+                <div>
+                    <input type="text" name='sum'>
+                </div>
+            </div>
+            <div class="row">
+                <label for="stime">
+                    <strong>时间</strong>
+                </label>
+                <div>
+                    <input type="date" name="stime">
+                </div>
+            </div>
+            <div class="row">
+                <label for="etime">
+                    <strong>还钱周期（天）</strong>
+                </label>
+                <div>
+                    <input type="text" name="period">
+                </div>
+            </div>
+            <div class="row">
+                <label for="remark">
+                    <strong>备注</strong>
+                </label>
+                <div>
+                    <textarea name="remark" id="" cols="30" rows="40"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">提交</button>
+            </div>
+        </div>
+    </div>
+     <section id="content" class="container_12 clearfix">
+        <h1 class="grid_12"><span>
+            借款欠债
+        </span></h1>
+        <div class="grid_6">
+            <div class="box with-table"> 
+                <div class="header"> 
+                    <h2><img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/newspaper.png">借款</h2>
+                    <a href="#" class="menu icon-pencil" onclick="Money.add_deposit(0)" title="添加借出"></a>
+                </div> 
+                <div class="content"> 
+                    <div id="jiechu">
+                        <table class="styled">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        借给
+                                    </th>
+                                    <th>
+                                        金额
+                                    </th>
+                                    <th>
+                                        时间
+                                    </th>
+                                    <th>
+                                        还钱日期
+                                    </th>
+                                    <th>
+                                        备注
+                                    </th>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="jiechus">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+        </div><div class="grid_6">
+            <div class="box with-table"> 
+                <div class="header"> 
+                    <h2><img class="icon" src="{Fei:$STATICS}img/icons/packs/fugue/16x16/newspaper.png">欠债</h2>
+                    <a href="#" class="menu icon-pencil" onclick="Money.add_deposit(0)" title="添加借入"></a>
+                </div> 
+                <div class="content"> 
+                    <div id="qianzhai">
+                        <table class="styled">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        向谁借
+                                    </th>
+                                    <th>
+                                        金额
+                                    </th>
+                                    <th>
+                                        时间
+                                    </th>
+                                    <th>
+                                        还钱日期
+                                    </th>
+                                    <th>
+                                        备注
+                                    </th>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="qianzhais">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+        </div>
+     </section>
+</div>
+<script type="text/javascript">
+    var Money = {
+        url:"{Fei:FeiUrl('money','review')}",
+        ad:$("#Dialog_add_deposit"),
+        init:function(){
+            //Add deposit
+            Money.ad.dialog({
+                autoOpen:false,
+                open:function(){
+                    $(this).parent().css('overflow','hidden')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Money.url,$("#add_deposit").serialize(),function(result){
+                    if(result.status == 'success'){
+                        Money.ad.dialog('close')
+                        Money.deposits()
+                    }else if(result.status == 'error'){
+                        $.jGrowl('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Money.ad.dialog('close')
+            })
+        },
+        deposits:function(){
+            $("#jiechus").load(Money.url,{action:'deposit',cz:0},function(){
+                console.log('jiechus load success')
+            })
+            $("#qianzhais").load(Money.url,{action:'deposit',cz:1},function(){
+                console.log('qianzhais load success')
+            })
+        },
+        add_deposit:function(type){
+            $("input[name=type]").val(type)
+            Money.ad.dialog('open')
+        }
+    }
+    $(function(){
+        Money.init()
+        Money.deposits()
+    })
+</script>
+{Fei:include file="Public/footer.html"}

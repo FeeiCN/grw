@@ -1,0 +1,212 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="Dialog_add_record" title="添加一笔">
+        <form id="add_record" class="full valudata">
+            <input type="hidden" name="action" value="add_record">
+            <input type="hidden" name="bankid">
+            <div class="row">
+                <label for="cz">
+                    <strong>操作</strong>
+                </label>
+                <div class="_80 input">
+                    <select name="cz">
+                        <option value="0">取款</option>
+                        <option value="1">存款</option>
+                        <option value="2">转账</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label for="sum">
+                    <strong>金额</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name='sum'>
+                </div>
+            </div>
+            <div class="row">
+                <label for="ctime">
+                    <strong>操作时间</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="date" name="ctime">
+                </div>
+            </div>
+            <div class="row">
+                <label for="address">
+                    <strong>地址</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="address">
+                </div>
+            </div>
+            <div class="row">
+                <label for="remark">
+                    <strong>备注</strong>
+                </label>
+                <div class="_80 input">
+                    <textarea name="remark" id="" cols="30" rows="40"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">提交</button>
+            </div>
+        </div>
+    </div>
+    <div id="Dialog_add_bank" title="添加银行卡">
+        <form id="add_bank" class="full validata">
+            <input type="hidden" name="action" value="add_bank">
+            <input type="hidden" name="edit_id">
+            <div class="row">
+                <label for="bank_title">
+                    <strong>名称</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="bank_title">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_type">
+                    <strong>类型</strong>
+                </label>
+                <div class="_80 input">
+                    <select name="bank_type" placeholder="请选择银行卡类型">
+                        <option value="1">储蓄卡</option>
+                        <option value="0">信用卡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_num">
+                    <strong>卡号</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="bank_num">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_ctime">
+                    <strong>开卡日期</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="date" name="bank_ctime">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_reserve">
+                    <strong>余额</strong>
+                </label>
+                <div class="_80 input">
+                    <input type="text" name="bank_reserve">
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">确定</button>
+            </div>
+        </div>
+    </div>
+     <section id="content" class="container_12 clearfix">
+        <h1 class="grid_12">
+            <span>银行卡信息</span>
+        </h1>
+        <div class="grid_12" id="banks">
+        </div>
+     </section>
+</div>
+<script type="text/javascript">
+        var Money = {
+        url:"{Fei:FeiUrl('money','review')}",
+        ab:$("#Dialog_add_bank"),
+        ar:$("#Dialog_add_record"),
+        init:function(){
+            Money.ab.dialog({
+                autoOpen:false,
+                open:function(){
+                    $(this).parent().css('overflow','hidden')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Money.url,$("#add_bank").serialize(),function(result){
+                    if(result.status == 'success'){
+                        Money.ab.dialog('close')
+                        Money.banks()
+                    }else if(result.status == 'error'){
+                        alert('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Money.ab.dialog("close")
+            })
+            $(".open_ab").click(function(){
+                Money.ab.dialog('open')
+            })
+            //Add record
+            Money.ar.dialog({
+                autoOpen:false,
+                open:function(){
+                    $(this).parent().css('overflow','hidden')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Money.url,$("#add_record").serialize(),function(result){
+                    if(result.status == 'success'){
+                        Money.ar.dialog("close")
+                        Money.banks()
+                    }else if(result.status == 'error'){
+                        alert('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Money.ar.dialog("close")
+            })
+        },
+        banks:function(){
+            $("#banks").load(Money.url,{action:'banks'},function(){
+                console.log('banks load success')
+            })
+        },
+        edit_bank:function(id){
+            $.post(Money.url,{action:'bank_info',id:id},function(result){
+                if(result.status == 'success'){
+                    $("input[name=action]").val('edit_bank')
+                    $("input[name=edit_id]").val(id)
+                    $("input[name=bank_title]").val(result.back.title)
+                    $("select[name=bank_type]").val(result.back.type)
+                    $("input[name=bank_num]").val(result.back.num)
+                    $("input[name=bank_ctime]").val(result.back.ctime)
+                    $("input[name=bank_reserve]").val(result.back.reserve)
+                }else if(result.status == 'error'){
+                    console.log('edit bank error')
+                }
+            },'json')
+            Money.ab.dialog('option','title','编辑银行卡信息')
+            Money.ab.dialog("open")
+        },
+        add_record:function(bankid){
+            if(bankid != null){
+                $("input[name=bankid]").val(bankid)
+                Money.ar.dialog("open")
+            }else{
+                $.jGrowl('操作 错误')
+            }
+            
+        }
+    }
+    $(function(){
+        Money.init()
+        Money.banks()
+    })
+</script>
+{Fei:include file="Public/footer.html"}

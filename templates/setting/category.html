@@ -1,0 +1,425 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <div id="dialog_add_category" title="添加栏目">
+                        <form id="add_category" class="full validate">
+                            <div class="row">
+                                <label for="catename">
+                                    <strong>
+                                        中文名称
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input class="required" type="text" name="catename" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="letter">
+                                    <strong>
+                                        英文名称
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input class="required stringEN" type=text name=letter />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="parentid">
+                                    <strong>
+                                        所属栏目
+                                    </strong>
+                                </label>
+                                <div>
+                                    <select name="parentid" id=f2_select1 class="search" data-placeholder="请选择所属栏目">
+                                        <option value="0">
+                                            作为一级栏目
+                                        </option>
+                                        {Fei:foreach from=$arr item=item1}
+                                            <option value="{Fei:$item1.catid}" {Fei:if $result.parentid==$item1.catid}selected{Fei:/if}>{Fei:$item1.catname}</option>
+                                                {Fei:foreach from=$item1.zi item=item2} 
+                                                    <option value="{Fei:$item2.catid}" {Fei:if $result.parentid==$item2.catid}selected{Fei:/if}>{Fei:$item2.catname}[2]</option>
+                                                {Fei:/foreach}  
+                                        {Fei:/foreach}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="ico">
+                                    <strong>
+                                        栏目图标
+                                    </strong>
+                                </label>
+                                <div>
+                                    <p class="_25">
+                                    <input class="required stringEN" type=text name=ico />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="listorder">
+                                    <strong>
+                                        排序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input type="text" value="1" name="listorder">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="ismenu">
+                                    <strong>
+                                        是否显示
+                                    </strong>
+                                </label>
+                                <div>
+                                    <input type="radio" name="ismenu" value="1">
+                                    <label for="ismenu"><strong>是</strong></label>
+                                    <input type="radio" name="ismenu" value="0">
+                                    <label for="ismenu"><strong>否</strong></label>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="actions">
+                            <div class="left">
+                                <button class="grey cancel">
+                                    取消
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="submit">
+                                    添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="right-sidebar">
+                            <ul class=nav>
+                                <li class="current">
+                                    <a href="#cate_1">
+                                        一级栏目列表
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#cate_2">
+                                        二级栏目列表
+                                    </a>
+                                </li>
+                            </ul>
+                            <form action="">
+                                <h3>
+                                    Contact
+                                </h3>
+                                <div class="block">
+                                    <div>
+                                        <input type="checkbox" name=s_inperson id=s_inperson />
+                                        <label for="s_inperson">
+                                            In Person
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name=s_skype id=s_skype />
+                                        <label for="s_skype">
+                                            Skype
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name=s_phone id=s_phone />
+                                        <label for="s_phone">
+                                            Phone
+                                        </label>
+                                    </div>
+                                </div>
+                                <h3>
+                                    图标
+                                </h3>
+                                <div class="block">
+                                    <div class="gallery">
+                                        <div class="image">
+                                                <span class="badge">
+                                                    24*24
+                                                </span>
+                                                <a href="{Fei:$STATICS}img/fugue.png">
+                                                    <img src="{Fei:$STATICS}img/_demo/_tmb/1.jpg" />
+                                                </a>
+                                                <span>
+                                                    FUGUE-ICO图标
+                                                </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div>
+                                        <div class="left">
+                                            $10
+                                        </div>
+                                        <div class="right">
+                                            $500+
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                        <input data-type="range" data-min=10 data-max=500 data-step=10 data-range="[10,400]"
+                                        data-pattern="$%n" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <section id="content" class="container_12 clearfix with-right-sidebar"
+                        data-sort=true>
+                            <h1 class="grid_12"><span>
+                                一级栏目列表
+                            </span></h1>
+                            <div class="grid_12">
+                                <div class="vertical-tabs grid_12">
+                                <div id="cate_1">
+                                    <div class="box with-table">
+                                    <div class="header">
+                                        <h2>
+                                            后台栏目列表
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="tabletools">
+                                            <div class="left">
+                                                <a class="open-add-category-dialog" href="javascript:void(0);">
+                                                    <i class="icon-plus">
+                                                    </i>
+                                                    新建栏目
+                                                </a>
+                                            </div>
+                                            <div class="right">
+                                                <a href="javascript:void(0);">
+                                                    <i class="icon-pencil">
+                                                    </i>
+                                                    Edit
+                                                </a>
+                                                <a href="javascript:void(0);">
+                                                    <i class="icon-remove">
+                                                    </i>
+                                                    Delete
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <table class="styled">
+                                            <thead>
+                                                <tr>
+                                                    <th>图标</th>
+                                                    <th>ID</th>
+                                                    <th>名称</th>
+                                                    <th>英文名称</th>
+                                                    <th>排列序号</th>
+                                                    <th>是否显示</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="category">
+                                            </tbody>
+                                        </table>
+                                        <div id="dialog_del_category" title="删除提示！">
+                                            <p>
+                                                是否确定删除此栏目？
+                                            </p>
+                                            <div class="actions">
+                                                <div class="left">
+                                                    <button class="grey">
+                                                        取消
+                                                    </button>
+                                                </div>
+                                                <div class="right">
+                                                    <button>
+                                                        确定
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="dialog_edit_category" title="修改栏目">
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                    
+                                <div id="cate_2">
+                                    <div class="grid_12">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            </div>
+                        </section>
+                    </div>
+                    <script type="text/javascript">
+                        $$.ready(function() {
+                             //Del Category Dialog
+                            $('#dialog_del_category').dialog({
+                                autoOpen: false,
+                                modal: true,
+                                width: 400
+                            });
+                            //Add Category
+                            var ac = $("#dialog_add_category")
+                            ac.dialog({
+                                autoOpen: false,
+                                modal: true,
+                                width: 400
+                            }).find('button.submit').click(function() {//COMMIT
+                                var $el = $('#add_category');
+                                if ($el.validate().form()) {//VALIDATE
+                                    var formdata = {
+                                        'action':'add_category',
+                                        'catname':$('input[name=catename]').val(),
+                                        'letter':$('input[name=letter]').val(),
+                                        'parentid':$('select[name=parentid]').val(),
+                                        'listorder':$('input[name=listorder]').val(),
+                                        'ismenu':$('input:radio[name=ismenu]:checked').val(),
+                                        'ico':$('input[name=ico]').val()
+                                    }
+                                    $.post('{Fei:FeiUrl('setting','category')}',formdata,function(result){
+                                        if(result=='success'){
+                                            $.jGrowl('恭喜你！<br />栏目已成功添加！');
+                                            $el[0].reset()//RESET
+                                            ac.dialog('close')//CLOSE
+                                            console.log('success')
+                                            Get_category_content()
+                                        }else if(result=='error'){
+                                            $el[0].reset();//RESET
+                                            ac.dialog('close');//CLOSE
+                                            console.log('error');
+                                           $.jGrowl('对不起，栏目添加失败！',{header:'栏目管理',theme:'wood'})
+                                        }
+                                    })
+                                }
+                            }).end().find('button.cancel').click(function() {//CANCLE
+                                var $el = $(this).parents('#add_category');
+                                $el.find('form')[0].reset();
+                                $el.dialog('close');;
+                            })
+                            $(".open-add-category-dialog").click(function() {
+                                ac.dialog("open");
+                                return false;
+                            })
+                            
+                            //Edit Category
+                            $("#dialog_edit_category").dialog({
+                                autoOpen: false,
+                                modal: true,
+                                width: 400
+                            })
+                        });
+
+                        //Get Category Content
+                        function Get_category_content(){
+                            $('#category').load("{Fei:FeiUrl('setting','category')}",{action:'get_category_content'},function(){
+                                $.jGrowl('栏目数据加载完成！',{header:'栏目管理',theme:'wood'});
+                            });
+                        }
+
+                        Get_category_content();
+                        //Delete Category
+                            function Delete_Category(catid){
+                                $("#dialog_del_category").dialog("open");
+                                $("#dialog_del_category").find('button').click(function(){
+                                    var formdata = {
+                                        'action':'del_category',
+                                        'catid':catid
+                                    };
+                                    $.post("{Fei:FeiUrl('setting','category')}",formdata,function(result){
+                                        if(result=='success'){
+                                            $("#dialog_del_category").dialog("close");
+                                            Get_category_content();
+                                            $.jGrowl('删除成功！栏目已成功删除！',{header:'栏目管理',theme:'wood'});
+                                            Get_category_content();
+                                        }else if(result == 'error'){
+                                            $.jGrowl('对不起！栏目删除失败！',{header:'栏目管理',theme:'wood'});
+                                            $("#dialog_del_category").dialog("close");
+                                        }
+                                    });
+                                });
+                            }
+
+                            //Edit Category
+                            function Edit_Category(catid){
+                                var postform = {
+                                    'action':'get_edit_category_content',
+                                    'catid':catid
+                                };
+                                $("#dialog_edit_category").load("{Fei:FeiUrl('setting','category')}",postform,function(result){
+                                    var g = $("select").not(".dualselects");
+                                    g.each(function(){
+                                            var k=$(this);
+                                            k.chosen({
+                                                    disable_search_threshold:k.hasClass("search")?0:Number.MAX_VALUE,allow_single_deselect:true,width:k.data("width")||"100%"
+                                            })
+                                    });
+                                    $(".chzn-done").on("change",function(){
+                                            var k=$(this).parents("form").validate();
+                                            k&&k.element($(this))
+                                    }).each(function(){
+                                            var l=$(this),k=l.parents("form");
+                                            k.on("reset",function(){
+                                                    l[0].selectedIndex=-1;
+                                                    l.trigger("liszt:updated")
+                                            });
+                                            k.data("chzn-reset",true)
+                                    });
+                                    if(!Modernizr.touch){
+                                            $("select.dualselects").dualselect()
+                                    }
+                                    $("input[data-type=spinner]").each(function(){
+                                            var l=$(this),k=l.data();
+                                            if(k.format){
+                                                    k.numberformat=k.format;
+                                                    k.format=f
+                                            }
+                                            l.spinner(k)
+                                    });
+                                    $("input:checkbox").checkbox({
+                                            cls:"checkbox",empty:"img/elements/checkbox/empty.png"
+                                    });
+                                    $("#dialog_edit_category").dialog("open");
+                                    $("#dialog_edit_category").find('button.submit').click(function() {//COMMIT
+                                        var $el = $('#edit_category');
+                                        if ($el.validate().form()) {//VALIDATE
+                                            var formdata = {
+                                                'action':'edit_category',
+                                                'catid':catid,
+                                                'catname':$('input[name=edit_catename]').val(),
+                                                'letter':$('input[name=edit_letter]').val(),
+                                                'parentid':$('select[name=edit_parentid]').val(),
+                                                'listorder':$('input[name=edit_listorder]').val(),
+                                                'ismenu':$('input:radio[name=edit_ismenu]:checked').val(),
+                                                'ico':$('input[name=edit_ico]').val()
+                                            }
+                                            $.post('{Fei:FeiUrl('setting','category')}',formdata,function(result){
+                                                if(result=='success'){
+                                                    $.jGrowl('恭喜你！栏目编辑成功！',{header:'栏目管理',theme:'wood'});
+                                                    Get_category_content();
+                                                    $el[0].reset();//RESET
+                                                    $("#dialog_edit_category").dialog('close');//CLOSE
+                                                    console.log('success');
+                                                }else if(result=='error'){
+                                                    $el[0].reset();//RESET
+                                                    $("#dialog_edit_category").dialog('close');//CLOSE
+                                                    console.log('error');
+                                                    $.jGrowl('对不起！栏目编辑失败！',{header:'栏目管理',theme:'wood'});
+                                                }
+                                            })
+                                        }
+                                    }).end().find('button.cancel').click(function() {//CANCLE
+                                        var $el = $(this).parents('#edit_category');
+                                        $el.find('form')[0].reset();
+                                        $el.dialog('close');;
+                                    });
+                                    $(".open-edit-category-dialog").click(function() {
+                                        $("#dialog_edit_category").dialog("open");
+                                        return false;
+                                    });
+                                })
+                            }
+                        
+                    </script>
+                    {Fei:include file="Public/footer.html"}

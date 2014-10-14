@@ -1,0 +1,62 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <section id="content" class="container_12 clearfix" data-sort=true>
+        <h1 class="grid_12"><span>
+            功能模块
+        </span></h1>
+        <div class="grid_12">
+            <div class="grid_12">
+                <div id="cate_1">
+                    <div class="box with-table">
+                        <div class="header">
+                            <h2>
+                                功能模块列表
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <div class="dataTables_wrapper">
+                                <table class="styled">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>功能名称</th>
+                                            <th>描述</th>
+                                            <th>状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="modules">
+                                    </tbody>
+                                </table>
+                                <div class="footer">
+                                    <div class="dataTables_info">注：关闭后数据将不会清除，下次开启后数据将恢复。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    var Modules = {
+        init:function(){
+            Modules.get()
+            $("input[type=checkbox]").click(function(){
+                console.log(this.hasClass('checkbox-checked') + '123')
+            })
+        },
+        get:function(){
+            $("#modules").load("{Fei:FeiUrl('setting','module')}",{'action':'get_modules'},function(){
+                console.log('modules load success')
+            })
+        }
+    }
+
+    $(function(){
+        Modules.init()
+    })
+</script>
+{Fei:include file="Public/footer.html"}

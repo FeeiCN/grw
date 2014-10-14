@@ -1,0 +1,65 @@
+<aside>
+    <div class="top">
+        <nav>
+            <ul class="collapsible accordion">
+                {Fei:foreach from=$TopCategory item=category}
+                {Fei:if $category.parentid==0}
+                <li {Fei:if $category.haschild==0 && $smarty.get.c == $category.letter}class="current"{Fei:/if} >
+                  <a href="{Fei:if $category.haschild==0}{Fei:$category.url}{Fei:else}javascript:void(0);{Fei:/if}" {Fei:if $smarty.get.c==$category.letter}class="open"{Fei:/if}>
+                    <img src="{Fei:$STATICS}img/icons/packs/fugue/16x16/{Fei:$category.ico}.png" alt="" height=16 width=16>
+                    {Fei:$category.catname}
+                    {Fei:if $category.ismenu == 0}
+                    (隐藏)
+                    {Fei:/if}
+                    {Fei:if $category.num}
+                    <span class="badge" id="todo_nums">{Fei:$category.num}</span>
+                    {Fei:/if}
+                  </a>
+                    {Fei:if $category.haschild==1}
+                    <ul>
+                        {Fei:foreach from=$TopCategory item=cate}
+                        {Fei:if $category.catid==$cate.parentid}
+                        <li {Fei:if $smarty.get.a==$cate.letter}class="current"{Fei:/if}>
+                            <a href="{Fei:$cate.url}">
+                                <span class="icon {Fei:$cate.ico}">
+                                </span>
+                                {Fei:$cate.catname}
+                                {Fei:if $cate.ismenu == 0}
+                                (隐藏)
+                                {Fei:/if}
+                                {Fei:if $cate.num}
+                                <span class="badge grey" id="todo_today_nums">{Fei:$cate.num}</span>
+                                {Fei:/if}
+                            </a>
+                        </li>
+                        {Fei:/if}
+                        {Fei:/foreach}
+                    </ul>
+                    {Fei:/if}
+                </li>
+                {Fei:/if}
+                {Fei:/foreach}
+            </ul>
+        </nav>
+    </div>
+    <div class="bottom">
+        <div class="divider"></div>
+        <div id="btn-lock" style="padding: 0px 40px;">
+            <span class="tooltip" data-gravity=nw title="This is an example of north-west gravity"></span>分钟后将锁定
+        </div>
+        {Fei:if $userid == 1}
+        <div class="progress">
+            <div class="bar" data-title="距下一次升级" data-value="8.61" data-max="14"
+            data-format="0.00 点">
+            </div>
+            <div class="bar" data-title="在线总时常" data-value="20000" data-max="20000"
+            data-format="0,0 小时">
+            </div>
+        </div>
+        {Fei:/if}
+        <div class="divider"></div>
+        <div class="buttons"> 
+            <a href="javascript:void(0);" class="button grey open-add-client-dialog">版本:V2014.10.10</a>
+        </div>
+    </div>
+</aside>

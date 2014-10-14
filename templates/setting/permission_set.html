@@ -1,0 +1,97 @@
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+<base href="http://www.feitm.com/statics/" />
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='css/css.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="scripts/charts/area-chart.js"></script>
+<script type="text/javascript" src="scripts/charts/bar-chart.js"></script> 
+<script type="text/javascript" src="scripts/charts/pie-chart.js"></script>
+</head>
+
+<body>
+  {Fei:include file="Public/nav.html"}
+    <!--NAV ENDS HERE-->
+  
+  
+  <div class="main">
+  
+  {Fei:include file="Public/notice.html"}
+    
+  <div class="shortable-content">
+  
+      <div class="box _50">
+        <div class="box-header">
+        权限修改
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+            <form action="" method="POST">
+                <input type="hidden" name="from" value="page">
+                <input type="hidden" name="aclid" value="{Fei:$P_s.aclid}">
+          {Fei:if $smarty.get.action!='add'}
+          <div class="form-row">
+              <label for="ACLID">
+                  <strong>ACLID</strong>
+              </label>
+              <div class="form-right-col">
+                  <input type="text" disabled="disabled" value="{Fei:$P_s.aclid}">
+              </div>
+          </div>
+          {Fei:/if}
+          <div class="form-row">
+              <label for="名称">
+                  <strong>名称</strong>
+              </label>
+              <div class="form-right-col">
+                  <input type="text" name="name" value="{Fei:$P_s.name}"/>
+              </div>
+          </div>
+            <div class="form-row">
+              <label for="控制器">
+                  <strong>控制器</strong>
+              </label>
+              <div class="form-right-col">
+                  <input type="text" name="controller" value="{Fei:$P_s.controller}"/>
+              </div>
+          </div>
+            <div class="form-row">
+              <label for="事件">
+                  <strong>事件</strong>
+              </label>
+              <div class="form-right-col">
+                  <input type="text" name="act" value="{Fei:$P_s.action}"/>
+              </div>
+          </div>
+             <div class="form-row">
+              <label for="权限">
+                  <strong>权限</strong>
+              </label>
+              <div class="form-right-col">
+                  <input type="radio" class="styled" name="acl" value="Fei_Any" {Fei:if $P_s.acl_name=='Fei_Any'}checked="checked"{Fei:/if}>所有人可见
+                  <input type="radio" class="styled" name="acl" value="Fei_Admin" {Fei:if $P_s.acl_name=='Fei_Admin' or $P_s.acl_name == ''}checked="checked"{Fei:/if}>管理员
+              </div>
+          </div>
+              <div class="form-row">
+                  <input type="submit" class="grey" value="取消"/>
+                  <input type="submit" class="float_r" value="确定"/>
+              </div>
+            </form>
+        </div>
+    </div><!--PROFILE PAGE ENDS HERE-->
+    
+      
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>

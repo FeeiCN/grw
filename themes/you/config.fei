@@ -1,0 +1,10 @@
+[info]
+id="FEI00001"
+name="七色单页动态版"
+author="吴飞飞"
+website="http://www.feei.cn"
+[config]
+ispage=true
+isfollow=true
+isskill=true
+ismap=true

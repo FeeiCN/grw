@@ -1,0 +1,70 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+    <base href="http://www.feitm.com/statics/"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/script.js"></script>
+    <link href='css/css.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="scripts/charts/area-chart.js"></script>
+    <script type="text/javascript" src="scripts/charts/bar-chart.js"></script>
+    <script type="text/javascript" src="scripts/charts/pie-chart.js"></script>
+</head>
+<body>
+{Fei:include file="Public/nav.html"}
+<!--NAV ENDS HERE-->
+<div class="main">
+    {Fei:include file="Public/notice.html"}
+    <div class="shortable-content">
+        <div class="box _75">
+            <div class="box-header">
+                备份历史
+                <i class="icon-remove-sign close" title="Close"></i>
+                <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+            </div>
+            <div class="box-content">
+                <table border="1" bordercolor="#dfdfdf" class="static_table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>部门</th>
+                        <th>人数</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {Fei:foreach from=$branchs key=key item=branch}
+                    <tr>
+                        <td>{Fei:$branch@iteration}</td>
+                        <td>{Fei:$branch.zhi}</td>
+                        <td>{Fei:$branch.num}</td>
+                        <td>{Fei:$file.filectime}</td>
+                        <td class="center">
+                            <a class="grey display_but" title="删除">
+                                <i class="icon-remove"></i>
+                            </a>
+                            <a class="grey display_but" title="恢复">
+                                <i class="icon-time"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {Fei:/foreach}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--SHORTABLECONTENT-ENDS-->
+</div>
+<!--MAIN ENDS-->
+</body>
+</html>

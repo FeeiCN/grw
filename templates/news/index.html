@@ -1,0 +1,131 @@
+{Fei:include file="Public/header.html"}
+                    <div role="main" id="main" class="container_12 clearfix">
+                        {Fei:include file="Public/toolbar.html"}
+                        {Fei:include file="Public/nav.html"}
+                        <div class="dialog_add_rss" title="添加RSS源">
+                            <form class="full validate no-box">
+                            <div class="row">
+                                <label for="rss_name">
+                                    <strong>名称</strong>
+                                </label>
+                                <div>
+                                    <input type="text" name="rss_name" class="required">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="rss_source">
+                                    <strong>源地址</strong>
+                                </label>
+                                <div>
+                                    <input type="text" name="rss_source" class="required">
+                                </div>
+                            </div>
+                        </form>
+                            <div class="actions">
+                                <div class="left">
+                                    <button class="grey cancel">
+                                        取消
+                                    </button>
+                                </div>
+                                <div class="right">
+                                    <button class="submit">
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                         <section id="content" class="container_12 clearfix"
+                        data-sort=true>
+                            <h1 class="grid_12"><span>
+                                关注新闻
+                            </span></h1>
+                        <div class="grid_12">
+                                <div class="box">
+                                    <div class="header">
+                                        <h2>
+                                            新闻列表
+                                        </h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class="tabletools">
+                                            <div class="left">
+                                                {Fei:foreach from=$rss_source item=r}
+                                                <a href="javascript:void(0);">
+                                                    <img src="http://www.qq.com/favicon.ico" width="14px">
+                                                    {Fei:$r.name}
+                                                </a>
+                                                {Fei:/foreach}
+                                                <a class="open-add-client-dialog" href="javascript:void(0);">
+                                                    <img src="http://www.163.com/favicon.ico" width="14px">
+                                                    网易热点
+                                                </a>
+                                                <a class="open-add-client-dialog" href="javascript:void(0);">
+                                                    <img src="http://www.tiexue.net/favicon.ico" width="14px">
+                                                    铁血精品
+                                                </a>
+                                                <a class="open-add-client-dialog" href="javascript:void(0);">
+                                                    <img src="http://www.weibo.com/favicon.ico" width="14px">
+                                                    微博热点 <span class="icon-remove-sign"></span>
+                                                </a>
+                                                <a class="open_add_rss" href="javascript:void(0)">
+                                                    <span class="icon-plus"></span>
+                                                    增加一条
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <table class="dynamic styled with-prev-next" data-table-tools='{"display":true}'>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        文章标题
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="rss_main">
+                                                {Fei:foreach from=$rss_lists item=rss}
+                                                <tr>
+                                                    <td>
+                                                        <img src="http://{Fei:$rss.author}/favicon.ico" >
+                                                        <a href="{Fei:$rss.link}" target="_blank" style="font-weight:bold;font-size:14px;">{Fei:$rss.title}</a>  <span>({Fei:$rss.pubDate})</span>
+                                                        <div style="text-indent:24px;padding:10px 0px;">{Fei:$rss.description}<a href="{Fei:$rss.link}" target="_blank"  title="{Fei:$rss.description}">[查看详细]</a></div>
+                                                    </td>
+                                                </tr>
+                                                {Fei:/foreach}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             <script type="text/javascript">
+                                 var el = $(".dialog_add_rss");
+                                 el.dialog({
+                                     autoOpen:false,
+                                     width:400,
+                                     modal:true
+                                 }).find('button.submit').click(function(){
+                                     if(el.validate().form()){
+                                         var postdata = {
+                                            action:'add_rss',
+                                            name:$('input[name=rss_name]').val(),
+                                            url:$('input[name=rss_source]').val()
+                                        };
+                                        $.post("{Fei:FeiUrl('news')}",postdata,function(result){
+                                            if(result.status == 'success'){
+                                                el.dialog("close");
+                                                $.jGrowl('添加成功',{header:'添加成功！',theme:'wood'})
+                                            }else if(result.status == 'error'){
+                                                el.dialog("close");
+                                                $.jGrowl('添加失败',{header:'添加失败！',theme:'wood'})
+                                            }
+                                        },'json')
+                                     }
+                                 }).end().find('button.cancel').click(function(){
+                                     el.dialog("close")
+                                 });
+                                 $(".open_add_rss").click(function(){
+                                     el.dialog("open");
+                                 })
+                             </script>
+                         </section>
+                    </div>
+                    {Fei:include file="Public/footer.html"}

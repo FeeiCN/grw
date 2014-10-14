@@ -1,0 +1,432 @@
+{Fei:include file="Public/header.html"}
+<div role="main" id="main" class="container_12 clearfix">
+    {Fei:include file="Public/toolbar.html"}
+    {Fei:include file="Public/nav.html"}
+    <div id="Dialog_add_record" title="添加一笔银行卡操作">
+        <form id="add_record" class="full valudata">
+            <input type="hidden" name="action" value="add_record">
+            <input type="hidden" name="bankid">
+            <div class="row">
+                <label for="cz">
+                    <strong>操作</strong>
+                </label>
+                <div>
+                    <select name="cz">
+                        <option value="0">取款</option>
+                        <option value="1">存款</option>
+                        <option value="2">转账</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label for="sum">
+                    <strong>金额</strong>
+                </label>
+                <div>
+                    <input type="text" name='sum'>
+                </div>
+            </div>
+            <div class="row">
+                <label for="ctime">
+                    <strong>操作时间</strong>
+                </label>
+                <div>
+                    <input type="date" name="ctime">
+                </div>
+            </div>
+            <div class="row">
+                <label for="address">
+                    <strong>地址</strong>
+                </label>
+                <div>
+                    <input type="text" name="address">
+                </div>
+            </div>
+            <div class="row">
+                <label for="remark">
+                    <strong>备注</strong>
+                </label>
+                <div>
+                    <textarea name="remark" id="" cols="30" rows="40"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">提交</button>
+            </div>
+        </div>
+    </div>
+    <div id="Dialog_add_bank" title="添加银行卡">
+        <form id="add_bank" class="full validata">
+            <input type="hidden" name="action" value="add_bank">
+            <input type="hidden" name="edit_id">
+            <div class="row">
+                <label for="bank_title">
+                    <strong>名称</strong>
+                </label>
+                <div>
+                    <input type="text" name="bank_title">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_type">
+                    <strong>类型</strong>
+                </label>
+                <div>
+                    <select name="bank_type" placeholder="请选择银行卡类型">
+                        <option value="1">储蓄卡</option>
+                        <option value="0">信用卡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_num">
+                    <strong>卡号</strong>
+                </label>
+                <div>
+                    <input type="text" name="bank_num">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_ctime">
+                    <strong>开卡日期</strong>
+                </label>
+                <div>
+                    <input type="date" name="bank_ctime">
+                </div>
+            </div>
+            <div class="row">
+                <label for="bank_reserve">
+                    <strong>余额</strong>
+                </label>
+                <div>
+                    <input type="text" name="bank_reserve">
+                </div>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="left">
+                <button class="red cancel">取消</button>
+            </div>
+            <div class="right">
+                <button class="submit">确定</button>
+            </div>
+        </div>
+    </div>
+    <section id="content" class="container_12 clearfix ui-sortable"
+    data-sort=true>
+    <ul class="stats not-on-phone">
+        <li>
+            <strong>
+                ￥{Fei:number_format($cunkuan + $jiechu + $asset_num,0,'.',',')}
+            </strong>
+            <small>
+                总资产
+            </small>
+        </li>
+        <li>
+            <strong>
+                {Fei:if $cunkuan == 0}请先添加银行卡{Fei:else}￥{Fei:number_format($cunkuan,2,'.',',')}{Fei:/if}
+            </strong>
+            <small>
+                现有存款
+            </small>
+        </li>
+        <li>
+            <strong>
+                {Fei:if $asset_num == 0}暂没有固定资产{Fei:else}￥{Fei:number_format($asset_num,0,'.',',')}{Fei:/if}
+            </strong>
+            <small>
+                固定资产
+            </small>
+        </li>
+        <li>
+            <strong>
+                {Fei:if $jiechu == 0}没有借出{Fei:else}￥{Fei:number_format($jiechu,0,'.',',')}{Fei:/if}
+            </strong>
+            <small>
+                借出总额
+            </small>
+        </li>
+        <li>
+            <strong>
+                ￥
+            </strong>
+            <small>
+                借入总额
+            </small>
+        </li>
+    </ul>
+    <h1 class="grid_12">
+        <span>预览</span>
+    </h1>
+    <div class="grid_6">
+        <div class="box">
+            <div class="header">
+                <h2>
+                    Donut Charts
+                </h2>
+            </div>
+            <div class="content" style="height: 250px;">
+                <table class="chart" data-type="pie" data-donut="0.6">
+                    <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Label 1
+                        </th>
+                        <th>
+                            Label 2
+                        </th>
+                        <th>
+                            Label 3
+                        </th>
+                        <th>
+                            Label 4
+                        </th>
+                        <th>
+                            Label 5
+                        </th>
+                        <th>
+                            Label 6
+                        </th>
+                        <th>
+                            Label 7
+                        </th>
+                        <th>
+                            Label 8
+                        </th>
+                        <th>
+                            Label 9
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>
+                            First Label
+                        </th>
+                        <td>
+                            8
+                        </td>
+                        <td>
+                            27
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            79
+                        </td>
+                        <td>
+                            47
+                        </td>
+                        <td>
+                            59
+                        </td>
+                        <td>
+                            80
+                        </td>
+                        <td>
+                            30
+                        </td>
+                        <td>
+                            70
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Second Label
+                        </th>
+                        <td>
+                            48
+                        </td>
+                        <td>
+                            125
+                        </td>
+                        <td>
+                            159
+                        </td>
+                        <td>
+                            147
+                        </td>
+                        <td>
+                            154
+                        </td>
+                        <td>
+                            114
+                        </td>
+                        <td>
+                            163
+                        </td>
+                        <td>
+                            122
+                        </td>
+                        <td>
+                            96
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Third Label
+                        </th>
+                        <td>
+                            28
+                        </td>
+                        <td>
+                            56
+                        </td>
+                        <td>
+                            98
+                        </td>
+                        <td>
+                            112
+                        </td>
+                        <td>
+                            87
+                        </td>
+                        <td>
+                            26
+                        </td>
+                        <td>
+                            38
+                        </td>
+                        <td>
+                            110
+                        </td>
+                        <td>
+                            20
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Fourth Label
+                        </th>
+                        <td>
+                            38
+                        </td>
+                        <td>
+                            43
+                        </td>
+                        <td>
+                            69
+                        </td>
+                        <td>
+                            54
+                        </td>
+                        <td>
+                            16
+                        </td>
+                        <td>
+                            16
+                        </td>
+                        <td>
+                            202
+                        </td>
+                        <td>
+                            20
+                        </td>
+                        <td>
+                            73
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+     </section>
+</div>
+<script type="text/javascript">
+    var Money = {
+        url:"{Fei:FeiUrl('money','review')}",
+        ab:$("#Dialog_add_bank"),
+        ar:$("#Dialog_add_record"),
+        init:function(){
+            Money.banks()
+            //Add bank
+            Money.ab.dialog({
+                autoOpen:false,
+                open:function(){
+                    $(this).parent().css('overflow','hidden')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Money.url,$("#add_bank").serialize(),function(result){
+                    if(result.status == 'success'){
+                        $("#add_bank")[0].reset()
+                        Money.ab.dialog('close')
+                        Money.banks()
+                    }else if(result.status == 'error'){
+                        alert('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Money.ab.dialog("close")
+            })
+            $(".open_ab").click(function(){
+                Money.ab.dialog('open')
+            })
+            //Add record
+            Money.ar.dialog({
+                autoOpen:false,
+                open:function(){
+                    $(this).parent().css('overflow','hidden')
+                    $$.utils.forms.resize()
+                }
+            }).find('button.submit').click(function(){
+                $.post(Money.url,$("#add_record").serialize(),function(result){
+                    if(result.status == 'success'){
+                        $("#add_record")[0].reset()
+                        Money.ar.dialog("close")
+                        Money.banks()
+                    }else if(result.status == 'error'){
+                        alert('error')
+                    }
+                },'json')
+            }).end().find('cancel').click(function(){
+                Money.ar.dialog("close")
+            })
+        },
+        banks:function(){
+            $("#banks").load(Money.url,{action:'banks'},function(){
+                console.log('banks load success')
+            })
+        },
+        edit_bank:function(id){
+            $.post(Money.url,{action:'bank_info',id:id},function(result){
+                if(result.status == 'success'){
+                    $("input[name=action]").val('edit_bank')
+                    $("input[name=edit_id]").val(id)
+                    $("input[name=bank_title]").val(result.back.title)
+                    $("select[name=bank_type]").val(result.back.type)
+                    $("input[name=bank_num]").val(result.back.num)
+                    $("input[name=bank_ctime]").val(result.back.ctime)
+                    $("input[name=bank_reserve]").val(result.back.reserve)
+                }else if(result.status == 'error'){
+                    console.log('edit bank error')
+                }
+            },'json')
+            Money.ab.dialog('option','title','编辑银行卡信息')
+            Money.ab.dialog("open")
+        },
+        add_record:function(bankid){
+            if(bankid != null){
+                $("input[name=bankid]").val(bankid)
+                Money.ar.dialog("open")
+            }else{
+                $.jGrowl('操作 错误')
+            }
+            
+        }
+    }
+    $(function(){
+        Money.init()
+    })
+</script>
+{Fei:include file="Public/footer.html"}
