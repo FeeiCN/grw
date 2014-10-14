@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 我的钱包(开发中)
+ * Class money
+ */
 class money extends Grw
 {
 	function __construct()

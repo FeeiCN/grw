@@ -11,6 +11,10 @@ class api extends Grw
 
 	}
 
+	/**
+	 * 供第三方调用的API接口（Chrome Extension、App）
+	 * @author Feei(wufeifei@wufeifei.com)
+	 */
 	function index()
 	{
 		$action = $this->FeiArgs('action', NULL, 'POST');

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 用户前台页面
+ * Class content
+ */
 class content extends FeiController
 {
 	function __construct()

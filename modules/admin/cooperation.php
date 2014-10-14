@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 团队协作（待废弃）
+ * Class cooperation
+ */
 class cooperation extends Grw
 {
 	function __construct()

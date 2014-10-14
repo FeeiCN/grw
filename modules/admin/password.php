@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 密码保险箱
+ * Class password
+ */
 class password extends Grw
 {
 	function __construct()

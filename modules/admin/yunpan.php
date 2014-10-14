@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 云盘（待废弃）
+ * Class yunpan
+ */
 class yunpan extends Grw
 {
 	function __construct()

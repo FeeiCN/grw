@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 个人信息
+ * Class profile
+ */
 class profile extends Grw
 {
 	function __construct()

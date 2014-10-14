@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * RSS 消息(待废弃)
+ * Class news
+ */
 class news extends Grw
 {
 	function __construct()

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 人际关系
+ * Class relation
+ */
 class relation extends Grw
 {
 	function __construct()
@@ -176,6 +180,11 @@ class relation extends Grw
 		}
 	}
 
+	/**
+	 * 获取首字母
+	 * @param $s0
+	 * @return null|string
+	 */
 	function __Get_firstchar($s0)
 	{
 		$fchar = ord($s0{0});

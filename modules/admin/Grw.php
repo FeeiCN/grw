@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 个人网主类
+ * Class Grw
+ */
 class Grw extends FeiController
 {
 	function __construct()
@@ -20,7 +24,6 @@ class Grw extends FeiController
 
 	/**
 	 * Index
-
 	 */
 	function index()
 	{
@@ -28,9 +31,7 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * Login
-
-
+	 * 登陆
 	 */
 	function login()
 	{
@@ -117,7 +118,6 @@ class Grw extends FeiController
 					$_SESSION['Fei_Realname'] = $userinfo->nickname;
 					$this->jump(FeiUrl('Grw'));
 				} else {
-					$logs->error('register error');
 					echo 'register error';
 					exit;
 				}
@@ -133,8 +133,8 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * logout
-	 * @TODO log for logout time
+	 * 退出登陆
+	 * @TODO 记录退出登陆时间
 	 */
 	function logout()
 	{
@@ -148,32 +148,9 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * main
-
-	 */
-	function main()
-	{
-
-	}
-
-	/**
-	 * profile
-	 */
-	function profile()
-	{
-
-	}
-
-	function editpwd()
-	{
-
-	}
-
-	/**
-	 * Detection current user is use ie
+	 * 检测是否是IE浏览器
 	 * @return Boolean
 	 */
-
 	function __is_ie()
 	{
 		$useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
@@ -183,10 +160,7 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * 用户提示
-
-
-
+	 * 获取用户提示
 	 */
 	function alert()
 	{
@@ -210,10 +184,9 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * 输出alert
-	 * @param string $method error/success/warning/information/note
-	 * @param string $msg
-	 * @return alert
+	 * 输出提示
+	 * @param $method
+	 * @param $msg
 	 */
 	function __alert($method, $msg)
 	{
@@ -273,58 +246,13 @@ class Grw extends FeiController
                         " . $msg . "
                     </div>";
 				break;
-			default:
-				$logs->error('alert调用错误');
 		}
-		/*
-		<div class="alert error no-margin-top">
-			<span class="icon">
-			</span><span class="close">x</span>
-			<strong>
-				错误
-			</strong>
-			Something went wrong here!
-		</div>
-		<div class="alert success">
-			<span class="icon">
-			</span><span class="close">x</span>
-			<strong>
-				成功
-			</strong>
-			Now it's working :)
-		</div>
-		<div class="alert warning">
-			<span class="icon">
-			</span><span class="close">x</span>
-			<strong>
-				警告
-			</strong>
-			Something will go wrong soonly...
-		</div>
-		<div class="alert information">
-			<span class="icon">
-			</span><span class="close">x</span>
-			<strong>
-				信息
-			</strong>
-			this template is very cool?
-		</div>
-		<div class="alert note no-margin-bottom">
-			<span class="icon">
-			</span><span class="close">x</span>
-			<strong>
-				提示:
-			</strong>
-			There is something important you might not know.
-		</div>
-		*/
 	}
 
-	function __user()
-	{
-
-	}
-
+	/**
+	 * 初始化
+	 * @param $c
+	 */
 	function  __initial($c)
 	{
 		$this->setLang('zh-cn');
@@ -365,9 +293,9 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * 检测栏目信息数目
-	 * @param $catid 栏目id
-	 * @return num
+	 * 获取总的待办事项数
+	 * @param $catid
+	 * @return bool|int
 	 */
 	function __get_cate_num($catid)
 	{
@@ -381,6 +309,11 @@ class Grw extends FeiController
 		}
 	}
 
+	/**
+	 * 获取栏目待办事项数
+	 * @param $catid
+	 * @return bool|int
+	 */
 	function __get_cate_num2($catid)
 	{
 		$todo = FeiClass('model_todo');
@@ -409,8 +342,8 @@ class Grw extends FeiController
 
 	/**
 	 * 检测是否有子栏目
-	 * @param $catid 栏目id
-	 * @return true/false
+	 * @param $catid
+	 * @return bool
 	 */
 	function __haschild($catid)
 	{
@@ -420,6 +353,11 @@ class Grw extends FeiController
 		if ($count != 0) return TRUE;
 	}
 
+	/**
+	 * 根据父ID获取父栏目名称
+	 * @param $parentid
+	 * @return mixed
+	 */
 	function __get_pname_bypd($parentid)
 	{
 		$category = FeiClass('model_category');
@@ -428,14 +366,13 @@ class Grw extends FeiController
 	}
 
 	/**
-	 * 检测对象是否为真
-	 * @param $obj 对象
-	 * @return success/error
-	 * @todo 写入日志
+	 * 检测对象是否真并返回JSON
+	 * @param $obj
+	 * @param $b
 	 */
 	function __check_istrue($obj, $b)
 	{
-		if (obj) {
+		if ($obj) {
 			$result = array(
 				'status' => 'success',
 				'back'   => $b
@@ -453,9 +390,8 @@ class Grw extends FeiController
 
 	/**
 	 * 返回错误信息
-	 * @param $
-	 * @return
-	 * @todo  记录日志文件中
+	 * @param $event
+	 * @param $status
 	 */
 	function __show_result($event, $status)
 	{
@@ -474,6 +410,10 @@ class Grw extends FeiController
 		}
 	}
 
+	/**
+	 * 天气接口
+	 * @TODO 移到api.php里
+	 */
 	function weather()
 	{
 		//weather
@@ -569,6 +509,10 @@ class Grw extends FeiController
 		exit;
 	}
 
+	/**
+	 * 获取当前用户IP
+	 * @return string
+	 */
 	function __Get_ip()
 	{
 		if (getenv("HTTP_CLIENT_IP"))
@@ -578,10 +522,13 @@ class Grw extends FeiController
 		else if (getenv("REMOTE_ADDR"))
 			$ip = getenv("REMOTE_ADDR");
 		else $ip = "Unknow";
-		// return $ip;
-		return "218.109.236.88"; //Localhost test
+		return $ip;
 	}
 
+	/**
+	 * 获取当前用户所在城市
+	 * @return mixed
+	 */
 	function __Get_city()
 	{
 		$ip   = $this->__Get_ip();
@@ -590,6 +537,11 @@ class Grw extends FeiController
 		return $data;
 	}
 
+	/**
+	 * 请求远程数据
+	 * @param $url
+	 * @return mixed
+	 */
 	function __Get_content($url)
 	{
 		$ch      = curl_init();
@@ -603,6 +555,13 @@ class Grw extends FeiController
 		return $file_contents;
 	}
 
+	/**
+	 * 中文字符截断
+	 * @param $str
+	 * @param $from
+	 * @param $len
+	 * @return mixed
+	 */
 	function utf8Substr($str, $from, $len)
 	{
 		return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,' . $from . '}' .
@@ -610,6 +569,11 @@ class Grw extends FeiController
 			'$1', $str);
 	}
 
+	/**
+	 * 字符长度计算
+	 * @param null $string
+	 * @return int
+	 */
 	function utf8_strlen($string = NULL)
 	{
 		// 将字符串分解为单元

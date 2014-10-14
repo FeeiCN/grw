@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 时间目标
+ * Class timegoal
+ */
 class timegoal extends Grw
 {
 	function __construct()
@@ -16,7 +20,6 @@ class timegoal extends Grw
 
 	/**
 	 * today(今日待办)
-
 	 */
 	function today()
 	{
@@ -399,6 +402,9 @@ class timegoal extends Grw
 		}
 	}
 
+	/**
+	 * 将来获取
+	 */
 	function maybe()
 	{
 		//Todo
@@ -458,8 +464,8 @@ class timegoal extends Grw
 	}
 
 	/**
-	 * 固定事件
-	 **/
+	 * 固定提醒
+	 */
 	function fixed()
 	{
 		$todo   = FeiClass('model_todo');
@@ -502,46 +508,10 @@ class timegoal extends Grw
 
 
 	/**
-	 * 收集回顾页
-	 * @param
-	 * @return
+	 * 收集汇总
 	 */
 	function collect()
 	{
-//        $mail = FeiClass('FeiEmail');
-//        $mailsubject = "SpeedPHP邮件扩展";//邮件主题
-//        $mailbody = "<h1> SpeedPHP邮件扩展 </h1>";//邮件内容
-//        $mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件
-//        $mail->sendmail('398397685@qq.com', $mailsubject, $mailbody, $mailtype);
-
-//        $mail = FeiClass(phpmailer);
-//        $address ="398397685@qq.com";
-//        $mail->IsSMTP(); // 使用SMTP方式发送
-//        $mail->Host = "smtp.126.com"; // 您的企业邮局域名
-//        $mail->SMTPAuth = true; // 启用SMTP验证功能
-//        $mail->Username = "syrdxb@126.com"; // 邮局用户名(请填写完整的email地址)
-//        $mail->Password = "13328552116."; // 邮局密码
-//        $mail->Port=25;
-//        $mail->From = "syrdxb@126.com"; //邮件发送者email地址
-//        $mail->FromName = "liuyoubin";
-//        $mail->AddAddress("$address", "a");//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
-//        //$mail->AddReplyTo("", "");
-//
-//        //$mail->AddAttachment("/var/tmp/file.tar.gz"); // 添加附件
-//        //$mail->IsHTML(true); // set email format to HTML //是否使用HTML格式
-//
-//        $mail->Subject = "PHPMailer测试邮件"; //邮件标题
-//        $mail->Body = "Hello,这是测试邮件"; //邮件内容
-//        $mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
-//
-//        if(!$mail->Send())
-//        {
-//        echo "邮件发送失败. <p>";
-//        echo "错误原因: " . $mail->ErrorInfo;
-//        exit;
-//        }
-//
-//        echo "邮件发送成功";
 		$todo = FeiClass(model_todo);
 		if (isset($_POST['action']) && $_POST['action'] == 'alltodo') {
 			$conditions = "userid = " . $_SESSION['Fei_Userid'] . " AND (status=0 OR status=1 OR status=6)";
@@ -554,16 +524,6 @@ class timegoal extends Grw
 //                    $todolists[$i]['end'] = date('D M d Y H:i:s \\G\\M\\TO (T)',strtotime($todolist[$i]['endtime'])+3600);
 					$todolists[$i]['allDay'] = FALSE;
 				}
-				//Get Festival
-				// $festival = FeiClass(model_festival);
-				// $festivals = $festival->findAll();
-				// $f_count = count($festivals);
-				// for($j = 0;$j <= $f_count;$j++){
-				//     $festival_lists[$j]['title'] = '【'.$festivals[$j]['name'].'】';
-				//     $festival_lists[$j]['start'] = date('D M d Y H:i:s \\G\\M\\TO (T)',strtotime($festivals[$j]['date']));
-				// }
-				//dump(array_merge($todolists,$festival_lists));exit;
-				//echo json_encode(array_merge($todolists,$festival_lists));exit;
 				echo json_encode($todolists);
 				exit;
 			}
@@ -573,9 +533,7 @@ class timegoal extends Grw
 	}
 
 	/**
-	 * @category 回顾页
-	 * @param
-	 * @return
+	 * 回顾统计
 	 */
 	function review()
 	{
@@ -585,7 +543,7 @@ class timegoal extends Grw
 	/**
 	 * 检测是否重复
 	 * @param $doid
-	 * @return span
+	 * @return string
 	 */
 	function __check_repeats($doid)
 	{
@@ -679,6 +637,11 @@ class timegoal extends Grw
 		}
 	}
 
+	/**
+	 * 格式化日期
+	 * @param $endtime
+	 * @return string
+	 */
 	function __format_date($endtime)
 	{
 		$time    = $endtime;

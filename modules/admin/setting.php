@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 设置
+ * Class setting
+ */
 class setting extends Grw
 {
 

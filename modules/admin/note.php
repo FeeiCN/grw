@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 记事本（待废弃）
+ * Class note
+ */
 class note extends Grw
 {
 	function __construct()
