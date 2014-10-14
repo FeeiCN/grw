@@ -34,7 +34,7 @@
 
 ### 演示
 
-[个人网](http://www.grw.name)
+[![个人网](http://www.grw.name/assets/img/splash_app.png)](http://www.grw.name)
 
 > 在使用的过程中有任何不爽或建议恳请您反馈给我们！
 
