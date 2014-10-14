@@ -4,7 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/wufeifei/grw/v/unstable.svg)](https://packagist.org/packages/wufeifei/grw)
 [![License](https://poser.pugx.org/wufeifei/grw/license.svg)](https://packagist.org/packages/wufeifei/grw)
 
-> 个人事务管理系统是一套可以管理你所有的事务的系统程序，他操作方便、功能强大并且你可以免费使用它。
+> 个人事务管理系统是一套可以管理你所有的事务的系统程序，他操作方便、功能强大并且你可以免费使用它。http://www.grw.name
 
 #### 目前稳定功能：
 ```
