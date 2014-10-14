@@ -388,9 +388,6 @@ class timegoal extends Grw
                             " . $tag['name'] . "(<div style=\"display:inline\" class=\"tag_" . $tag['tagid'] . "\">" . $tag['num'] . "</div>项)
                         </span>
                         <div class=\"right inline m_b\">
-                            <a href=\"javascript:void(0)\" class=\"button small grey tooltip\" data-gravity=\"e\" original-title=\"修改\">
-                                <i class=\"icon-pencil\"></i>
-                            </a>
                             <a href=\"javascript:void(0)\" onclick=\"Todo.del_tag(" . $tag['tagid'] . ")\" class=\"button small grey tooltip\" data-gravity=\"w\" original-title=\"删除【" . $tag['name'] . "】\">
                                 <i class=\"icon-remove\"></i>
                             </a>
