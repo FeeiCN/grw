@@ -40,7 +40,7 @@
 
 ### 版权许可
 
-使用开源许可证 [MIT license](http://opensource.org/licenses/MIT)
+使用灵活度最高的开源许可证 [MIT license](http://opensource.org/licenses/MIT)
 
 ### 联系
 ```
