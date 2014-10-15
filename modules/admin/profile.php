@@ -284,8 +284,7 @@ class profile extends Grw
 			}
 		} else {
 			//User Info
-			$conditions = array('id' => $_SESSION['Fei_Userid']);
-			$this->user = $user->find($conditions);
+			$this->user = $user->getCurrentUserInfo();
 		}
 	}
 
