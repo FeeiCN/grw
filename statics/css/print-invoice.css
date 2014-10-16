@@ -1,0 +1,31 @@
+
+@media print {
+	#toolbar, header, footer, aside, .right-sidebar, section.toolbar {
+		display: none;
+	}
+	
+	#content {
+		padding: 0;
+		margin: 0;
+	}
+	
+	#content, #content > * {
+		width: 100%;
+	}
+	
+	#content .box .header {
+		display: none;
+	}
+	
+	#main, #content, #content .box {
+		border: none;
+	}
+	
+	.invoice .details > div {
+		border: none;
+	}
+	
+	.invoice .total, .invoice .total strong {
+		border: none;
+	}
+}

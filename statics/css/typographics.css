@@ -1,0 +1,1327 @@
+﻿/* ********************************************* */
+/* General Styling */
+
+body {
+	font-size: 75%;
+	line-height: 1.25;
+	
+	font-family: 'PT Sans', sans-serif;
+}
+
+.wf-loading body, .wf-inactive body {
+	font-family: sans-serif;
+}
+
+h1, h2, h3 {
+	margin-top:0;
+	margin-bottom:0;
+}
+
+h1 {
+	font-size: 1.30769em;
+	margin-bottom: 1.28619em;
+	
+	position: relative;
+}
+
+h1 span {
+	position: relative;
+	padding: 0 5px;
+	background: #fdfdfd;
+	z-index: 1;
+}
+
+h1:after {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: #dddee1;
+	left: 0;
+	top: 50%;
+	content: ' ';
+}
+
+h1.margin-top {
+	margin-top: 1.28619em;
+}
+
+/* #content > h1:first-child {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 1.28619em;
+} */
+
+h2, h3 {
+	font-size:1em;
+	padding:1.25em 0;
+}
+
+p {
+	word-spacing: 0.125em;
+}
+
+a, a:visited {
+	text-decoration: none;
+	outline: 0;
+	
+	color: #345478;
+}
+
+a:hover {
+	color: #102844;
+}
+
+/* Margin */
+.mt10{margin-top:10px;}
+
+/* ********************************************* */
+/* Layout, Forms and Elements Typography */
+
+
+/* The main container */
+
+#main .toolbar .user.clicked > span {
+	color: #212121;
+	text-shadow: none;
+}
+
+#main .toolbar .user li a, #main .toolbar .user li a:visited {
+	font-weight: bold;
+	font-size: 12px;
+	color: #212121;
+}
+
+#main .toolbar .user li:hover a {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+	text-decoration: none;
+}
+
+#main .toolbar .user > span {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#main .toolbar .avatar span {
+	color: #fff;
+    font-size: 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+#main .toolbar .shortcuts li > div h3 {
+	color: #425065;
+	text-shadow: 0 1px 0 #fff;
+}
+
+#main .toolbar .shortcuts li > div > div > p {
+	padding: 0 15px;
+}
+
+#main .toolbar .shortcuts li {
+	color: #65696F;
+}
+
+
+/* The sidebar */
+
+aside .progress .bar {
+	color: #535353;
+}
+
+
+/* The content container */
+
+#content .box .header ul li a {
+	color: #5f6269;
+	text-decoration: none;
+}
+
+#content .box .header ul li.current a {
+	color: #818181;
+}
+
+#content .box .header menu a {
+	font-size: 12px;
+	color: #606060;
+	text-shadow: 0 1px 0 #fff;
+}
+
+
+/* The sidebar navigation */
+
+aside nav > ul > li  a, aside nav > ul > li  a:visited {
+	font-size: 12px;
+	color: #404040;
+	text-shadow: 0 1px 0 #fff;
+}
+
+aside nav > ul > li a span.icon:before {
+	font-size: 16px;
+	color: #8D96A2;
+	text-shadow: 0 1px 0 #fff;
+}
+
+aside nav > ul > li > a:hover, aside nav > ul > li.current> a:hover {
+	color: #fefefe;
+	text-shadow: 0 1px 0 #193c65;
+}
+
+aside nav > ul > li.current > a {
+	color: #225087;
+}
+
+aside nav span.badge {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+	font-size: 10px;
+}
+
+aside nav span.badge.grey {
+	color: #626262;
+	text-shadow: 0 1px 0 #fff;
+}
+
+aside nav > ul > li > ul > li a:hover {
+	color: #0066EE;
+}
+
+
+/* Right Sidebar */
+
+.right-sidebar .nav a {
+	color: #404040;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+}
+
+.right-sidebar .nav a:hover, .right-sidebar .nav li.current a:hover {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.right-sidebar h3 {
+	color: #3e4858;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.right-sidebar form .block {
+	color: #3e4858;
+}
+
+
+/* The top toolbar */
+
+#toolbar .right li > a, #toolbar .right li > a:visited {
+	color: #f0f0f0;
+	text-shadow: 0 1px 0 #000;
+	text-decoration: none;
+}
+
+#toolbar .right li.red.disabled > a, #toolbar .right li.red.disabled > a:hover, #toolbar .right li.red.disabled > a:hover:active,
+#toolbar .right li.disabled > a span:not(.icon){
+	color: #a5a7ab;
+	text-shadow: 0 1px 0 #000;
+}
+
+#toolbar  li div.popup h3 {
+	color: #425065;
+	text-shadow: 0 1px 0 #fff;
+}
+
+#toolbar li div.popup .button.left, #main .toolbar .shortcuts li > div .button.left,
+#toolbar li div.popup .button.right, #main .toolbar .shortcuts li > div .button.right {
+	font-size: 11px;
+}
+
+
+/* The footer */
+
+footer > ul li a, footer > ul li a:visited, footer {
+	color: #777777;
+	text-shadow: 0 1px 0 #fff;
+	font-size: 11px;
+}
+
+footer > ul li a:hover {
+	color: #06e;
+}
+
+
+/* The login page */
+.login header .right a {
+	font-weight: bold;
+	color: #fff;
+}
+
+#login .box .message {
+	font-size: 16px;
+	color: #172a43;
+	font-weight: bold;
+}
+
+#login .box .message.failure {
+	color: #771717;
+}
+
+
+#login .actions input[type=submit] {
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+
+/* Buttons */
+button {
+	font-family: 'PT Sans', sans-serif;
+}
+
+/* Placeholders */
+
+::-webkit-input-placeholder	{ color:#969696; }
+input:-moz-placeholder { color:#969696; }
+textarea:-moz-placeholder { color:#969696; }
+
+input:-ms-placeholder { color:#969696; }
+textarea:-ms-placeholder { color:#969696; }
+::-ms-input-placeholder	{ color:#969696; }
+:-ms-input-placeholder	{ color:#969696; }
+
+.placeholder { color: #969696; }
+
+
+/* Tags */
+
+.chzn-container-multi .chzn-choices .search-choice {
+	color: #474747;
+	text-shadow: 0 1px 0 #fff;
+	font-size: 11px;
+}
+
+
+/* Select */
+
+.chzn-container-single .chzn-single {
+	color: #666a70;
+}
+
+
+/* Upload */
+
+.customfile-feedback {
+    font-size: 12px;
+    color: #969696;
+}
+
+.customfile-feedback-populated {
+    color: #222;
+    font-weight: bold;
+}
+
+.customfile-button {
+	font-weight: bold;
+	color: #1f2b3a;
+}
+
+.customfile-hover .customfile-button {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.customfile-focus .customfile-button {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+
+/* Form Box */
+
+form.no-box legend {
+	color: #334358;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+form .row label strong {
+	font-size: 12px;
+	color: #434343;
+}
+
+form .row label small {
+	font-size: 11px;
+	color: #656565;
+}
+
+
+/* Validation */
+
+form label.error.inline {
+	font-weight: bold;
+	color: #8e2626;
+}
+
+form label.error:not(.inline) {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+
+/* Inline Labels */
+
+form label.inline:not(.error) {
+	color: #969696;
+}
+
+
+/* Uploader */
+
+.plupload_filelist_header {
+	color: #606266;
+}
+
+.plupload_disabled.button.grey, a.plupload_disabled.button.grey:hover {
+	color: #96a3b4;
+	text-shadow: 0 1px 0 #fff;
+}
+
+
+/* Table */
+
+table.styled th {
+	text-align: center;
+	color: #606266;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+table.styled td {
+	color: #5e6267;
+	font-size: 12px;
+}
+
+.tabletools a {
+	color: #70747a;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+}
+
+.dataTables_wrapper .footer {
+	font-size: 12px;
+	color: #777777;
+}
+
+.paginate_button {
+	color: #1c2734;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.paginate_button, .paginate_active {
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.paginate_button:hover {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.paginate_button_disabled, .paginate_button_disabled:hover {
+	color: #9d9d9d;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.paginate_active, .paginate_active:hover {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.dataTables_filter {
+	color: #626262;
+	font-size: 11px;
+}
+
+.dataTables_length .text {
+	color: #626262;
+}
+
+
+/* Breadcrumb */
+
+ul.breadcrumb {
+	text-shadow: 0 1px 0 #000;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+ul.breadcrumb li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+/* Top Stats */
+
+ul.stats li strong {
+	font-size: 25px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+ul.stats li small {
+	font-size: 12px;
+	color: #7a828d;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+ul.stats li span {
+	font-weight: bold;
+	font-size: 15px;
+	color: #a8a8a8;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+ul.stats li span.green {
+	color: #00a708;
+}
+
+ul.stats li span.red {
+	color: #bf2e1a;
+}
+
+
+/* Search */
+
+input[type="search"] + ul.searchResults a, ul.searchResults.in_toolbar a {
+	color: #1457a3;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+input[type="search"] + ul.searchResults li.hover a, ul.searchResults.in_toolbar li.hover a {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.7);
+}
+
+input[type="search"] + ul.searchResults li.hover a small, ul.searchResults.in_toolbar li.hover a small {
+	color: #d0d0d0;
+}
+
+input[type="search"] + ul.searchResults small, ul.searchResults.in_toolbar small {
+	font-size: 12px;
+	color: #7f7f7f;
+}
+
+
+/* Buttons */
+
+button, input[type=button], input[type=submit], input[type=reset], a.button, .ui-button.ui-state-default:not(.ui-spinner-button), .ui-button.ui-state-hover:not(.ui-spinner-button), .ui-button.ui-state-active:not(.ui-spinner-button) {
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+button.small, input[type=button].small, input[type=submit].small, input[type=reset].small, a.button.small, .ui-button.ui-state-default:not(.ui-spinner-button).small, .ui-button.ui-state-hover:not(.ui-spinner-button).small, .ui-button.ui-state-active:not(.ui-spinner-button).small {
+	font-size: 9px;
+}
+
+
+/* jQuery UI Styling */
+
+/* Dialog */
+.ui-dialog .ui-dialog-title {
+	font-size: 13px;
+	color: #1e4063;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.ui-dialog .ui-dialog-titlebar-close.ui-state-hover {
+	color: #fff;
+	text-shadow: 0 1px #000;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+/* Progress Bar */
+.progress-title, .progress-value {
+	color: #1e2a39;
+	font-weight: bold;
+}
+
+/* Accordion */
+.ui-accordion .ui-accordion-header a {
+	color: #404040;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active a {
+	color: #1e4066;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-hover a {
+	color: #404040;
+}
+
+/* Datepicker */
+.ui-datepicker .ui-datepicker-title {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.ui-datepicker thead tr {
+	color: #1f2c3f;
+	text-shadow: 0 1px 0 #fff;
+	font-weight: normal;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+	color: #243043;
+}
+
+.ui-datepicker td .ui-state-hover {
+	color: #243043;
+}
+
+.ui-datepicker td .ui-state-active {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.ui-datepicker td.ui-datepicker-other-month {
+	color: #767d87;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+/* DateTimePicker */
+.ui-timepicker-div dl dt {	
+	text-shadow: 0 1px 0 #fff;
+}
+
+/* Slider */
+.slider-tooltip {
+	font-size: 12px;
+	color: #595959;
+	text-shadow: 0 1px 0 #fff;
+}
+
+/* Autocomplete */
+.ui-menu .ui-menu-item a {
+	color: #2e4462;
+	font-weight: bold;
+}
+
+.ui-menu .ui-menu-item a.ui-state-hover {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+	font-weight: bold;
+}
+
+
+/* Lock screen */
+
+#slide_to_unlock span {
+	color: #354d65;
+	font-weight: bold;
+}
+
+
+/* Settings dialog */
+
+.ui-dialog .settings-header .tabs li.current a {
+	color: #15273e;
+}
+
+.ui-dialog .settings-header .tabs li span {
+	color: #364d6a;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.54);
+}
+
+#settings form p label {
+	color: #434343;
+}
+
+#settings form p label.error {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+
+/* Profile page */
+
+.profile .avatar a {
+	color: #3a3a3a;
+	text-shadow: 0 1px 0 #fff;
+	font-size: 11px;
+}
+
+.profile .title h2 {
+	color: #1e2a39;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.profile .title h3 {
+	color: #84888f;
+	font-size: 12px;
+}
+
+.profile ul.info li strong {
+	color: #5e6775;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.profile ul.info li:hover strong {
+	color: #2b4164;
+}
+
+.profile ul.info li small {
+	color: #989faa;
+	font-size: 12px;
+}
+
+.profile .details h2 {
+	color: #4b4b4b;
+}
+
+.profile .details > a {
+	color: #8A8A8A;
+}
+
+.profile .details > a:hover {
+	color: #2864a8;
+}
+
+.profile table th {
+	color: #616161;
+}
+
+.profile table i, .profile section i {
+	color: #989898;
+}
+
+.profile .logs strong {
+	color: #265388;
+	font-weight: bold;
+}
+
+.profile .logs .error strong {
+	color: #cc3030;
+}
+
+.profile .logs small {
+	font-size: 11px;
+	color: #828282;
+}
+
+
+/* Alert messages */
+
+.alert .close {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.alert .close:hover {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+.alert.warning .close, .alert.warning .close:hover {
+	color: #352606;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.alert.note .close, .alert.note .close:hover {
+	color: #343434;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.alert.error, .alert.error .close:hover {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+.alert.success, .alert.success .close:hover  {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+.alert.warning, .alert.warning .close:hover  {
+	color: #352606;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.alert.information, .alert.information .close:hover  {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.75);
+}
+
+.alert.note, .alert.note .close:hover  {
+	color: #343434;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+
+/* Note element */
+
+.box-note {
+	color: #686a6b;
+}
+
+
+/* Wizard */
+
+.wizard .steps li a {
+	color: #959595;
+	text-shadow: 0 1px 0 #fff;
+	font-weight: bold;
+}
+
+.wizard .steps li a.current, .wizard .steps li a.error {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.wizard .steps li a.success {
+	color: #22481d;
+	text-shadow: 0 1px 0 #c3f1c3;
+}
+
+
+/* Pricing Tables */
+
+.pricing .title {
+	font-size: 12px;
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.pricing .price strong {
+	font-weight: bold;
+	font-size: 25px;
+	color: #26364e;
+}
+
+.pricing .price small {
+	font-size: 12px;
+	color: #616d80;
+	text-shadow: 0 1px 0 #fff;
+}
+
+
+/* Messages */
+
+.messages .content {
+	color: #707070;
+}
+
+.messages .content h3, .messages .content h3 a {
+	font-size: 12px;
+	color: #2e2e2e;
+}
+
+.messages .content h3 span, .messages .content h3 small {
+	font-size: 11px;
+	font-weight: normal;
+	color: #7a7a7a;
+}
+
+
+/* News */
+
+.news .meta .day {
+	color: #394353;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.news .meta .month {
+	color: #394353;
+	font-size: 11px;
+}
+
+.news .meta .year {
+	color: #5c6a80;
+	font-size: 11px;
+}
+
+.news .more a, .news a.more {
+	color: #4f637d;
+}
+
+.news .content {
+	color: #4a5057;
+}
+
+.news .content h3 {
+	font-size: 14px;
+}
+
+.news .content h4 {
+	color: #617082;
+	font-size: 13px;
+}
+
+
+/* Charts */
+
+.legend table{
+	color: #676666 !important;
+}
+
+.chart-tooltip {
+	font-size: 12px;
+	color: #595959;
+	text-shadow: 0 1px 0 #fff;
+}
+
+
+/* Mail Popup */
+
+.mail ol .info strong {
+	color: #113660;
+	font-weight: bold;
+}
+
+.mail ol .info span {
+	color: #606060;
+}
+
+.mail ol .info small {
+	color: #969696;
+}
+
+.mail ol.normal:hover .info strong, .mail ol.normal:hover .info span, .mail ol.normal:hover .info small {
+	color: #fff;
+}
+
+.mail ol.normal:hover .info strong {
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+.mail ol .text .actions > a {
+	color: #e2e2e3;
+	font-size: 11px;
+	text-shadow: 0 1px 0 #000;
+}
+
+
+/* Tooltips */
+
+.tipsy-inner {
+    color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+#gravity a {
+	color: #222;
+}
+
+#gravity a:hover {
+	color: #505050;
+}
+
+
+/* Full Statistics */
+
+.stat.simple .title {
+	color: #545454;
+	font-size: 13px;
+}
+
+.stat.simple .value {
+	color: #0f3968;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.stat.simple.positive .value {
+	color: #04710a;
+}
+
+.stat.simple.negative .value {
+	color: #9f1915;
+}
+
+.stat.load .value {
+	color: #4b4b4b;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.stat.load .min, .stat.load .max {
+	color: #787878;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.stat.level .max {
+	color: #3b3b3b;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.stat.level .value {
+	color: #545454;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.stat .level .description {
+	color: #545454;
+	font-size: 12px;
+}
+
+.stat.pillar .red .value {
+	color: #9f1915;
+}
+
+.stat.pillar .yellow .value {
+	color: #b05b0a;
+}
+
+.stat.pillar .green .value {
+	color: #036909;
+}
+
+.stat.circular > .value {
+	font-size: 20px;
+	font-weight: bold;
+	color: #1a4a81;
+}
+
+.stat.circular.red > .value {
+	color: #811a1a;
+}
+
+.stat.circular.green > .value {
+	color: #1a811c;
+}
+
+.stat.circular.grey > .value {
+	color: #676767;
+}
+
+.stat.circular small {
+	font-size: 14px;
+	color: #597fab;
+}
+
+.stat.circular.red small {
+	color: #ad5c5c;
+}
+
+.stat.circular.green small {
+	color: #59ac5b;
+}
+
+.stat.circular li .title {
+	color: #4d4d4d;
+}
+
+.stat.circular li.pos .value {
+	color: #275520;
+}
+
+.stat.circular li.neg .value {
+	color: #6f1414;
+}
+
+.stat.circular li.neutr .value {
+	color: #4D4D4D;
+}
+
+.stat.circular li .percent {
+	color: #949494;
+}
+
+.stat.uptime .server .status {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.stat.uptime .server .status.online {
+	color: #04710a;
+}
+
+.stat.uptime .server .status.offline {
+	color: #9f1915;
+}
+
+.stat.uptime .server .name {
+	color: #888888;
+	font-size: 12px;
+}
+
+.stat.uptime .info .title {
+	color: #676767;
+	font-size: 12px;
+}
+
+.stat.uptime .info .entry {
+	color: #4b4b4b;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.stat.list li .value {
+	font-size: 14px;
+	font-weight: bold;
+	color: #4d4d4d;
+}
+
+.stat.list li.green .value {
+	color: #04710a;
+}
+
+.stat.list li.red .value {
+	color: #9f1915;
+}
+
+.stat.list li a .title{
+	color: #222222;
+}
+
+.stat.hlist .title {
+	color: #545454;
+	font-size: 13px;
+}
+
+.stat.hlist .value {
+	color: #0f3968;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.stat.hlist .green .value {
+	color: #04710a;
+}
+
+.stat.hlist .red .value {
+	color: #9f1915;
+}
+
+.stat.minichart .title {
+	color: #545454;
+	font-size: 13px;
+}
+
+.stat.minichart .total {
+	color: #0f3968;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.stat.minichart .total.grey {
+	color: #676767;
+}
+
+.stat.minichart .total.green {
+	color: #04710a;
+}
+
+.stat.minichart .red {
+	color: #9f1915;
+}
+
+.stat.minichart .change {
+	font-size: 12px;
+	font-weight: bold;
+	color: #0f3968
+}
+
+.stat.minichart .change.grey {
+	color: #676767;
+}
+
+.stat.minichart .change.red {
+	color: #9f1915;
+}
+
+.stat.minichart .change.green {
+	color: #04710a;
+}
+
+
+/* The loading screen */
+
+#loading span {
+	font-weight: bold;
+	color: #3c3c3c;
+}
+
+
+/* Explorer */
+
+.elfinder-statusbar {
+	color: #606266;
+}
+
+.elfinder-cwd, .elfinder-contextmenu .elfinder-contextmenu-item span, .elfinder .elfinder-navbar, .elfinder-statusbar div, .std42-dialog .ui-dialog-titlebar, .std42-dialog .ui-widget, .std42-dialog .ui-dialog-content {
+	font-size: 12px;
+}
+
+
+/* Search Result */
+
+.searchresults .header {
+	color: #24303f;
+}
+
+.searchresults .header strong {
+	font-size: 13px;
+}
+
+.searchresults .content table {
+	font-size: 13px;
+}
+
+.searchresults .content th {
+	color: #787c81;
+}
+
+.searchresults .content td {
+	color: #4c4f54;
+}
+
+.searchresults .content td.green {
+	color: #27731c !important;
+}
+
+.searchresults .content td.red {
+	color: #731c1c !important;
+}
+
+
+/* Error pages */
+
+.big.error h2 {
+	font-size: 16px;
+	color: #891f10;
+}
+
+.big.error h1 {
+	font-size: 100px;
+	color: #212d3d;
+}
+
+.big.error .small span{
+	color: #787878;
+	font-size: 14px;
+}
+
+
+/* Header Buttons */
+
+header .buttons a {
+	color: #5c5c5c;
+}
+
+header .buttons .icon, header .buttons img {
+	color: #6E7788;
+}
+
+
+/* Gallery */
+
+.gallery .tools menu a {
+	font-size: 12px;
+	color: #606060;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.gallery .image > span:not(.badge) {
+	color: #585d64;
+}
+
+
+/* Badges */
+
+.badge {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+
+/* Invoice Template */
+
+.invoice h4 {
+	font-size: 14px;
+	color: #6a6b6f;
+}
+
+.invoice h3 {
+	font-size: 18px;
+	color: #21272f;
+}
+
+.invoice .supplier, .invoice .customer {
+	font-size: 14px;
+	color: #21272f;
+}
+
+.invoice .supplier strong, .invoice .customer strong {
+	font-size: 15px;
+	color: #21272f;
+}
+
+.invoice h5, .invoice .supplier span, .invoice .customer span {
+	font-weight: normal;
+	font-size: 11px;
+	color: #6f6f6f;
+}
+
+.invoice .details span {
+	color: #6f6f6f;
+}
+
+.invoice .details strong {
+	color: #21272f;
+}
+
+.invoice .details .highlighted span, .invoice .details .highlighted strong {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.invoice .total span, .invoice .total strong {
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+.invoice .total span {
+	font-size: 12px;
+}
+
+.invoice .total strong {
+	font-size: 15px;
+}
+
+.invoice .notes {
+	font-size: 12px;
+	color: #30363d;
+}
+
+
+/* Notifications */
+
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
+	color: #e2e9f2;
+	text-shadow: 0 1px 0 #000;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-header {
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+}

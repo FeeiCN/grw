@@ -1,0 +1,165 @@
+﻿.lt-ie8 h1 span {
+	background: transparent;
+	z-index: 100;
+	position: static;
+}
+
+.lt-ie8 h1:after {
+	display: none;
+	position: static;
+}
+
+.lt-ie8 h1 {
+	z-index: 100;
+	position: static;
+}
+
+.lt-ie8 #content {
+	margin-left: 0;
+}
+
+.lt-ie8 footer > ul li {
+	display: inline;
+}
+
+.lt-ie9 header {
+	margin-top: 0;
+	padding-top: 38px;
+}
+
+.lt-ie8 aside nav a {
+	zoom: 1;
+}
+
+
+.lt-ie9 #toolbar .right li > a {
+	position: relative;
+	line-height: inherit;
+	top: 8px;
+	height: 19px;
+}
+
+.lt-ie9 #toolbar .right li > a.with_red {
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 17px;
+}
+
+.lt-ie9 #toolbar .right li > a:not(.with_red) {
+	top: 5px;
+}
+
+.lt-ie9 #toolbar .right li.red > a { 
+	background-color: #5a2727;
+}
+
+.lt-ie9 #toolbar .right li > a.has_icon {
+	padding-left: 30px;
+}
+
+.lt-ie9 #toolbar .right li > a span.icon {
+	margin: 0;
+	top: 6px;
+	left: 20px;
+	position: relative;
+	float: left;
+}
+
+.lt-ie9 #toolbar .right li > a span:not(.icon) {
+	display: inline;
+	position: relative;
+	line-height: inherit;
+	top: 0;
+	right: 0;
+	padding: 2px 7px;
+}
+
+
+.lt-ie9 #main .toolbar .user {
+	left: 0;
+}
+
+.lt-ie9 #main .toolbar .shortcuts, .lt-ie9 #main .toolbar .shortcuts li > a {
+	line-height: 45px;
+	height: 45px;
+}
+
+.lt-ie9 #main .toolbar .shortcuts li {
+	display: inline;
+}
+
+.lt-ie9 #main .toolbar .shortcuts li > a img {
+	margin-top: 10px;
+}
+
+
+.lt-ie9 #toolbar, .lt-ie9 section, .lt-ie9 .toolbar, .lt-ie9 nav, .lt-ie9 aside {
+	margin: 0;
+}
+
+
+.lt-ie8 ul.stats {
+	margin-top: 0;
+}
+
+.lt-ie8 ul.stats li {
+	display: inline;
+	float: left;
+	
+	margin-right: 20px;
+}
+
+
+.lt-ie8 .progress .ui-progressbar {
+	width: 100%;
+}
+
+.lt-ie8 .toolbar h3 {
+	line-height: 15px;
+}
+
+
+.lt-ie8 aside nav li {
+	zoom: 1;
+}
+
+
+
+.ie #toolbar .right li > a span:not(.icon) {
+	line-height: 22px;
+}
+
+.ie .progress .bar .small {
+	overflow: hidden;
+}
+
+.ie #lock-screen form input.placeholder {
+	width: 190px;
+}
+
+.ie aside .gradient {
+	filter: none !important;
+	overflow: hidden;
+}
+
+
+.ie .legend tr {
+	float: left;
+}
+
+.ie #settings form p label {
+	padding-bottom: 20px;
+}
+
+
+.lt-ie8 .box .actions {
+	padding: 10px 0;
+}
+
+.ie9 .gradient, .ie9 .gradient:focus, .ie9 .gradient:active, .ie9 .gradient:focus:active {
+	filter: none !important;
+}
+
+.ie .change_password_button {
+	display: inline-block !important;
+}
