@@ -6,7 +6,9 @@
 
 > 个人事务管理系统是一套可以管理你所有的事务的系统程序，他操作方便、功能强大并且你可以免费使用它。http://www.grw.name
 
-#### 项目进度与开发规划
+#### 开发进度与开发规划
+
+[开发进度](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97)
 
 [开发规划](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92)
 
