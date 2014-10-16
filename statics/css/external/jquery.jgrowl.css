@@ -1,0 +1,321 @@
+div.jGrowl {
+	z-index: 			9999;
+	color: 				#fff;
+	font-size: 			12px;
+}
+
+/** Special IE6 Style Positioning **/
+div.ie6 {
+	position: 			absolute;
+}
+
+div.ie6.top-right {
+	right: 				auto;
+	bottom: 			auto;
+	left: 				expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.top-left {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.bottom-right {
+	left: 				expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.bottom-left {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.center {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	width: 				100%;
+}
+
+/** Normal Style Positions **/
+div.jGrowl {
+	position:			absolute;
+}
+
+body > div.jGrowl {
+	position:			fixed;
+}
+
+div.jGrowl.top-left {
+	left: 				0px;
+	top: 				0px;
+}
+
+div.jGrowl.top-right {
+	right: 				0px;
+	top: 				0px;
+}
+
+div.jGrowl.bottom-left {
+	left: 				0px;
+	bottom:				0px;
+}
+
+div.jGrowl.bottom-right {
+	right: 				0px;
+	bottom: 			0px;
+}
+
+div.jGrowl.center {
+	top: 				0px;
+	width: 				50%;
+	left: 				25%;
+}
+
+/** Cross Browser Styling **/
+div.center div.jGrowl-notification, div.center div.jGrowl-closer {
+	margin-left: 		auto;
+	margin-right: 		auto;
+}
+
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
+	background-color: 		#000;
+	/*opacity: 				.85;*/
+	-ms-filter: 			"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+	filter: 				progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+	zoom: 					1;
+	width: 					235px;
+	padding: 				10px;
+	margin-top: 			5px;
+	margin-bottom: 			5px;
+	font-family: 			Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 				1em;
+	text-align: 			left;
+	display: 				none;
+	-moz-border-radius: 	5px;
+	-webkit-border-radius:	5px;
+}
+
+div.jGrowl div.jGrowl-notification {
+	min-height: 			40px;
+}
+
+div.jGrowl div.jGrowl-notification,
+div.jGrowl div.jGrowl-closer {
+	margin: 				10px;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-header {
+	font-weight: 			bold;
+	font-size:				.85em;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-close {
+	z-index:				99;
+	float: 					right;
+	font-weight: 			bold;
+	font-size: 				1em;
+	cursor:					pointer;
+}
+
+div.jGrowl div.jGrowl-closer {
+	padding-top: 			4px;
+	padding-bottom: 		4px;
+	cursor: 				pointer;
+	font-size:				.9em;
+	font-weight: 			bold;
+	text-align: 			center;
+}
+
+/* jGrowl Themes */
+
+div.jGrowl div.iphone {
+	font-family: 			"Helvetica Neue", "Helvetica";
+	font-size: 				12px;
+	background: 			url(../../img/jquery-ui/jGrowl/iphone.png) no-repeat;
+	-moz-border-radius: 	0px;
+	-webkit-border-radius:	0px;
+	opacity: 				.90;
+	filter: 				alpha(opacity = 90);
+	width: 					235px;
+	height: 				137px;
+	overflow: 				hidden;
+                    border:none;
+	border-color: 			#5ab500;
+	color: 					#fff;
+}
+
+div.jGrowl div.iphone .jGrowl-close {
+	padding-right: 			20px;
+}
+
+div.jGrowl div.iphone div.jGrowl-message {
+	padding-top: 			0px;
+	padding-bottom: 		7px;
+	padding-left: 			15px;
+	padding-right: 			15px;
+}
+
+div.jGrowl div.iphone div.jGrowl-header {
+	padding: 				7px;
+	padding-left: 			15px;
+	padding-right: 			15px;
+	font-size: 				17px;
+}
+
+div#random {
+	width: 					1000px;
+	background-color: 		red;
+	line-height: 			60px;
+}
+            /*Note*/
+            div.jGrowl div.note {
+	background 		: url(../../img/jquery-ui/jGrowl/note.png) no-repeat;
+                    width 			: 310px;
+                    height 			: 97px;
+                    border:none;
+                    overflow 		: hidden;
+}
+
+div.jGrowl div.note .jGrowl-close {
+	padding-right: 			20px;
+}
+
+div.jGrowl div.note div.jGrowl-message {
+	overflow 		: hidden;
+                    padding: 1px 5px 5px 70px;
+                    height 			: 20px;
+                    text-shadow 	: 0px 1px 0px rgba(255,255,255,0.5);
+                    color 			: #666666;
+                    line-height 	: 20px;
+}
+
+div.jGrowl div.note div.jGrowl-header {
+	display 		: block;
+                    padding: 15px 5px 1px 70px;
+                    font-size 		: 14px;
+                    color 			: #4c4c4c;
+                    font-weight:normal;
+}
+
+div#random {
+	width: 					1000px;
+	background-color: 		red;
+	line-height: 			60px;
+}
+            /*Wood*/
+            div.jGrowl div.wood {
+                    width: 260px;
+                    height: 46px;
+                    background: url(../../img/jquery-ui/jGrowl/wood.png) no-repeat;
+                    border:none;
+                    overflow: hidden;
+}
+
+div.jGrowl div.wood .jGrowl-close {
+	padding-right: 			20px;
+}
+
+div.jGrowl div.wood div.jGrowl-message {
+                    font-family: "Georgia", Times New Roman, Serif;
+                    font-size: 14px;
+                    height: 16px;
+                    color: #795d42;
+                    -webkit-font-smoothing: antialiased;
+                    font-style: italic;
+                    text-shadow: 0 1px 0 rgba(235,212,189,1);
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 1;
+                    -webkit-animation: text 1s ease-out;
+}
+
+div.jGrowl div.wood div.jGrowl-header {
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 14px;
+                    height: 16px;
+                    font-weight: bold;
+                    color: #1c0f04;
+                    -webkit-font-smoothing: antialiased;
+                    text-shadow: 0 1px 0 rgba(235,212,189,1);
+                    margin: 2px 0 1px 0;
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 1;
+                    -webkit-animation: title .6s ease-out;
+}
+
+div#random {
+	width: 					1000px;
+	background-color: 		red;
+	line-height: 			60px;
+}
+            
+            @font-face {
+            font-family: TravelingTypewriter;
+            src: local("TravelingTypewriter"),
+            url(../../img/jquery-ui/jGrowl/font/TravelingTypewriter.oft);
+
+            font-family: letteratrentadue;
+            src: local("letteratrentadue"),
+            url(../../img/jquery-ui/jGrowl/font/letteratrentadue.ttf);
+
+            font-family: Restraining Order AOE;
+            src: local("Restraining Order AOE"),
+            url(../../img/jquery-ui/jGrowl/font/RestrainingOrderAOE.ttf);
+
+              }
+            div.jGrowl div.todo {
+                    margin: 7px 5px 7px 5px;
+                    background: transparent url(../../img/jquery-ui/jGrowl/airmail.png) top left no-repeat;
+                    -webkit-box-sizing: border-box;
+                    width: 320px;
+                    height: 156px;
+                    padding: 18px 3px 20px 25px;
+                    -webkit-animation: texts 0.3s ease-out;
+                    position: relative;
+                    border: none;
+}
+
+div.jGrowl div.todo .jGrowl-close {
+	padding-right: 			20px;
+}
+
+div.jGrowl div.todo div.jGrowl-message {
+	color: black;
+                    font: normal 12px "TravelingTypewriter","Restraining Order AOE", "letteratrentadue";
+                    letter-spacing: 0px;
+                    position: absolute;
+                    top: 50px;
+                    width: 200px;
+                    line-height: auto;
+                    height: 31px;
+                    opacity: 90;
+                    overflow: hidden;
+                    display: block;
+                    margin: 5px 0 0 5px;
+}
+
+div.jGrowl div.todo div.jGrowl-header {
+                    color: #07316a;
+                    font: bold 16px "Helvetica";
+                    line-height: auto;
+                    padding: 10px 0 0 5px;
+                    width: 200px;
+                    height: 22px;
+                    overflow: hidden;
+                    text-transform: uppercase;
+}
+
+div#random {
+	width: 					1000px;
+	background-color: 		red;
+	line-height: 			60px;
+}
+
+/** Hide jGrowl when printing **/
+@media print {
+	div.jGrowl {
+		display: 			none;
+	}
+}
