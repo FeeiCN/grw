@@ -46,10 +46,16 @@
 
 使用灵活度最高的开源许可证 [MIT license](http://opensource.org/licenses/MIT)
 
-### 联系
+### 开发者邮箱
 ```
-Email:wufeifei@wufeifei.com
+Email:developer@grw.name
 ```
+
+### 邮件列表
+```
+http://list.qq.com/cgi-bin/qf_invite?id=05e031347f10140b0c26b90fbd01a915cf0b0b544097c92c
+```
+
 
 ### 愿景
 > 我们希望最终能管理个人所有事务，为每个人提升多一点的效率！
