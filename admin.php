@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors','on');
+ini_set('display_errors','off');
 ini_set("session.cookie_httponly", 1);
 session_regenerate_id(TRUE);
 session_name('FeiPHP');
@@ -20,8 +20,8 @@ $FeiConfig = array(
 		'driver'     => 'mysql',
 		'host'       => 'localhost',
 		'port'       => 3306,
-		'login'      => 'username',
-		'password'   => 'password',
+		'login'      => 'root',
+		'password'   => '',
 		'database'   => 'grw',
 		'prefix'     => 'Fei_',
 		'presistent' => FALSE,
