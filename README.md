@@ -6,6 +6,19 @@
 
 > 个人事务管理系统是一套可以管理你所有的事务的系统程序，他操作方便、功能强大并且你可以免费使用它。http://www.grw.name
 
+#### 微信功能
+
+> 新版本(V0.2)将增加微信功能，你可以先关注我们微信账号获取最新进展！
+
+```
+1.通过微信随时记录每天发生的事情
+2.通过微信处理待办事项
+3.通过微信查看密码保险箱密码
+4.更多功能敬请期待!
+```
+
+![微信](https://raw.githubusercontent.com/wufeifei/grw/367aea5c83aef8a45cceea0c22fa103363224a0f/statics/img/wechat/qrcode.jpg)
+
 #### 开发进度与开发规划
 
 [开发进度](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97)
