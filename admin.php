@@ -1,4 +1,7 @@
 <?php
+/**
+ * 后台功能主入口
+ */
 ini_set('display_errors','off');
 ini_set("session.cookie_httponly", 1);
 session_regenerate_id(TRUE);
