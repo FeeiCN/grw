@@ -1,4 +1,8 @@
 <?php
+/**
+ * 前台页面入口
+ */
+ini_set('display_errors','off');
 define("APP_PATH", dirname(__FILE__));
 define("Fei_PATH", APP_PATH . "/FeiPHP");
 session_start();
