@@ -75,7 +75,7 @@ http://list.qq.com/cgi-bin/qf_invite?id=05e031347f10140b0c26b90fbd01a915cf0b0b54
 ### 最终愿景
 > 我们希望最终能管理个人所有事务，为每个人提升多一点的效率，同时每个参与进来的开发、贡献者都能够获得成长！
 
-### 贡献者
+### [贡献者](https://github.com/wufeifei/grw/wiki/%E8%B4%A1%E7%8C%AE%E8%80%85)
 [@止介](mailto:wufeifei@wufeifei.com)
 [@可宣](mailto:wukexuan@live.cn)
 
