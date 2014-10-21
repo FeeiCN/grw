@@ -2,9 +2,8 @@
     $$.loaded();
     //weather
     $(function(){
-        get_weather()
+        setInterval(get_weather, 3600000);
     })
-
     function get_weather(){
         $.post("{Fei:FeiUrl('Grw','weather')}",function(result){
             if(result.status == 'success'){
@@ -15,8 +14,9 @@
                     <p>[明]" + result.mtq + "(" + result.mtd + ")[后]" + result.htq + "(" + result.htd + ")</p>\
                 </div>"
                 $(".weather").html(html)
-            }else if(result.status == 'error'){console.log('error')
-                get_weather()
+            }else if(result.status == 'error'){
+                console.log('error')
+                //get_weather()
             }
         },'json')
     }
