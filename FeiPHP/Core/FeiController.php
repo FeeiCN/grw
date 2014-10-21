@@ -5,7 +5,6 @@
  */
 class FeiController
 {
-
 	/**
 	 * 视图对象
 	 */
