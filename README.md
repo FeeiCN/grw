@@ -77,7 +77,7 @@ http://list.qq.com/cgi-bin/qf_invite?id=05e031347f10140b0c26b90fbd01a915cf0b0b54
 
 ### [贡献者](https://github.com/wufeifei/grw/wiki/%E8%B4%A1%E7%8C%AE%E8%80%85)
 [@止介](mailto:wufeifei@wufeifei.com)
-[@可宣](mailto:wukexuan@live.cn)
+[@可萱](mailto:wukexuan@live.cn)
 
 > 现在这套系统由我们组建的开发者团队业余时间维护，如果你也有开发技能（包括但不限于产品、UI、设计、Python、PHP、Java等）或者对这个项目非常感兴趣，可以联系加入我们开发者群！QQ群号：389887266
 
