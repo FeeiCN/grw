@@ -92,11 +92,12 @@ class timegoal extends Grw
 					//@TODO:取今天并按优先级排序
 					$todolist = $todo->getAll($data, 'index');
 					$count    = count($todolist);
-					if ($count == 0) echo '<div class="alert information top">
+					if ($count == 0) $back = '<div class="alert information top">
                                             <span class="icon">
                                             </span><span class="close">x</span>
                                             暂无数据，请至[时间目标]-[今日待办]添加！
                                         </div>';
+					$this->__check_istrue(true,$back);
 					for ($i = 0; $i < $count; $i++) {
 						$html .= '
                             <div class="msg">

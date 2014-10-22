@@ -37,13 +37,13 @@
                     <label for="username">
                         姓名:
                     </label>
-                    <input type="text" name="username" class="medium" value="{Fei:$User.realname}"/>
+                    <input type="text" name="username" id="username" class="medium" value="{Fei:$User.realname}"/>
                 </p>
                 <p>
                     <label for="position">
                         职位:
                     </label>
-                    <input type="text" name="position" class="medium" value="{Fei:$User.position}"/>
+                    <input type="text" name="position" id="position" class="medium" value="{Fei:$User.position}"/>
                 </p>
                 <!-- <p>
                     <label for="birthday">
@@ -59,29 +59,29 @@
                     <label for="email">
                         邮箱:
                     </label>
-                    <input type="text" name="email" class="medium" value="{Fei:$User.email}"/>
+                    <input type="text" name="email" id="email" class="medium" value="{Fei:$User.email}"/>
                 </p>
                 <p>
                     <label for="phone">
                         手机:
                     </label>
-                    <input type="text" name="phone" class="medium" value="{Fei:$User.phone}"/>
+                    <input type="text" name="phone" id="phone" class="medium" value="{Fei:$User.phone}"/>
                 </p>
                 <p>
                     <label for="qq">
                         QQ:
                     </label>
-                    <input type="text" name="qq" class="medium" value="{Fei:$User.qq}"/>
+                    <input type="text" name="qq" id="qq" class="medium" value="{Fei:$User.qq}"/>
                 </p>
             </form>
         </div>
         <div id="settings-3">
             <form action="#" method="GET">
                 <p>
-                    <label for="description">
+                    <label for="description_my">
                         描述:
                     </label>
-                    <textarea rows="3" id="description" name="description" style="overflow: hidden; width: 300px; height: 103px;">{Fei:$User.description}</textarea>
+                    <textarea rows="3" id="description_my" name="description" style="overflow: hidden; width: 300px; height: 103px;">{Fei:$User.description}</textarea>
                 </p>
             </form>
         </div>
@@ -207,7 +207,7 @@
                             <strong>公司名称</strong>
                         </label>
                         <div>
-                            <input type="text" name="company"/>
+                            <input type="text" id="company" name="company"/>
                         </div>
                     </div>
                     <div class="row">
@@ -259,7 +259,7 @@
                             <strong>学校名称</strong>
                         </label>
                         <div>
-                            <input type="text" name="school"/>
+                            <input type="text" id="school" name="school"/>
                         </div>
                     </div>
                     <div class="row">
@@ -267,13 +267,13 @@
                             <strong>学校类型</strong>
                         </label>
                         <div>
-                            <select name="type" class="search">
+                            <select name="type" id="type" class="search">
                                 <option value="" >请选择类型</option>
-                                <option value="" >小学</option>
-                                <option value="" >中学</option>
-                                <option value="" >高中</option>
-                                <option value="" >大学</option>
-                                <option value="" >其他</option>
+                                <option value="0" >小学</option>
+                                <option value="1" >中学</option>
+                                <option value="2" >高中</option>
+                                <option value="3" >大学</option>
+                                <option value="4" >其他</option>
                             </select>
                         </div>
                     </div>
@@ -282,7 +282,7 @@
                             <strong>开始时间</strong>
                         </label>
                         <div>
-                            <input type="date" name="e_startime"/>
+                            <input type="date" id="startime" name="e_startime"/>
                         </div>
                     </div>
                     <div class="row">
@@ -290,7 +290,7 @@
                             <strong>结束时间</strong>
                         </label>
                         <div>
-                            <input type="date" name="e_endtime"/>
+                            <input type="date" id="endtime" name="e_endtime"/>
                         </div>
                     </div>
                 </form>
@@ -310,7 +310,7 @@
                             <strong>技能或特长</strong>
                         </label>
                         <div>
-                            <input type="text" name="skill_name"/>
+                            <input type="text" id="skill_name" name="skill_name"/>
                         </div>
                     </div>
                     <div class="row">
@@ -318,7 +318,7 @@
                             <strong>等级</strong>
                         </label>
                         <div>
-                            <input data-type="range" name="skill_level">
+                            <input data-type="range" id="skill_level" name="skill_level">
                         </div>
                     </div>
                     <div class="row">
@@ -326,7 +326,7 @@
                             <strong>时间</strong>
                         </label>
                         <div>
-                            <input type="text" name="skill_time"/>
+                            <input type="text" id="skill_time" name="skill_time"/>
                         </div>
                     </div>
                 </form>
@@ -611,7 +611,7 @@
                 }).find('button.submit').click(function(){
                     var s_postdata = {
                         'action':'add_skill',
-                        'name':$('input:[name=skill_name]').val(),
+                        'name':$('input[name=skill_name]').val(),
                         'level':$('input[name=skill_level]').val(),
                         'time':$('input[name=skill_time]').val()
                     }
@@ -640,7 +640,7 @@
                 }).find('button.submit').click(function(){
                     var s_postdata = {
                         'action':'add_follow',
-                        'icon':$('input:[name=follow_icon]').val(),
+                        'icon':$('input[name=follow_icon]').val(),
                         'link':$('input[name=follow_link]').val()
                     }
                     $.post("{Fei:FeiUrl('profile')}",s_postdata,function(result){

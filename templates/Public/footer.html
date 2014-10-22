@@ -2,29 +2,23 @@
     $$.loaded();
     //weather
     $(function(){
-        get_weather()
+        setInterval(get_weather, 3600000);
     })
-
     function get_weather(){
-        if($.cookie('Fei_Weather') == null){
-            $.post("{Fei:FeiUrl('Grw','weather')}",function(result){
-                if(result.status == 'success'){
-                    var html = "\
-                    <img src=\"http://www.grw.name/statics/img/icons/weather/" + result.ico + ".png\" width=\"40\" title=\"" + result.weather + "\">\
-                    <div>\
-                        <p>" + result.td + "[" + result.week + "](" + result.nl + ") " + result.wd + "</p>\
-                        <p>[明]" + result.mtq + "(" + result.mtd + ")[后]" + result.htq + "(" + result.htd + ")</p>\
-                    </div>"
-                    $(".weather").html(html)
-                    $.cookie('Fei_Weather',html,new Date().getTime() + 14400)
-                }else if(result.status == 'error'){console.log('error')
-                    get_weather()
-                }
-            },'json')
-        }else{
-            $(".weather").html($.cookie('Fei_Weather'))
-        }
-
+        $.post("{Fei:FeiUrl('Grw','weather')}",function(result){
+            if(result.status == 'success'){
+                var html = "\
+                <img src=\"http://www.grw.name/statics/img/icons/weather/" + result.ico + ".png\" width=\"40\" title=\"" + result.weather + "\">\
+                <div>\
+                    <p>" + result.td + "[" + result.week + "](" + result.nl + ") " + result.wd + "</p>\
+                    <p>[明]" + result.mtq + "(" + result.mtd + ")[后]" + result.htq + "(" + result.htd + ")</p>\
+                </div>"
+                $(".weather").html(html)
+            }else if(result.status == 'error'){
+                console.log('error')
+                //get_weather()
+            }
+        },'json')
     }
 
     //Calc
