@@ -1,7 +1,11 @@
 <section class="toolbar">
     <div class="user">
         <div class="avatar">
-            <img src="{Fei:$User.avatar}" width="30" height="30">
+            <img src="{Fei:if $User.avatar == null && $User.avatar == ''}
+                    {Fei:$STATICS}img/elements/profile/avatar.png
+                    {Fei:else}
+                    {Fei:$User.avatar}
+                    {Fei:/if}" alt="{Fei:$user.realname}头像" width="30" height="30">
             <span>
                 3
             </span>
