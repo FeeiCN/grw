@@ -1,7 +1,7 @@
 <section class="toolbar">
-    <div class="user">
-        <div class="avatar">
-            <img src="{Fei:if $User.avatar == null && $User.avatar == ''}
+<div class="user">
+    <div class="avatar">
+        <img src="{Fei:if $User.avatar == null ||  empty($User.avatar)}
                     {Fei:$STATICS}img/elements/profile/avatar.png
                     {Fei:else}
                     {Fei:$User.avatar}
@@ -9,383 +9,394 @@
             <span>
                 3
             </span>
-        </div>
+    </div>
         <span>
             {Fei:$User.realname}
         </span>
-        <ul>
-            <!-- <li>
-                <a href="{Fei:FeiUrl('setting')}">
-                    设置
-                </a>
-            </li> -->
-            <li >
-                <a href="{Fei:FeiUrl('profile')}">
-                    个人中心
-                </a>
-            </li>
-            <li class="line">
-            </li>
-            <li>
-                <a href="{Fei:FeiUrl('Grw','logout')}">
-                    退出
-                </a>
-            </li>
-        </ul>
-    </div>
-    <ul class="shortcuts {Fei:if $User.id != 1}hidden{Fei:/if}">
+    <ul>
+        <!-- <li>
+            <a href="{Fei:FeiUrl('setting')}">
+                设置
+            </a>
+        </li> -->
         <li>
-            <a href="javascript:void(0);">
+            <a href="{Fei:FeiUrl('profile')}">
+                个人中心
+            </a>
+        </li>
+        <li class="line">
+        </li>
+        <li>
+            <a href="{Fei:FeiUrl('Grw','logout')}">
+                退出
+            </a>
+        </li>
+    </ul>
+</div>
+<ul class="shortcuts {Fei:if $User.id != 1}hidden{Fei:/if}">
+<li>
+    <a href="javascript:void(0);">
                 <span class="icon i24_calendar-import">
                 </span>
-            </a>
-            <div class="small">
-                <h3>
-                    添加一笔进账
-                </h3>
-                <button class="button flat left grey" onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
-                    关闭
-                </button>
-                <button class="button flat right" id="plug_money">
-                    添加
-                </button>
-                <div class="content">
-                    <form class="full grid">
-                        <div class="row no-bg">
-                            <p class="_50 small">
-                                <label for="plug_money">
-                                    + 进账金额(元)
-                                </label>
-                                <input type="text" name="plug_money" placeholder="金额" />
-                            </p>
-                            <p class="_100 small">
-                                <label for="plug_mark">
-                                    备注
-                                </label>
-                                <textarea rows="5" id="plug_mark" style="overflow: hidden; height: 45px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;"></textarea>
-                            </p>
-                        </div>
-                    </form>
+    </a>
+
+    <div class="small">
+        <h3>
+            添加一笔进账
+        </h3>
+        <button class="button flat left grey"
+                onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
+            关闭
+        </button>
+        <button class="button flat right" id="plug_money">
+            添加
+        </button>
+        <div class="content">
+            <form class="full grid">
+                <div class="row no-bg">
+                    <p class="_50 small">
+                        <label for="plug_money">
+                            + 进账金额(元)
+                        </label>
+                        <input type="text" name="plug_money" placeholder="金额"/>
+                    </p>
+
+                    <p class="_100 small">
+                        <label for="plug_mark">
+                            备注
+                        </label>
+                        <textarea rows="5" id="plug_mark"
+                                  style="overflow: hidden; height: 45px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;"></textarea>
+                    </p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="javascript:void(0);">
+            </form>
+        </div>
+    </div>
+</li>
+<li>
+    <a href="javascript:void(0);">
                 <span class="icon i24_calendar-export">
                 </span>
-            </a>
-            <div class="small">
-                <h3>
-                    添加一笔消费
-                </h3>
-                <button class="button flat left grey" onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
-                    关闭
-                </button>
-                <button class="button flat right" onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
-                    添加
-                </button>
-                <div class="content">
-                    <form class="full grid">
-                        <div class="row no-bg">
-                            <p class="_50 small">
-                                <label for="p1_username">
-                                    - 消费金额(元)
-                                </label>
-                                <input type="text" name=p2_subject id=p2_subject placeholder="金额" />
-                            </p>
-                            <p class="_100 small">
-                                <label for="p1_username">
-                                    备注
-                                </label>
-                                <textarea rows="5" style="overflow: hidden; height: 45px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;"
-                                name="p2_message"></textarea>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </li>
-        <script>
-            $$.ready(function() {
-                $("#dialog_message").dialog({
-                    autoOpen: false,
-                    width: 500,
-                    modal: true
-                }).find('button').click(function() {
-                    $(this).parents('.ui-dialog-content').dialog('close');
-                });
-                //回复
-                $(".open-message-dialog").click(function() {
-                    $("#dialog_message").dialog("open");
-                    return false;
-                });
+    </a>
 
-                //Money +
-                $('#plug_money').click(function(){
-                    var postdata = {
-                        'action':'plug_money',
-                        'money':$('input[name=plug_money]').val(),
-                        'mark':$('#plug_mark').val()
-                    }
-                    $.post("{Fei:FeiUrl('money','review')}",postdata,function(result){
-                        if(result.status == 'success'){
-                            $(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')
-                            $.jGrowl('success',{header:'success',theme:'wood'})
-                        }else if(result.status == 'error'){
-                            $.jGrowl('error',{header:'error',theme:'wood'})
-                        }
-                    },'json')
-                })
-                //Money -
-                $('#reduce_money').click(function(){
-                    var postdata = {
-                        'action':'reduce_money',
-                        'money':$('input[name=reduce_money]').val(),
-                        'mark':$('#reduce_mark').val()
-                    }
-                    $.post("{Fei:FeiUrl('money','review')}",postdata,function(result){
-                        if(result.status == 'success'){
-                            $(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')
-                            $.jGrowl('success',{header:'success',theme:'wood'})
-                        }else if(result.status == 'error'){
-                            $.jGrowl('error',{header:'error',theme:'wood'})
-                        }
-                    },'json')
-                })
-            });
-        </script>
-       <!--  <li>
-            <a href="javascript:void(0);">
-                <span class="icon i24_mail">
-                </span>
-            </a>
-            <div class="small popup">
-                    <h3>
-                        New Messages
-                    </h3>
-                    <button class="button flat left grey" onclick="$(this).parent().fadeToggle($$.config.fxSpeed)">
-                        Close
-                    </button>
-                    <button class="button flat right"  href="tables_dynamic.html">
-                        Inbox
-                    </button>
-                    <div class="content mail">
-                        <ul>
-                            <ol>
-                                <div class="avatars">
-                                    <img src="{Fei:$STATICS}img/elements/mail/avatar.png" height=40 width=40/>
-                                </div>
-                                <div class="info">
-                                    <strong>
-                                        John Doe
-                                    </strong>
-                                    <span>
-                                        Thanks for your theme!
-                                    </span>
-                                    <small>
-                                        09:32 am
-                                    </small>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        Hey Admin!
-                                    </p>
-                                    <p>
-                                        I've purchased your admin template and it's great :)
-                                    </p>
-                                    <p>
-                                        A happy customer
-                                    </p>
-                                    <div class="actions">
-                                        <button href="javascript:void(0);" class="left grey open-message-dialog">
-                                            Reply
-                                        </button>
-                                        <button onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
-                                        class="red right" href="javascript:void(0);">
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </ol>
-                            <ol>
-                                <div class="avatars">
-                                    <img src="{Fei:$STATICS}img/elements/mail/mail.png" height=40 width=40/>
-                                </div>
-                                <div class="info">
-                                    <strong>
-                                        System
-                                    </strong>
-                                    <span>
-                                        New comment
-                                    </span>
-                                    <small>
-                                        08:47 am
-                                    </small>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        Hello,
-                                    </p>
-                                    <p>
-                                        There is one new comment on your theme.
-                                    </p>
-                                    <p>
-                                        Go to Comments page to see it.
-                                    </p>
-                                    <div class="actions">
-                                        <a href="javascript:void(0);" class="left open-message-dialog">
-                                            Reply
-                                        </a>
-                                        <a onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
-                                        class="red right" href="javascript:void(0);">
-                                            Delete
-                                        </a>
-                                    </div>
-                                </div>
-                            </ol>
-                            <ol>
-                                <div class="avatars">
-                                    <img src="{Fei:$STATICS}img/elements/mail/mail.png" height=40 width=40/>
-                                </div>
-                                <div class="info">
-                                    <strong>
-                                        Stranger
-                                    </strong>
-                                    <span>
-                                        [SPAM] ---
-                                    </span>
-                                    <small>
-                                        Yesterday
-                                    </small>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        [...]
-                                    </p>
-                                    <div class="actions">
-                                        <a href="javascript:void(0);" class="left open-message-dialog">
-                                            Read
-                                        </a>
-                                        <a onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
-                                        class="red right" href="javascript:void(0);">
-                                            Delete
-                                        </a>
-                                    </div>
-                                </div>
-                            </ol>
-                        </ul>
-                    </div>
-            </div>
-        </li> -->
-       <!--  <li>
-            <a href="javascript:void(0);">
-                <span class="icon i24_light-bulb">
-                </span>
-            </a>
-            <div class="small">
-                <h3>
-                    最新提醒
-                </h3>
-                <div class="content">
-                    <p>
-                        将美术学院的网站后台搭建好，并将SVN交给小方
+    <div class="small">
+        <h3>
+            添加一笔消费
+        </h3>
+        <button class="button flat left grey"
+                onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
+            关闭
+        </button>
+        <button class="button flat right"
+                onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
+            添加
+        </button>
+        <div class="content">
+            <form class="full grid">
+                <div class="row no-bg">
+                    <p class="_50 small">
+                        <label for="p1_username">
+                            - 消费金额(元)
+                        </label>
+                        <input type="text" name=p2_subject id=p2_subject placeholder="金额"/>
+                    </p>
+
+                    <p class="_100 small">
+                        <label for="p1_username">
+                            备注
+                        </label>
+                        <textarea rows="5"
+                                  style="overflow: hidden; height: 45px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;"
+                                  name="p2_message"></textarea>
                     </p>
                 </div>
-            </div>
-        </li> -->
-        <li>
-            <a href="javascript:void(0);">
+            </form>
+        </div>
+    </div>
+</li>
+<script>
+    $$.ready(function () {
+        $("#dialog_message").dialog({
+            autoOpen: false,
+            width: 500,
+            modal: true
+        }).find('button').click(function () {
+            $(this).parents('.ui-dialog-content').dialog('close');
+        });
+        //回复
+        $(".open-message-dialog").click(function () {
+            $("#dialog_message").dialog("open");
+            return false;
+        });
+
+        //Money +
+        $('#plug_money').click(function () {
+            var postdata = {
+                'action': 'plug_money',
+                'money': $('input[name=plug_money]').val(),
+                'mark': $('#plug_mark').val()
+            }
+            $.post("{Fei:FeiUrl('money','review')}", postdata, function (result) {
+                if (result.status == 'success') {
+                    $(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')
+                    $.jGrowl('success', {header: 'success', theme: 'wood'})
+                } else if (result.status == 'error') {
+                    $.jGrowl('error', {header: 'error', theme: 'wood'})
+                }
+            }, 'json')
+        })
+        //Money -
+        $('#reduce_money').click(function () {
+            var postdata = {
+                'action': 'reduce_money',
+                'money': $('input[name=reduce_money]').val(),
+                'mark': $('#reduce_mark').val()
+            }
+            $.post("{Fei:FeiUrl('money','review')}", postdata, function (result) {
+                if (result.status == 'success') {
+                    $(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')
+                    $.jGrowl('success', {header: 'success', theme: 'wood'})
+                } else if (result.status == 'error') {
+                    $.jGrowl('error', {header: 'error', theme: 'wood'})
+                }
+            }, 'json')
+        })
+    });
+</script>
+<!--  <li>
+     <a href="javascript:void(0);">
+         <span class="icon i24_mail">
+         </span>
+     </a>
+     <div class="small popup">
+             <h3>
+                 New Messages
+             </h3>
+             <button class="button flat left grey" onclick="$(this).parent().fadeToggle($$.config.fxSpeed)">
+                 Close
+             </button>
+             <button class="button flat right"  href="tables_dynamic.html">
+                 Inbox
+             </button>
+             <div class="content mail">
+                 <ul>
+                     <ol>
+                         <div class="avatars">
+                             <img src="{Fei:$STATICS}img/elements/mail/avatar.png" height=40 width=40/>
+                         </div>
+                         <div class="info">
+                             <strong>
+                                 John Doe
+                             </strong>
+                             <span>
+                                 Thanks for your theme!
+                             </span>
+                             <small>
+                                 09:32 am
+                             </small>
+                         </div>
+                         <div class="text">
+                             <p>
+                                 Hey Admin!
+                             </p>
+                             <p>
+                                 I've purchased your admin template and it's great :)
+                             </p>
+                             <p>
+                                 A happy customer
+                             </p>
+                             <div class="actions">
+                                 <button href="javascript:void(0);" class="left grey open-message-dialog">
+                                     Reply
+                                 </button>
+                                 <button onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
+                                 class="red right" href="javascript:void(0);">
+                                     Delete
+                                 </button>
+                             </div>
+                         </div>
+                     </ol>
+                     <ol>
+                         <div class="avatars">
+                             <img src="{Fei:$STATICS}img/elements/mail/mail.png" height=40 width=40/>
+                         </div>
+                         <div class="info">
+                             <strong>
+                                 System
+                             </strong>
+                             <span>
+                                 New comment
+                             </span>
+                             <small>
+                                 08:47 am
+                             </small>
+                         </div>
+                         <div class="text">
+                             <p>
+                                 Hello,
+                             </p>
+                             <p>
+                                 There is one new comment on your theme.
+                             </p>
+                             <p>
+                                 Go to Comments page to see it.
+                             </p>
+                             <div class="actions">
+                                 <a href="javascript:void(0);" class="left open-message-dialog">
+                                     Reply
+                                 </a>
+                                 <a onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
+                                 class="red right" href="javascript:void(0);">
+                                     Delete
+                                 </a>
+                             </div>
+                         </div>
+                     </ol>
+                     <ol>
+                         <div class="avatars">
+                             <img src="{Fei:$STATICS}img/elements/mail/mail.png" height=40 width=40/>
+                         </div>
+                         <div class="info">
+                             <strong>
+                                 Stranger
+                             </strong>
+                             <span>
+                                 [SPAM] ---
+                             </span>
+                             <small>
+                                 Yesterday
+                             </small>
+                         </div>
+                         <div class="text">
+                             <p>
+                                 [...]
+                             </p>
+                             <div class="actions">
+                                 <a href="javascript:void(0);" class="left open-message-dialog">
+                                     Read
+                                 </a>
+                                 <a onclick="$(this).parent().parent().parent().slideToggle($$.config.fxSpeed)"
+                                 class="red right" href="javascript:void(0);">
+                                     Delete
+                                 </a>
+                             </div>
+                         </div>
+                     </ol>
+                 </ul>
+             </div>
+     </div>
+ </li> -->
+<!--  <li>
+     <a href="javascript:void(0);">
+         <span class="icon i24_light-bulb">
+         </span>
+     </a>
+     <div class="small">
+         <h3>
+             最新提醒
+         </h3>
+         <div class="content">
+             <p>
+                 将美术学院的网站后台搭建好，并将SVN交给小方
+             </p>
+         </div>
+     </div>
+ </li> -->
+<li>
+    <a href="javascript:void(0);">
                 <span class="icon i24_wand-hat">
                 </span>
-            </a>
-            <div class="small">
-                <h3>
-                    工具箱
-                </h3>
-                <button class="button flat left grey" onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
-                    关闭
+    </a>
+
+    <div class="small">
+        <h3>
+            工具箱
+        </h3>
+        <button class="button flat left grey"
+                onclick="$(this).parent().fadeToggle($$.config.fxSpeed).parent().removeClass('active')">
+            关闭
+        </button>
+        <div class="content">
+            <p>
+                <button onclick="Show_Calc()" class="grey block">
+                    <span class="icon icon-edit"></span>计算器
                 </button>
-                <div class="content">
-                    <p>
-                        <button onclick="Show_Calc()" class="grey block">
-                            <span class="icon icon-edit"></span>计算器
-                        </button>
-                    </p>
-                </div>
-            </div>
-        </li>
-        <!-- <li>
-            <a href="javascript:void(0);">
-                <span class="icon i24_pencil">
-                </span>
-            </a>
-            <div class="small">
-                <h3>
-                    签到
-                </h3>
-                <div class="content">
-                    <p>
-                        <button onclick="Show_Calc()" class="grey block">
-                            <span class="icon icon-edit"></span>点击签到
-                        </button>
-                    </p>
-                </div>
-            </div>
-        </li> -->
-        <!-- <li>
-            <a href="javascript:void(0);">
-                <span class="icon i24_inbox-document-music-playlist">
-                </span>
-            </a>
-            <div class="music">
-                <h3>
-                    酷狗音乐
-                </h3>
-                <div class="content" style="margin:0px;padding:0px;">
-                    <iframe src="http://web.kugou.com/360new.html" id="playerFrame" frameborder="0" scrolling="no" style="display: block;height: 515px;width: 740px;"></iframe>
-                </div>
-            </div>
-        </li> -->
-        <!-- <li>
-            <a href="javascript:void(0);">
-                <span class="icon i24_target">
-                </span>
-            </a>
-            <div class="dream">
-                <h3>
-                    Dream
-                </h3>
-                <div class="content" style="margin:0px;padding:0px;">
-                    <div class="d_pic">
-                        <img src="{Fei:$PIC}1/mb.jpg">
-                    </div>
-                    <div class="d_content">
-                        <ul>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <style type="text/css">
-                .d_pic{
-                    float:left;
-                    margin:20px;
-                }
-                .d_pic img{
-                    width:200px;
-                    box-shadow:0 1px 0px rgba(0, 0, 0, 0.11);
-                    border-radius:3px;
-                    border:1px solid #cdcdcd;
-                    border-bottom-color:#A8A8A8;
-                }
-                .d_content{
-                    height:251px;
-                }
-            </style>
-        </li> -->
-    </ul>
-    <div class="weather">
+            </p>
+        </div>
     </div>
-    <!--<input type="search" data-source="extras/search.php" placeholder="搜索..."-->
-    <!--autocomplete="off" class="tooltip" title="可以搜索待办事项" data-gravity=s>-->
+</li>
+<!-- <li>
+    <a href="javascript:void(0);">
+        <span class="icon i24_pencil">
+        </span>
+    </a>
+    <div class="small">
+        <h3>
+            签到
+        </h3>
+        <div class="content">
+            <p>
+                <button onclick="Show_Calc()" class="grey block">
+                    <span class="icon icon-edit"></span>点击签到
+                </button>
+            </p>
+        </div>
+    </div>
+</li> -->
+<!-- <li>
+    <a href="javascript:void(0);">
+        <span class="icon i24_inbox-document-music-playlist">
+        </span>
+    </a>
+    <div class="music">
+        <h3>
+            酷狗音乐
+        </h3>
+        <div class="content" style="margin:0px;padding:0px;">
+            <iframe src="http://web.kugou.com/360new.html" id="playerFrame" frameborder="0" scrolling="no" style="display: block;height: 515px;width: 740px;"></iframe>
+        </div>
+    </div>
+</li> -->
+<!-- <li>
+    <a href="javascript:void(0);">
+        <span class="icon i24_target">
+        </span>
+    </a>
+    <div class="dream">
+        <h3>
+            Dream
+        </h3>
+        <div class="content" style="margin:0px;padding:0px;">
+            <div class="d_pic">
+                <img src="{Fei:$PIC}1/mb.jpg">
+            </div>
+            <div class="d_content">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        .d_pic{
+            float:left;
+            margin:20px;
+        }
+        .d_pic img{
+            width:200px;
+            box-shadow:0 1px 0px rgba(0, 0, 0, 0.11);
+            border-radius:3px;
+            border:1px solid #cdcdcd;
+            border-bottom-color:#A8A8A8;
+        }
+        .d_content{
+            height:251px;
+        }
+    </style>
+</li> -->
+</ul>
+<div class="weather">
+</div>
+<!--<input type="search" data-source="extras/search.php" placeholder="搜索..."-->
+<!--autocomplete="off" class="tooltip" title="可以搜索待办事项" data-gravity=s>-->
 </section>
