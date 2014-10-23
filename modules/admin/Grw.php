@@ -128,7 +128,7 @@ class Grw extends FeiController
 //                $this->jump('http://www.grw.name/index.php?c=Grw&a=login');
 
 			#qq login 开发人员离线开发请注释，并在数据库fei_user表中添加一个条新数据，使username, password字段有值
-			//FeiClass('FeiQQlogin')->login();
+			FeiClass('FeiQQlogin')->login();
 		}
 	}
 
