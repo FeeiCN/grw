@@ -113,7 +113,7 @@
                 </div>
                 <div class="avatar">
                     <img src="
-                    {Fei:if $User.avatar == null && $User.avatar == ''}
+                    {Fei:if $User.avatar == null || empty($User.avatar)}
                     {Fei:$STATICS}img/elements/profile/avatar.png
                     {Fei:else}
                     {Fei:$User.avatar}
@@ -651,7 +651,7 @@
                         if(result.status == 'success'){
                             f.dialog('close')
                             Get_load_info('follow')
-                            $.jGrowl('社交信息添加成功',{header:'添加失败',theme:'wood'})
+                            $.jGrowl('社交信息添加成功',{header:'添加成功',theme:'wood'})
                         }else if(result.status == 'error'){
                             f.dialog('close')
                             $.jGrowl('社交信息添加失败',{header:'添加失败',theme:'wood'})
