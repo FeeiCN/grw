@@ -2,8 +2,9 @@
     $$.loaded();
     //weather
     $(function(){
-        setInterval(get_weather, 3600000);
+        get_weather()
     })
+
     function get_weather(){
         $.post("{Fei:FeiUrl('Grw','weather')}",function(result){
             if(result.status == 'success'){
@@ -14,8 +15,8 @@
                     <p>[明]" + result.mtq + "(" + result.mtd + ")[后]" + result.htq + "(" + result.htd + ")</p>\
                 </div>"
                 $(".weather").html(html)
-            }else if(result.status == 'error'){
-                console.log('error')
+            }else if(result.status == 'error'){console.log('error')
+                // TODO 每天取N（N待定）次天气情况
                 //get_weather()
             }
         },'json')
