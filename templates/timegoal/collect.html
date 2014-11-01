@@ -20,9 +20,9 @@
             $$.ready(function(){
                 if($(".calendar.maybetodo").length){
                    $.post("{Fei:FeiUrl('timegoal','collect')}",{action:'alltodo'},function(results){
-                    console.log(results);
+                    //console.log(results);
                         var source = JSON.parse(results);
-                        console.log(source.length);
+                        //console.log(source.length);
                         $(".calendar.maybetodo").fullCalendar({
                                editable:true,
                                events:source,
