@@ -23,8 +23,6 @@
 
 #### 开发进度与开发规划
 
-[开发进度](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97)
-
 [开发规划](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92)
 
 #### 稳定功能：
