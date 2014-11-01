@@ -558,7 +558,7 @@ CREATE TABLE IF NOT EXISTS `Fei_work` (
   `company` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `position` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `userid` tinyint(4) NOT NULL
+  `userid` int NOT NULL
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 DROP TABLE IF EXISTS `Fei_yunpan`;

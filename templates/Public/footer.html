@@ -16,7 +16,8 @@
                 </div>"
                 $(".weather").html(html)
             }else if(result.status == 'error'){console.log('error')
-                get_weather()
+                // TODO 每天取N（N待定）次天气情况
+                //get_weather()
             }
         },'json')
     }
