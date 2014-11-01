@@ -424,6 +424,7 @@ var Todo = {
             var key = e.which
             if (key == 13 && it.val().substr(-1,1) != ' ') {
                 e.stopPropagation();
+                it.prop('disabled',true);
                 $.post(Todo.url,{action:'add_todo_enter',value:it.val()},function(result){
                     if(result.status == 'success'){
                         it.val("")
@@ -431,6 +432,7 @@ var Todo = {
                     }else if(result.status == 'error'){
                         $.jGrowl('对不起！已完成事项添加失败！',{header:'已完成事项',theme:'wood'})
                     }
+                    it.prop('disabled',false);
                 },'json')
             }
         })
