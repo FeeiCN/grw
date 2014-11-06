@@ -1,0 +1,7 @@
+1 Fork此项目到你的账号下(yourname)
+2 拉取你的项目到本地(git clone https://github.com/yourname/grw.git)
+3 在本地进行开发(commit)
+4 开发完某个功能或修复某个Bug后push到自己的项目下(git push origin master)
+5 操作new pull request申请合并到我的developer分支上
+6 我（weifeifei）审核测试完成后合并到developer
+7 最终大家测试确认后合并到master供所有人更新
