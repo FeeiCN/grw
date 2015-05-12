@@ -18,9 +18,6 @@
 5.通过微信查看密码保险箱密码
 6.更多功能敬请期待!
 ```
-#### 开发进度与开发规划
-
-[开发规划](https://github.com/wufeifei/grw/wiki/%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92)
 
 #### 稳定功能：
 ```
@@ -40,18 +37,8 @@
 - 微信版本
 ```
 
-任何问题、建议or意见都可以提出[问题](https://github.com/wufeifei/grw/issues)
-
 ---
-
-### 帮助文档
-
-[文档](https://github.com/wufeifei/grw/wiki)
 
 ### 演示
 
 [![个人网](http://www.grw.name/assets/img/splash_app.png)](http://www.grw.name)
-
-### [贡献者](https://github.com/wufeifei/grw/graphs/contributors)
-
-你的Star、关注和分享是我们前进的动力！
