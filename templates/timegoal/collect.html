@@ -2,6 +2,50 @@
 <div role="main" id="main" class="container_12 clearfix">
     {Fei:include file="Public/toolbar.html"}
     {Fei:include file="Public/nav.html"}
+    <div class="right-sidebar">
+        <ul class=nav>
+            <li class="current">
+                <a href="#todo">
+                <span class="icon icon-check-empty"></span>
+                    待办事项
+                </a>
+            </li>
+            <li>
+                <a href="#completed_todo">
+                    <span class="icon icon-check"></span>
+                    已完成事项
+                </a>
+            </li>
+            <li>
+                <a href="#trash_todo">
+                    <span class="icon icon-trash"></span>
+                    垃圾箱
+                </a>
+            </li>
+        </ul>
+        <form action="">
+            <h3>
+                待办事件统计
+            </h3>
+            <div class="block">
+                {Fei:foreach from=$tags item=tag}
+                    <div>
+                        <span class="badge {Fei:$tag.icon}">
+                            {Fei:$tag.name}(38项)
+                        </span>
+                    <div class="right inline" id="m_b">
+                        <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="e" original-title="修改">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="w" original-title="删除【{Fei:$tag.name}】">
+                            <i class="icon-remove"></i>
+                        </a>
+                    </div>
+                    </div>
+                {Fei:/foreach}
+            </div>
+        </form>
+    </div>
      <section id="content" class="container_12 clearfix with-right-sidebar"
     data-sort=true>
     <div class="grid_12">

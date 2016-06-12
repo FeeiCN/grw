@@ -318,7 +318,7 @@ class Grw extends FeiController
 	{
 		$todo = FeiClass('model_todo');
 		switch ($catid) {
-			case '48': //今日代办
+			case '48': //今日待办
 				$con   = array(
 					'status' => 0,
 					'userid' => $_SESSION['Fei_Userid']
