@@ -12,7 +12,7 @@
                     <strong>分类</strong>
                 </label>
                 <div class="_80 input">
-                    <select name="password_cate" placeholder="分类" title="选择分类">
+                    <select name="password_cate" id="password_cate" placeholder="分类" title="选择分类" >
                         {Fei:foreach from=$pcates item=p}
                         <option value="{Fei:$p.id}">
                             {Fei:$p.name}
@@ -28,7 +28,7 @@
                     </strong>
                 </label>
                 <div class="_80 input">
-                    <input type="text" class="required" name="password_title">
+                    <input type="text" class="required" name="password_title" id="password_title">
                 </div>
             </div>
             <div class="row">
@@ -38,7 +38,7 @@
                     </strong>
                 </label>
                 <div class="_80 input">
-                    <input type="text" class="required" name="password_website">
+                    <input type="text" class="required" name="password_website" id="password_website">
                 </div>
             </div>
             <div class="row">
@@ -48,11 +48,11 @@
                     </strong>
                 </label>
                 <div class="_80 input">
-                    <input type="text" class="required" name="password_username">
+                    <input type="text" class="required" name="password_username" id="password_username">
                 </div>
             </div>
             <div class="row">
-                <label for="password_password">
+                <label for="generate_password">
                     <strong>
                         密码
                     <i class="icon-refresh tooltip" title="生成密码：请先在密码框中输入要生成的密码位数.默认8位" id="generate_password" ></i>
@@ -109,7 +109,7 @@
                     <strong>名称</strong>
                 </label>
                 <div class="_80 input">
-                    <input type="text" name="cate_title">
+                    <input type="text" name="cate_title" id="cate_title">
                 </div>
             </div>
         </form>
@@ -136,7 +136,7 @@
                         <a href="javascript:void(0)" class="button small grey tooltip" data-gravity="e" original-title="修改">
                             <i class="icon-pencil"></i>
                         </a>
-                        <a href="javascript:void(0)" onclick="Todo.del_tag(1)" class="button small grey tooltip" data-gravity="w" original-title="删除【工作】">
+                        <a href="javascript:void(0)" onclick="Todo.del_tag({Fei:$pcates.catid})" class="button small grey tooltip" data-gravity="w" original-title="删除【工作】">
                             <i class="icon-remove"></i>
                         </a>
                     </div>
@@ -252,7 +252,7 @@
                         console.log('error')
                     }
                 },'json')
-            }).end().find('cancel').click(function(){
+            }).end().find('.cancel').click(function(){
                 Pwd.ap.dialog("close")
             })
             $(".open_ap").click(function(){
@@ -274,7 +274,7 @@
                         console.log('error')
                     }
                 },'json')
-            }).end().find('cancel').click(function(){
+            }).end().find('.cancel').click(function(){
                 Pwd.dp.dialog("close")
             })
             /* Generate password */
@@ -341,6 +341,7 @@
             $("#edit_cate").hide()
             $("input[name=action]").val('add_pwd')
             $("input[name=catid]").val(catid)
+            $("input[name=password_website]").val('http://')
             Pwd.ap.dialog('open')
         },
         del:function(id){
@@ -353,9 +354,12 @@
                 $("#edit_cate").show()
                 Pwd.ap.dialog('option','title','修改密码')
                 $("select[name=password_cate]").val('业务')
+                if ($("#password_cate option").val() == result.back.catid) {
+                    $(this).add('select', 'select')
+                }
                 $("input[name=action]").val('edit_pwd')
                 $("input[name=password_title]").val(result.back.title)
-                $("input[name=password_weisite").val(result.back.website)
+                $("input[name=password_website]").val(result.back.website)
                 $("input[name=password_username]").val(result.back.username)
                 $("input[name=password_password]").val(result.back.password)
                 $("textarea[name=password_remark]").val(result.back.remark)
@@ -370,7 +374,7 @@
         },
         get:function(){
             {Fei:foreach from=$pcates item=p}
-            $("#pwd_content{Fei:$p.id}").load(Pwd.url,{action:'get_password',id:{Fei:$p.id}},function(){
+            $("#pwd_content{Fei:$p.id}").load(Pwd.url,{action:'get_pwd',id:{Fei:$p.id}},function(){
                 console.log('password load success')
                 /* 消除由于AJAX获取数据导致的手风琴滚动条 */
                 $(".ui-accordion-content").css('height','auto')
