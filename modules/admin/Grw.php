@@ -370,7 +370,7 @@ class Grw extends FeiController
 	 * @param $obj
 	 * @param $b
 	 */
-	function __check_istrue($obj, $b)
+	function __check_istrue($obj, $b=NULL)
 	{
 		if ($obj) {
 			$result = array(

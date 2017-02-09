@@ -1,14 +1,15 @@
 <?php
-
 /**
  * 个人信息
  * Class profile
  */
 class profile extends Grw
 {
+
     /**
      * 构造方法，用于初始化参数
      */
+
 	function __construct()
 	{
 		parent::__construct();
@@ -27,6 +28,7 @@ class profile extends Grw
 		$work      = FeiClass('model_work');
 		$skill     = FeiClass('model_skill');
 		$follow    = FeiClass('model_follow');
+
 		if (isset($_POST['action']) && $_POST['action'] == 'edit_profile') { //Edit Profile
             /*修改用户信息*/
             $this->editProfile($user);
@@ -35,13 +37,17 @@ class profile extends Grw
             $this->addEducation($education);
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'get_education_info') { //Ajax Load Education Info
             /*异步请求教育信息*/
-            $this->loadEducation($education);
+            $educations = $this->loadEducation($education);
+            echo $educations;
+            exit;
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'add_work') { //Add Work
             /*添加工作信息*/
             $this ->addWork($work);
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'get_work_info') { //Ajax Load Work Info
             /*异步请求工作信息*/
-            $this->loadWork($work);
+            $works =$this->loadWork($work);
+            echo $works;
+            exit;
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'get_manage') { //Get Manage Work
             /*异步请求管理界面*/
             $this->loadManageWork($work, $education, $skill, $follow);
@@ -50,10 +56,17 @@ class profile extends Grw
 			$this->addSkill($skill);
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'get_skill_info') { //Ajax Load Skill Info
             /*异步请求技能信息*/
-			$this->loadSkill($skill);
-		} elseif (isset($_POST['action']) && $_POST['action'] == 'get_follow_info') { //Ajax Load Follow Info
+			$skills =$this->loadSkill($skill);
+            echo $skills;
+            exit;
+		}elseif (isset($_POST['action']) && $_POST['action'] == 'add_follow') { //Add Follow
+           /*添加社交信息*/
+            $this->addFollow($follow);
+        } elseif (isset($_POST['action']) && $_POST['action'] == 'get_follow_info') { //Ajax Load Follow Info
             /*异步请求社交关注信息*/
-            $this -> loadFollow($follow);
+            $infos = $this -> loadFollow($follow);
+            echo $infos;
+            exit;
 		} elseif (isset($_POST['action']) && $_POST['action'] == 'del_type') {
             /*删除信息*/
             $this -> delete($work, $education, $skill, $follow);
@@ -109,6 +122,7 @@ class profile extends Grw
     {
         #@TODO 主题方法，后续实现
     }
+
 
     /**
      * 编辑用户信息
@@ -185,11 +199,11 @@ class profile extends Grw
                                     ".$type."-".$e['school'] . "
                                 </td></tr>";
             }
-            echo "<section><table>" . $str . "</table></section>";
-            exit;
+            $str = "<section><table>" . $str . "</table></section>";
+            return $str;
         } else {
-            echo "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
-            exit;
+            $str = "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
+            return $str;
         }
     }
 
@@ -212,6 +226,7 @@ class profile extends Grw
         $this->__check_istrue($work->create($conditions));
     }
 
+
     /**
      * 异步请求工作信息
      * @author DongYuxiang(dongm2ez@163.com)
@@ -232,11 +247,11 @@ class profile extends Grw
                                     " . $w['company'] . "
                                 </td></tr>";
             }
-            echo "<section><table>" . $str . "</table></section>";
-            exit;
+            $str = "<section><table>" . $str . "</table></section>";
+            return $str;
         } else {
-            echo "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
-            exit;
+            $str = "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
+            return $str;
         }
     }
 
@@ -255,19 +270,27 @@ class profile extends Grw
         switch ($type) {
             case 'work':
                 /*异步请求工作管理界面*/
-                $this -> loadWorkToManage($work);
+                $works = $this -> loadWorkToManage($work);
+                echo $works;
+                exit;
                 break;
             case 'education':
                 /*异步请求教育经历管理界面*/
-                $this -> loadWorkToEducation($education);
+                $educations = $this -> loadWorkToEducation($education);
+                echo $educations;
+                exit;
                 break;
             case 'skill':
                 /*异步请求技能管理界面*/
-                $this -> loadWorkToSkill($skill);
+                $skills = $this -> loadWorkToSkill($skill);
+                echo $skills;
+                exit;
                 break;
             case 'follow':
                 /*异步请求社交关注管理界面*/
-                $this -> loadWorkToFollow($follow);
+                $follows = $this -> loadWorkToFollow($follow);
+                echo $follows;
+                exit;
                 break;
             default:
                 # code...
@@ -285,16 +308,16 @@ class profile extends Grw
     {
         $conditions = array('userid' => $_SESSION['Fei_Userid']);
         $works      = $work->findAll($conditions);
-        $str1       = "<table class=\"styled\">
+        $str       = "<table class=\"styled\">
                             <thead><tr>
                             <th>时间</th>
                             <th>公司名称</th>
                             <th>操作</th>
                         </tr></thead>
                         <tbody>";
-        $str2 = "";
+
         foreach ($works as $work) {
-            $str2 .= "<tr>
+            $str .= "<tr>
                                 <td>" . date('Y/m', strtotime($work['startime'])) . "-" . date('Y/m', strtotime($work['endtime'])) . "</td>
                                 <td>" . $work['company'] . "</td>
                                 <td class=\"center\">
@@ -307,9 +330,8 @@ class profile extends Grw
                                 </td>
                                 </tr>";
         }
-        $str3 = "</tbody></table>";
-        echo $str1, $str2, $str3;
-        exit;
+        $str .= "</tbody></table>";
+        return $str;
     }
 
     /**
@@ -322,16 +344,15 @@ class profile extends Grw
     {
         $conditions = array('userid' => $_SESSION['Fei_Userid']);
         $educations = $education->findAll($conditions);
-        $str1       = "<table class=\"styled\">
+        $str       = "<table class=\"styled\">
                             <thead><tr>
                             <th>时间</th>
                             <th>学校</th>
                             <th>操作</th>
                         </tr></thead>
                         <tbody>";
-        $str2 = "";
         foreach ($educations as $education) {
-            $str2 .= "<tr>
+            $str .= "<tr>
                                 <td>" . date('Y/m', strtotime($education['startime'])) . "-" . date('Y/m', strtotime($education['endtime'])) . "</td>
                                 <td>" . $education['school'] . "</td>
                                 <td class=\"center\">
@@ -344,9 +365,8 @@ class profile extends Grw
                                 </td>
                                 </tr>";
         }
-        $str3 = "</tbody></table>";
-        echo $str1, $str2, $str3;
-        exit;
+        $str .= "</tbody></table>";
+        return $str;
     }
 
     /**
@@ -359,7 +379,7 @@ class profile extends Grw
     {
         $conditions = array('userid' => $_SESSION['Fei_Userid']);
         $skills     = $skill->findAll($conditions);
-        $str1       = "<table class=\"styled\">
+        $str       = "<table class=\"styled\">
                             <thead><tr>
                             <th>技能特长</th>
                             <th>等级</th>
@@ -367,9 +387,8 @@ class profile extends Grw
                             <th>操作</th>
                         </tr></thead>
                         <tbody>";
-        $str2 = "";
         foreach ($skills as $skill) {
-            $str2 .= "<tr>
+            $str .= "<tr>
                                 <td>" . $skill['name'] . "</td>
                                 <td>" . $skill['level'] . "</td>
                                 <td>" . $skill['time'] . "</td>
@@ -383,9 +402,8 @@ class profile extends Grw
                                 </td>
                                 </tr>";
         }
-        $str3 = "</tbody></table>";
-        echo $str1, $str2, $str3;
-        exit;
+        $str .= "</tbody></table>";
+        return $str;
     }
 
     /**
@@ -398,16 +416,15 @@ class profile extends Grw
     {
         $conditions = array('userid' => $_SESSION['Fei_Userid']);
         $follows    = $follow->findAll($conditions);
-        $str1       = "<table class=\"styled\">
+        $str       = "<table class=\"styled\">
                             <thead><tr>
                             <th>图标</th>
                             <th>链接</th>
                             <th>操作</th>
                         </tr></thead>
                         <tbody>";
-        $str2 = "";
         foreach ($follows as $follow) {
-            $str2 .= "<tr>
+            $str .= "<tr>
                                 <td>" . $follow['icon'] . "</td>
                                 <td>" . $follow['link'] . "</td>
                                 <td class=\"center\">
@@ -420,9 +437,8 @@ class profile extends Grw
                                 </td>
                                 </tr>";
         }
-        $str3 = "</tbody></table>";
-        echo $str1, $str2, $str3;
-        exit;
+        $str .= "</tbody></table>";
+        return $str;
     }
     /**
      * 添加技能信息
@@ -464,14 +480,29 @@ class profile extends Grw
                                     " . $w['time'] . "
                                 </td></tr>";
             }
-            echo "<section><table>" . $str . "</table></section>";
-            exit;
+            $str = "<section><table>" . $str . "</table></section>";
+            return $str;
         } else {
-            echo "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
-            exit;
+            $str = "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
+            return $str;
         }
     }
 
+    /**
+     * 添加社交信息
+     * @author DongYuxiang(dongm2ez@163.com)
+     * @Date 2014.10.23
+     * @param $follow
+     */
+    private function addFollow($follow)
+    {
+        $conditions = array(
+            'userid' => $_SESSION['Fei_Userid'],
+            'icon'   => $this->FeiArgs('icon'),
+            'link'   => $this->FeiArgs('link')
+        );
+        $this->__check_istrue($follow->create($conditions));
+    }
     /**
      * 异步请求社交关注
      * @author DongYuxiang(dongm2ez@163.com)
@@ -492,14 +523,23 @@ class profile extends Grw
                                     " . $w['link'] . "
                                 </td></tr>";
             }
-            echo "<section><table>" . $str . "</table></section>";
-            exit;
+            $str = "<section><table>" . $str . "</table></section>";
+            return $str;
         } else {
-            echo "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
-            exit;
+            $str = "<section class=\"center-elements\"><p><i>还未添加数据，请点击右上角添加！</i></p></section>";
+            return $str;
         }
     }
 
+    /**
+     * 删除信息
+     * @author DongYuxiang(dongm2ez@163.com)
+     * @Date 2014.10.23
+     * @param $work
+     * @param $education
+     * @param $skill
+     * @param $follow
+     */
     private function delete($work, $education, $skill, $follow)
     {
         $type = $this->FeiArgs('type');
@@ -524,6 +564,5 @@ class profile extends Grw
                 break;
         }
     }
-
 
 }

@@ -81,7 +81,7 @@
                     <label for="description_my">
                         描述:
                     </label>
-                    <textarea rows="3" id="description_my" name="description" style="overflow: hidden; width: 300px; height: 103px;">{Fei:$User.description}</textarea>
+                    <textarea rows="3" id="description_my" name="description"  style="overflow: hidden; width: 300px; height: 103px;" >{Fei:$User.description}</textarea>
                 </p>
             </form>
         </div>
@@ -113,11 +113,11 @@
                 </div>
                 <div class="avatar">
                     <img src="
-                    {Fei:if $user.avatar == null}
+                    {Fei:if $User.avatar == null || empty($User.avatar)}
                     {Fei:$STATICS}img/elements/profile/avatar.png
                     {Fei:else}
-                    {Fei:$user.avatar}
-                    {Fei:/if}" />
+                    {Fei:$User.avatar}
+                    {Fei:/if}" alt="{Fei:$user.realname}头像" />
                     <a onclick="Update_avatar({Fei:$user.id})" href="javascript:void(0);">
                         更新
                     </a>
@@ -179,8 +179,9 @@
                     <span class="icon icon-pencil"></span>
                     修改
                 </a>
+                <div id="profile_info"></div>
                 <section>
-                    <ul class="profile_info">
+                    <ul class="profile_info" >
                         <li>姓名: <span>{Fei:$user.realname}</span></li>
                         <li>职位: <span>{Fei:$user.position}</span></li>
                         <!-- <li>生日: <span>{Fei:$user.birthday}</span></li> -->
@@ -189,6 +190,7 @@
                         <li>邮箱: <span>{Fei:$user.email}</span></li>
                     </ul>
                 </section>
+
             </div>
             <div class="grid_6">
                 <h2>
@@ -268,7 +270,7 @@
                         </label>
                         <div>
                             <select name="type" id="type" class="search">
-                                <option value="" >请选择类型</option>
+                                <option value="-1" >请选择类型</option>
                                 <option value="0" >小学</option>
                                 <option value="1" >中学</option>
                                 <option value="2" >高中</option>
@@ -519,15 +521,17 @@
                                 'email':$('input[name=email]').val(),
                                 'phone':$('input[name=phone]').val(),
                                 'qq':$('input[name=qq]').val(),
-                                'description':$('#description').val()
+                                'description':$('#description_my').val()
                             }
                             $.post("{Fei:FeiUrl('profile')}",postdata,function(result){
                                 if(result.status == 'success'){
                                     g.dialog("close");
-                                    $.jGrowl('修改成功！',{header:'修改成功！',theme:'wood'})
+                                    /*编辑成功后刷新当前页*/
+                                    history.go(0);
+                                    $.jGrowl('个人信息修改成功！',{header:'修改成功！',theme:'wood'})
                                 }else if(result.status == 'error'){
                                     g.dialog("close");
-                                    $.jGrowl('修改失败！',{header:'修改失败！',theme:'wood'})
+                                    $.jGrowl('个人信息修改失败！',{header:'修改失败！',theme:'wood'})
                                 }
                             },'json')
                         });
@@ -619,10 +623,10 @@
                         if(result.status == 'success'){
                             s.dialog('close')
                             Get_load_info('skill')
-                            $.jGrowl('Success',{header:'success',theme:'wood'})
+                            $.jGrowl('技能添加成功',{header:'添加成功',theme:'wood'})
                         }else if(result.status == 'error'){
                             s.dialog('close')
-                            $.jGrowl('error',{header:'error',theme:'wood'})
+                            $.jGrowl('技能添加失败',{header:'添加失败',theme:'wood'})
                         }
                     },'json')
                 }).end().find('button.cancel').click(function(){
@@ -647,10 +651,10 @@
                         if(result.status == 'success'){
                             f.dialog('close')
                             Get_load_info('follow')
-                            $.jGrowl('Success',{header:'success',theme:'wood'})
+                            $.jGrowl('社交信息添加成功',{header:'添加成功',theme:'wood'})
                         }else if(result.status == 'error'){
                             f.dialog('close')
-                            $.jGrowl('error',{header:'error',theme:'wood'})
+                            $.jGrowl('社交信息添加失败',{header:'添加失败',theme:'wood'})
                         }
                     },'json')
                 }).end().find('button.cancel').click(function(){
