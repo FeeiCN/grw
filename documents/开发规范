@@ -1,0 +1,55 @@
+代码格式
+
+编码提交前必须格式化!建议使用PhpStorm作为开发IDE，并下载代码格式配置文件
+- 编码
+
+所有文件均使用UTF-8编码，并清除BOM
+- 注释
+
+- 所有函数、类必须有DocBlock注释，注释应该简洁明了。必须包含说明、作者、时间、参数（如果有）以及返回值
+
+/**
+ * 判断是否登陆
+ * @author Zhijie(zhijie@mogujie.com)
+ * @date   2014.10.09 
+ * @return boolean
+ */
+ function isLogin(){}
+
+- 逻辑内的单行注释必须使用 # 或者 /** **/
+
+/** 获取用户名和密码 **/
+$userName = $_GET['username'];
+$passWord = $_GET['password'];
+# 严重用户账号密码
+if($userName == 'admin' && $passWord == '123456'){}
+
+- 代码注释使用 //
+
+// if($userName == 'admin' && $passWord == '123456'){}
+- 命名规则
+
+- TRUE、FALSE、NULL必须大写
+
+- 常量必须全部大写，允许使用下划线（_）
+
+CONSTANT、APPLICATION_ENV
+
+- 变量、函数等必须使用驼峰规则命名
+
+$userName、function isLogin(){}
+
+- 类名首字母需要大写，并且每个单词间需要使用下划线（_）连接
+
+class Model_Test{}
+
+- 数据库名、表名必须全部小写并且需要使用下划线（_）连接每一个词
+
+pre_member_info、pre_member_verify
+
+
+
+
+
+
+
